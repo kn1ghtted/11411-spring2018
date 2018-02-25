@@ -1,0 +1,5 @@
+# Algorithmic error (log likelihood)
+
+
+"English is a West Germanic language"
+(u'English', u'NNP'), (u'is', u'VBZ'), (u'a', u'DT'), (u'West', u'NNP'), (u'Germanic', u'JJ'),  (u'language', u'NN')]

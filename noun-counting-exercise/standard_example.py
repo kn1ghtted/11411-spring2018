@@ -1,11 +1,11 @@
-'''
-A sample code usage of the python package stanfordcorenlp to access a Stanford CoreNLP server.
-Written as part of the blog post: https://www.khalidalnajjar.com/how-to-setup-and-use-stanford-corenlp-server-with-python/
-'''
-
 from stanfordcorenlp import StanfordCoreNLP
-import logging
 import json
+import gzip
+import os
+
+# a class for rapping nlp interface
+# reference: https://www.khalidalnajjar.com/setup-use-stanford-corenlp-server-python/
+
 
 class StanfordNLP:
     def __init__(self, host='http://localhost', port=9000):
@@ -47,12 +47,56 @@ class StanfordNLP:
             }
         return tokens
 
+
+# class for the handling noun counting exercise
+
+
+class NounCounter:
+
+    DATASET_3_PATH = "../data/set3/"
+    OUTPUT_PATH = "noun_count.txt"
+
+    # read from input texts and store as a list of strings
+    def get_files(self):
+
+        contents = []
+
+        for filename in self.files:
+            with open(NounCounter.DATASET_3_PATH + filename, "r") as F:
+                lines = F.readlines()
+                lines = [line.strip() for line in lines]
+                text = " ".join(lines)
+                words = text.split(" ")
+                words = [word for word in words if word != ""]
+                text = " ".join(words)
+                contents.append(text)
+
+        return contents
+
+    def __init__(self):
+        self.files = [f for f in os.listdir(NounCounter.DATASET_3_PATH) if f.endswith("txt")]
+        self.contents = self.get_files()
+
+    def tag_contents(self):
+        output = []
+        for i in xrange(len(self.contents)):
+            text = self.contents[i]
+            counter = 0
+            tagged_strings = sNLP.pos(text)
+            # go through one file
+            for (word, tag) in tagged_strings:
+                # convert from unicode to ascii
+                tag_string = tag.encode("utf8")
+                if tag_string.startswith("N"):
+                    counter += 1
+            output.append((self.files[i], counter))
+        # write results to OUTPUT_PATH
+        with open(NounCounter.OUTPUT_PATH, "w") as F:
+            for (filename, count) in output:
+                F.write("{}: {}\n".format(filename, count,))
+
+
 if __name__ == '__main__':
     sNLP = StanfordNLP()
-    text = 'A blog post using Stanford CoreNLP Server. Visit www.khalidalnajjar.com for more details.'
-    print "Annotate:", sNLP.annotate(text)
-    print "POS:", sNLP.pos(text)
-    print "Tokens:", sNLP.word_tokenize(text)
-    print "NER:", sNLP.ner(text)
-    print "Parse:", sNLP.parse(text)
-    print "Dep Parse:", sNLP.dependency_parse(text)
+    NC = NounCounter()
+    NC.tag_contents()
