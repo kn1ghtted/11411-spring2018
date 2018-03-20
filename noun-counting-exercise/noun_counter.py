@@ -44,8 +44,10 @@ class StanfordNLP:
                 'lemma': token['lemma'],
                 'pos': token['pos'],
                 'ner': token['ner']
-            }
+        }
         return tokens
+
+
 
 
 # class for the handling noun counting exercise
@@ -82,7 +84,23 @@ class NounCounter:
         for i in xrange(len(self.contents)):
             text = self.contents[i]
             counter = 0
-            tagged_strings = sNLP.pos(text)
+            texts = text.split()
+            half_index = len(texts)/2
+
+            tagged_strings = sNLP.pos(" ".join(texts[:half_index]))
+            # print text
+
+            # go through one file
+            for (word, tag) in tagged_strings:
+                # convert from unicode to ascii
+                tag_string = tag.encode("utf8")
+                if tag_string.startswith("N"):
+                    counter += 1
+
+
+            tagged_strings = sNLP.pos(" ".join(texts[half_index:]))
+            # print text
+
             # go through one file
             for (word, tag) in tagged_strings:
                 # convert from unicode to ascii
@@ -90,13 +108,24 @@ class NounCounter:
                 if tag_string.startswith("N"):
                     counter += 1
             output.append((self.files[i], counter))
+
         # write results to OUTPUT_PATH
         with open(NounCounter.OUTPUT_PATH, "w") as F:
             for (filename, count) in output:
                 F.write("{}: {}\n".format(filename, count,))
 
 
+def demo(sNLP):
+    text = 'A blog post using Stanford CoreNLP Server.'
+    print "Annotate:", sNLP.annotate(text)
+    print "POS:", sNLP.pos(text)
+    print "Tokens:", sNLP.word_tokenize(text)
+    print "NER:", sNLP.ner(text)
+    print "Parse:", sNLP.parse(text)
+    print "Dep Parse:", sNLP.dependency_parse(text)
+
 if __name__ == '__main__':
     sNLP = StanfordNLP()
     NC = NounCounter()
     NC.tag_contents()
+    # demo(sNLP)

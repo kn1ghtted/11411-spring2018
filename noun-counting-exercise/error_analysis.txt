@@ -1,5 +1,3 @@
-# Algorithmic error (log likelihood)
+Please refer to the appendix of our report here:
 
-
-"English is a West Germanic language"
-(u'English', u'NNP'), (u'is', u'VBZ'), (u'a', u'DT'), (u'West', u'NNP'), (u'Germanic', u'JJ'),  (u'language', u'NN')]
+https://docs.google.com/document/d/1vYYJMKRmdA1p8arFO2uwDlej1SQTNTjaeWpI4bgryl0/edit#
