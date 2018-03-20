@@ -1,6 +1,6 @@
 # Simple usage
 from stanfordcorenlp import StanfordCoreNLP
-import nltk
+# import nltk
 import re
 import json
 import os
@@ -18,22 +18,26 @@ import os
 
 
 
-def text2sentences(text):
-    ret = list()
-    # remove non-ascii characters
-    text = re.sub(r'[^\x00-\x7f]',r'', text)
-    for sentence in nltk.sent_tokenize(text):
-        ret += re.split('\n+', sentence)
-    return ret
+# def text2sentences(text):
+#     ret = list()
+#     # remove non-ascii characters
+#     text = re.sub(r'[^\x00-\x7f]',r'', text)
+#     for sentence in nltk.sent_tokenize(text):
+#         ret += re.split('\n+', sentence)
+#     return ret
+#
+# input_file = "/home/lxy/11611/11411-spring2018/qg-exercise/sample_input.txt"
+# with open(input_file, 'r') as f:
+#     text = f.read()
+#
+# sentences = text2sentences(text)
+# sentences = [x for x in sentences if x[-1:] is '.']
 
-input_file = "/home/lxy/11611/11411-spring2018/qg-exercise/sample_input.txt"
-with open(input_file, 'r') as f:
-    text = f.read()
 
-sentences = text2sentences(text)
-sentences = [x for x in sentences if x[-1:] is '.']
+#STANFORDNLP_PATH = '/home/lxy/stanford-corenlp-full-2017-06-09'
+STANFORDNLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2018-01-31"
 
-nlp = StanfordCoreNLP('/home/lxy/stanford-corenlp-full-2017-06-09')
+nlp = StanfordCoreNLP(STANFORDNLP_PATH)
 sentence = 'The Artist is a 2011 French romantic comedy-drama in the style of a black-and-white silent film.'
 tokens = nlp.word_tokenize(sentence)
 pos = nlp.pos_tag(sentence)
