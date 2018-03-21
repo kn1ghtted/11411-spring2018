@@ -87,7 +87,7 @@ def analyze_vp_structure(node, parent_NP):
 
 
 def generate_binary_question(sentence):
-    print "[INFO] Processing sentence: ", sentence
+    print "[Sentence] ", sentence
     question = ''
     parsed_string = nlp.parse(sentence)
     root = const_tree.to_const_tree(parsed_string)
@@ -119,11 +119,12 @@ if __name__ == '__main__':
 
     questions = list()
 
+
     for sentence in sentences:
         question = generate_binary_question(sentence)
         if question is not None:
             questions.append(question)
-            print "[INFO]", question
+            print "[Question] ", question
             print '\n'
 
     nlp.close()
