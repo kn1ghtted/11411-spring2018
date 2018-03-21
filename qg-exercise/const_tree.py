@@ -79,7 +79,6 @@ class const_tree:
 
     # convert the string at this node to tree
     def to_string(self):
-        print self.to_string_recur()
         return " ".join(self.to_string_recur())
 
     # helper for to_string, return list
@@ -100,7 +99,7 @@ if __name__ == "__main__":
     from stanford_wrapper import StanfordNLP
 
     nlp = StanfordNLP()
-    sentence = "Guangdong University of Foreign Studies is located in Guangzhou."
+    sentence = "I ate a sandwich."
     parsed_string = nlp.parse(sentence)
     print repr(parsed_string)
 
