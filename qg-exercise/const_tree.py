@@ -17,7 +17,7 @@ class const_tree:
         node, index = const_tree.to_const_tree_repr(string)
         return node
 
-    # default str function that prints out the tree with structure
+    # default str function that # prints out the tree with structure
     def __str__(self):
         return self.str_recur(0)
 
@@ -36,33 +36,33 @@ class const_tree:
     # recursive function for to_const_tree
     # returns the node and current index
     def to_const_tree_repr(string):
-        print "== in recursiong, string = ", repr(string)
+        # print "== in recursiong, string = ", repr(string)
         # assume the string starts with '('
         indices = [string.find("\n"), string.find(" ")]
         indices = [float('inf') if index == -1 else index for index in indices]
         type_end_index = min(indices)
-        print type_end_index
+        # print type_end_index
         type = string[1:type_end_index]
-        print "type: ", type
+        # print "type: ", type
 
         node = const_tree(type)
 
         index = type_end_index
 
         while True:
-            print "New loop: ", repr(string[index:])
+            # print "New loop: ", repr(string[index:])
             # skip to the first none-space character
             while (string[index] == "\n") or (string[index] == " "):
                 index += 1
             # reached end for this node
-            print "start processing: ", repr(string[index:])
+            # print "start processing: ", repr(string[index:])
             if string[index] == ")":
                 return node, index
             # start of a sub node
             if string[index] == "(":
                 child, sub_index = const_tree.to_const_tree_repr(string[index:])
                 index = index + sub_index
-                print "-- returned from recursive call, child = ", child
+                # print "-- returned from recursive call, child = ", child
                 node.children.append(child)
             # word for the terminal node
             else:
@@ -79,7 +79,7 @@ class const_tree:
 
     # convert the string at this node to tree
     def to_string(self):
-        print self.to_string_recur()
+        # print self.to_string_recur()
         return " ".join(self.to_string_recur())
 
     # helper for to_string, return list
@@ -102,8 +102,8 @@ if __name__ == "__main__":
     nlp = StanfordNLP()
     sentence = "Guangdong University of Foreign Studies is located in Guangzhou."
     parsed_string = nlp.parse(sentence)
-    print repr(parsed_string)
+    # print repr(parsed_string)
 
     root = const_tree.to_const_tree(parsed_string)
-    print root
-    print root.to_string()
+    # print root
+    # print root.to_string()

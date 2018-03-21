@@ -9,19 +9,19 @@ import requests
 def text2sentences(text):
     ret = list()
     # remove non-ascii characters
-    text = re.sub(r'[^\x00-\x7f]',r'', text)
+	text = re.sub(r'[^\x00-\x7f]',r'', text)
     for sentence in nltk.sent_tokenize(text):
         ret += re.split('\n+', sentence)
     return ret
 
 
 if __name__ == "__main__":
-    input_file = "/home/lxy/11611/11411-spring2018/qg-exercise/sample_input.txt"
-    with open(input_file, 'r') as f:
-        text = f.read()
+input_file = "/home/lxy/11611/11411-spring2018/qg-exercise/sample_input.txt"
+with open(input_file, 'r') as f:
+    text = f.read()
 
-    sentences = text2sentences(text)
-    sentences = [x for x in sentences if x[-1:] is '.']
+sentences = text2sentences(text)
+sentences = [x for x in sentences if x[-1:] is '.']
 
 nlp = StanfordCoreNLP('/home/lxy/stanford-corenlp-full-2017-06-09')
 sentence = 'The Artist is a 2011 French romantic comedy-drama in the style of a black-and-white silent film.'
@@ -49,7 +49,6 @@ print r.json()
 
 url = "http://localhost:9000/tregex"
 request_params = {"pattern": "S < (NP=np $.. (VP=vp < /VB.?/=verb))"}
-# request_params = {"pattern": "S < (NP=np $.. (VP=vp < ((/VB.?/=verb) $ NP=np)))"}
 sentence = 'The Artist is a 2011 French romantic comedy-drama in the style of a black-and-white silent film.'
 r = requests.post(url, data=sentence, params=request_params)
 r = r.json()['sentences'][0]['0']['namedNodes']
