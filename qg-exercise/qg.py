@@ -92,33 +92,18 @@ def generate_binary_question(sentence):
     parsed_string = nlp.parse(sentence)
     root = const_tree.to_const_tree(parsed_string)
     np = None
-    # verb = None
     vp = None
-    # vp_without_verb = None
     for child in root.children[0].children:
         if child.type == 'NP':
             np = child
-            # np = child.to_string()
-            # np = np[0].lower()+np[1:]
         if child.type == 'VP':
             vp = child
-            # tokens = child.to_string_recur()
-            # verb = tokens[0]
-            # vp_without_verb = ' '.join(tokens[1:len(tokens)])
-            # verb_type = child.children[0].type
 
     if np == None or vp == None:
         return None
     # case on VP
     return analyze_vp_structure(vp, np)
-    # if verb in AUX_VERBS:
-    #     question += string.capitalize(verb)
-    #     question += ' ' + np + ' ' + vp_without_verb + '?'
-    # else:
-    #     if verb_type not in VERB_TYPE_AUX_VERB_MAPPING:
-    #         return None
-    #     question += VERB_TYPE_AUX_VERB_MAPPING[verb_type]
-    #     question += ' ' + np + ' ' + lemma(verb) + ' ' + vp_without_verb + '?'
+
 
 if __name__ == '__main__':
     input_file = 'sample_input.txt'
