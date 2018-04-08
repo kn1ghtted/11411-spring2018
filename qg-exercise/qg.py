@@ -2,7 +2,6 @@
 # Conjunction in VP? Discarding for now
 # have as real verb or auxiliary verb? fixed in function 'analyze_vp_structure'
 # NNP and NP? fixed in function "lowercase_if_needed"
-# TODO
 # Anaylyze what "it" refers to
 
 from stanfordcorenlp import StanfordCoreNLP
