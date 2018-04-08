@@ -11,9 +11,18 @@ from pattern.en import lemma
 import nltk
 import re
 import string
+from nltk.tag.stanford import StanfordNERTagger
+# from nltk.parse.corenlp import CoreNLPParser
 
+# parser = CoreNLPParser(url='http://nlp01.lti.cs.cmu.edu:9000/')
+# def _sentenceToConstTree(sentence):
+#     return const_tree.to_const_tree(str(next(parser.raw_parse(sentence))))
 
-STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
+st = StanfordNERTagger('/Users/Jing/Desktop/s18/11411/project/stanford-ner-2018-02-27/classifiers/english.all.3class.distsim.crf.ser.gz',
+           '/Users/Jing/Desktop/s18/11411/project/stanford-ner-2018-02-27/stanford-ner.jar')
+
+STANFORD_NLP_PATH = "/Users/Jing/Desktop/s18/11411/project/stanford-corenlp-full-2018-02-27"
+# STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 #STANFORD_NLP_PATH = "/home/lxy/stanford-corenlp-full-2017-06-09"
 
 AUX_VERBS = {'am', 'are', 'is', 'was', 'were', 'being', 'been', 'can', \
@@ -86,10 +95,33 @@ def analyze_vp_structure(node, parent_NP):
     return question
 
 
+def generate_whh_question(sentence):
+    print "[Sentence] ", sentence
+    question = ''
+    parsed_string = nlp.parse(sentence)
+    # print (nlp.parse('I ate a sandwich.'))
+    # print (nlp.parse('I have eaten a sandwich.'))
+    root = const_tree.to_const_tree(parsed_string)
+    np = None
+    vp = None
+    for child in root.children[0].children:
+        if child.type == 'NP':
+            np = child
+        if child.type == 'VP':
+            vp = child
+
+    if np == None or vp == None:
+        return None
+    # case on VP
+    # return analyze_vp_structure(vp, np)
+    return generate_wh_vp_question(vp, np)
+
 def generate_binary_question(sentence):
     print "[Sentence] ", sentence
     question = ''
     parsed_string = nlp.parse(sentence)
+    # print (nlp.parse('I ate a sandwich.'))
+    # print (nlp.parse('I have eaten a sandwich.'))
     root = const_tree.to_const_tree(parsed_string)
     np = None
     vp = None
@@ -103,6 +135,64 @@ def generate_binary_question(sentence):
         return None
     # case on VP
     return analyze_vp_structure(vp, np)
+
+def generate_wh_vp_question(node, parent_NP):
+    question = ""
+    VP = None
+    NP = None # this part to ask!!
+    VBX = None # for auxiliary verb
+    for child in node.children:
+        if (child.type == "VP"):
+            VP = child
+        if (child.type.startswith("VB")):
+            VBX = child
+        if (child.type == "NP"):
+            NP = child
+        # Discard sentence with conjunction structure
+        if (child.type == "CC"):
+            return None
+
+    parent_NP_string = lowercase_if_needed(parent_NP)
+
+    # discard sentence with no VBX
+    if VBX == None:
+        return
+    # ????????????????????? if does not have auxiliary verb and does not have NP
+    if NP == None and VP == None: return
+
+    # has auxiliary verb
+    if (VP != None):
+        # add "Wh" in the front and get rid of the NP
+        # need to go to the next level and ask what
+        NP_AUX = None
+        for child in VP.children:
+            if (child.type == "NP"):
+                NP_AUX = child
+        VP.children.remove(child)
+        question += "What" + " " # need to modify to ask different Wh questions ?????????????????????????
+        question += VBX.to_string()
+        question += " " + parent_NP_string + " " + VP.to_string() + "?"
+    # no auxiliary verb
+    else:
+        # ask what + binary question removing NP
+        node.children.remove(NP)
+        if VBX.type not in VERB_TYPE_AUX_VERB_MAPPING:
+            return None
+
+        # get vp_without_verb
+        children_except_VBX = list(filter(lambda child: (not child.type.startswith("VB")), node.children))
+        vp_without_verb = " ".join(list(map(lambda child: child.to_string(), children_except_VBX)))
+        if vp_without_verb != "":
+            vp_without_verb = ' ' + vp_without_verb
+
+        # ask question starting with Wh ??????????????????
+        question += "What" + " "
+        if VBX.to_string() in BE_VERBS:
+            question += VBX.to_string() + ' ' + parent_NP_string + vp_without_verb + '?'
+        else:
+            question += VERB_TYPE_AUX_VERB_MAPPING[VBX.type].lower()
+            question += ' ' + parent_NP_string + ' ' + lemma(VBX.to_string()) + vp_without_verb + '?'
+    return question
 
 
 if __name__ == '__main__':
@@ -118,13 +208,27 @@ if __name__ == '__main__':
     nlp = StanfordCoreNLP(STANFORD_NLP_PATH)
 
     questions = list()
+    # print(generate_binary_question('I ate a sandwich.'))
+    # print(generate_binary_question('I have eaten a sandwich.'))
+    # print (nlp.parse('Is peppy auditions as a dancer and spotted by Valentin , who insists that she have a part in Kinograph Studios next production , despite objections from the studio boss , Al Zimmer?'))
 
+    # STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
+
+    # nlp = StanfordCoreNLP(STANFORD_NLP_PATH)
+    # sentence = 'The teacher appeared at the police station yesterday.'
+    # tokens = nlp.word_tokenize(sentence)
+    # pos = nlp.pos_tag(sentence)
+    # tree = nlp.parse(sentence)
+    # print nlp.ner(sentence)
 
     for sentence in sentences:
-        question = generate_binary_question(sentence)
-        if question is not None:
-            questions.append(question)
-            print "[Question] ", question
+        question1 = generate_binary_question(sentence)
+        question2 = generate_whh_question(sentence)
+        if (question1 is not None) and (question2 is not None):
+            questions.append(question1)
+            questions.append(question2)
+            print "[Question] ", question1
+            print "[Question] ", question2
             print '\n'
 
     nlp.close()
