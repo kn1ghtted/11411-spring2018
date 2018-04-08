@@ -4,11 +4,13 @@
 # NNP and NP? fixed in function "lowercase_if_needed"
 # Anaylyze what "it" refers to
 
+import sys
+sys.path.append('../utility/')
+
 from stanfordcorenlp import StanfordCoreNLP
 from const_tree import const_tree
 from pattern.en import lemma
-import nltk
-import re
+
 import string
 
 
@@ -22,13 +24,7 @@ VERB_TYPE_AUX_VERB_MAPPING = {'VB': 'Do', 'VBZ': 'Does', 'VBP': 'Do', 'VBD': 'Di
 BE_VERBS = {'am', 'is', 'are', 'were', 'was'}
 
 
-def text2sentences(text):
-    ret = list()
-    # remove non-ascii characters
-    text = re.sub(r'[^\x00-\x7f]',r'', text)
-    for sentence in nltk.sent_tokenize(text):
-        ret += re.split('\n+', sentence)
-    return ret
+
 
 # Lower case the NP in the top level, if needed (when it's not a proper noun)
 def lowercase_if_needed(parent_NP):
