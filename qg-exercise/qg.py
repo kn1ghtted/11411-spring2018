@@ -12,6 +12,7 @@ import nltk
 import re
 import string
 from nltk.tag.stanford import StanfordNERTagger
+from nltk.tag.stanford import CoreNLPNERTagger
 # from nltk.parse.corenlp import CoreNLPParser
 
 # parser = CoreNLPParser(url='http://nlp01.lti.cs.cmu.edu:9000/')
@@ -210,7 +211,7 @@ if __name__ == '__main__':
     questions = list()
     # print(generate_binary_question('I ate a sandwich.'))
     # print(generate_binary_question('I have eaten a sandwich.'))
-    # print (nlp.parse('Is peppy auditions as a dancer and spotted by Valentin , who insists that she have a part in Kinograph Studios next production , despite objections from the studio boss , Al Zimmer?'))
+    print (nlp.parse('I talk to a person.'))
 
     # STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 
@@ -220,15 +221,17 @@ if __name__ == '__main__':
     # pos = nlp.pos_tag(sentence)
     # tree = nlp.parse(sentence)
     # print nlp.ner(sentence)
+    ner = CoreNLPNERTagger(url='http://nlp01.lti.cs.cmu.edu:9000/')
+    print ner.tag("I talk to a person.".split())
 
-    for sentence in sentences:
-        question1 = generate_binary_question(sentence)
-        question2 = generate_whh_question(sentence)
-        if (question1 is not None) and (question2 is not None):
-            questions.append(question1)
-            questions.append(question2)
-            print "[Question] ", question1
-            print "[Question] ", question2
-            print '\n'
+    # for sentence in sentences:
+    #     question1 = generate_binary_question(sentence)
+    #     question2 = generate_whh_question(sentence)
+    #     if (question1 is not None) and (question2 is not None):
+    #         questions.append(question1)
+    #         questions.append(question2)
+    #         print "[Question] ", question1
+    #         print "[Question] ", question2
+            # print '\n'
 
     nlp.close()
