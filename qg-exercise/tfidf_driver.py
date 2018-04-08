@@ -3,7 +3,6 @@
 from qg import text2sentences
 from tfidf import TfIdfModel
 
-
 if __name__ == '__main__':
     input_file = 'sample_input.txt'
     with open(input_file, 'r') as f:
