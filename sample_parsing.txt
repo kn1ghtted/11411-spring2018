@@ -1,0 +1,6507 @@
+I have been eating sandwiches.
+[ROOT 
+  [S 
+    [NP 
+      [PRP I]]
+    [VP 
+      [VBP have]
+      [VP 
+        [VBN been]
+        [VP 
+          [VBG eating]
+          [NP 
+            [NNS sandwiches]]]]]
+    [. .]]]
+
+I have a sandwich.
+[ROOT 
+  [S 
+    [NP 
+      [PRP I]]
+    [VP 
+      [VBP have]
+      [NP 
+        [DT a]
+        [NN sandwich]]]
+    [. .]]]
+
+I have eaten a sandwich.
+[ROOT 
+  [S 
+    [NP 
+      [PRP I]]
+    [VP 
+      [VBP have]
+      [VP 
+        [VBN eaten]
+        [NP 
+          [DT a]
+          [NN sandwich]]]]
+    [. .]]]
+
+I have to eat a sandwich.
+[ROOT 
+  [S 
+    [NP 
+      [PRP I]]
+    [VP 
+      [VBP have]
+      [S 
+        [VP 
+          [TO to]
+          [VP 
+            [VB eat]
+            [NP 
+              [DT a]
+              [NN sandwich]]]]]]
+    [. .]]]
+
+The Artist (film)
+[ROOT 
+  [NP 
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [PRN 
+      [-LRB- -LRB-]
+      [NP 
+        [NN film]]
+      [-RRB- -RRB-]]]]
+
+The Artist is a 2011 French romantic comedy-drama in the style of a black-and-white silent film.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [VP 
+      [VBZ is]
+      [NP 
+        [NP 
+          [DT a]
+          [CD 2011]
+          [JJ French]
+          [JJ romantic]
+          [NN comedy-drama]]
+        [PP 
+          [IN in]
+          [NP 
+            [NP 
+              [DT the]
+              [NN style]]
+            [PP 
+              [IN of]
+              [NP 
+                [DT a]
+                [JJ black-and-white]
+                [JJ silent]
+                [NN film]]]]]]]
+    [. .]]]
+
+It was written, directed, and co-edited by Michel Hazanavicius, produced by Thomas Langmann and starred Jean Dujardin and Brnice Bejo.
+[ROOT 
+  [S 
+    [NP 
+      [PRP It]]
+    [VP 
+      [VP 
+        [VBD was]
+        [VP 
+          [VP 
+            [VBN written]
+            [, ,]
+            [VBN directed]
+            [, ,]]
+          [CC and]
+          [VP 
+            [JJ co-edited]
+            [PP 
+              [IN by]
+              [NP 
+                [NNP Michel]
+                [NNP Hazanavicius]]]]
+          [, ,]
+          [VP 
+            [VBN produced]
+            [PP 
+              [IN by]
+              [NP 
+                [NNP Thomas]
+                [NNP Langmann]]]]]]
+      [CC and]
+      [VP 
+        [VBD starred]
+        [NP 
+          [NP 
+            [NNP Jean]
+            [NNP Dujardin]]
+          [CC and]
+          [NP 
+            [NNP Brnice]
+            [NNP Bejo]]]]]
+    [. .]]]
+
+The story takes place in Hollywood, between 1927 and 1932, and focuses on the relationship of an older silent film star and a rising young actress as silent cinema falls out of fashion and is replaced by the "talkies".
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN story]]
+    [VP 
+      [VP 
+        [VBZ takes]
+        [NP 
+          [NP 
+            [NN place]]
+          [PP 
+            [IN in]
+            [NP 
+              [NNP Hollywood]]]
+          [, ,]
+          [PP 
+            [IN between]
+            [NP 
+              [CD 1927]
+              [CC and]
+              [CD 1932]]]]]
+      [, ,]
+      [CC and]
+      [VP 
+        [VBZ focuses]
+        [PP 
+          [IN on]
+          [NP 
+            [NP 
+              [DT the]
+              [NN relationship]]
+            [PP 
+              [IN of]
+              [NP 
+                [NP 
+                  [DT an]
+                  [JJR older]
+                  [JJ silent]
+                  [NN film]
+                  [NN star]]
+                [CC and]
+                [NP 
+                  [DT a]
+                  [VBG rising]
+                  [JJ young]
+                  [NN actress]]]]]]
+        [SBAR 
+          [IN as]
+          [S 
+            [NP 
+              [JJ silent]
+              [NN cinema]]
+            [VP 
+              [VP 
+                [VBZ falls]
+                [PRT 
+                  [IN out]]
+                [PP 
+                  [IN of]
+                  [NP 
+                    [NN fashion]]]]
+              [CC and]
+              [VP 
+                [VBZ is]
+                [VP 
+                  [VBN replaced]
+                  [PP 
+                    [IN by]
+                    [NP 
+                      [DT the]
+                      [`` ``]
+                      [NNS talkies]
+                      ['' '']]]]]]]]]]
+    [. .]]]
+
+The Artist received highly positive reviews from critics and won many accolades.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [VP 
+      [VP 
+        [VBD received]
+        [NP 
+          [ADJP 
+            [RB highly]
+            [JJ positive]]
+          [NNS reviews]]
+        [PP 
+          [IN from]
+          [NP 
+            [NNS critics]]]]
+      [CC and]
+      [VP 
+        [VBD won]
+        [NP 
+          [JJ many]
+          [NNS accolades]]]]
+    [. .]]]
+
+Dujardin won the Best Actor Award at the 2011 Cannes Film Festival, where the film premiered.
+[ROOT 
+  [S 
+    [NP 
+      [NNP Dujardin]]
+    [VP 
+      [VBD won]
+      [NP 
+        [DT the]
+        [JJS Best]
+        [NN Actor]
+        [NN Award]]
+      [PP 
+        [IN at]
+        [NP 
+          [DT the]
+          [CD 2011]
+          [NNP Cannes]
+          [NNP Film]
+          [NNP Festival]]]
+      [, ,]
+      [SBAR 
+        [WHADVP 
+          [WRB where]]
+        [S 
+          [NP 
+            [DT the]
+            [NN film]]
+          [VP 
+            [VBD premiered]]]]]
+    [. .]]]
+
+The film was nominated for six Golden Globes, the most of any 2011 film, and won three: Best Motion Picture  Musical or Comedy, Best Original Score, and Best Actor  Motion Picture Musical or Comedy for Dujardin.
+[ROOT 
+  [S 
+    [S 
+      [NP 
+        [DT The]
+        [NN film]]
+      [VP 
+        [VBD was]
+        [VP 
+          [VBN nominated]
+          [PP 
+            [IN for]
+            [NP 
+              [NP 
+                [CD six]
+                [NNP Golden]
+                [NNP Globes]]
+              [, ,]
+              [NP 
+                [NP 
+                  [DT the]
+                  [JJS most]]
+                [PP 
+                  [IN of]
+                  [NP 
+                    [DT any]
+                    [CD 2011]
+                    [NN film]]]]]]]]]
+    [, ,]
+    [CC and]
+    [SINV 
+      [VP 
+        [VBD won]
+        [NP 
+          [NP 
+            [CD three]]
+          [: :]
+          [NP 
+            [NP 
+              [JJS Best]]
+            [NP 
+              [NNP Motion]
+              [NNP Picture]]]]]
+      [NP 
+        [NP 
+          [NP 
+            [JJ Musical]]
+          [CC or]
+          [NP 
+            [NN Comedy]]]
+        [, ,]
+        [NP 
+          [JJS Best]
+          [JJ Original]
+          [NN Score]]
+        [, ,]
+        [CC and]
+        [NP 
+          [NP 
+            [NP 
+              [JJS Best]]
+            [NP 
+              [NN Actor]
+              [NNP Motion]
+              [NNP Picture]
+              [JJ Musical]]]
+          [CC or]
+          [NP 
+            [NP 
+              [NN Comedy]]
+            [PP 
+              [IN for]
+              [NP 
+                [NNP Dujardin]]]]]]]
+    [. .]]]
+
+In January 2012, the film was nominated for twelve BAFTAs, the most of any film from 2011, and won seven, including Best Film, Best Director and Best Original Screenplay for Hazanavicius, and Best Actor for Dujardin.
+[ROOT 
+  [S 
+    [PP 
+      [IN In]
+      [NP 
+        [NNP January]
+        [CD 2012]]]
+    [, ,]
+    [NP 
+      [DT the]
+      [NN film]]
+    [VP 
+      [VP 
+        [VBD was]
+        [VP 
+          [VBN nominated]
+          [PP 
+            [IN for]
+            [NP 
+              [NP 
+                [CD twelve]
+                [NNS BAFTAs]]
+              [, ,]
+              [NP 
+                [NP 
+                  [DT the]
+                  [JJS most]]
+                [PP 
+                  [IN of]
+                  [NP 
+                    [DT any]
+                    [NN film]]]]]]
+          [PP 
+            [IN from]
+            [NP 
+              [CD 2011]]]]]
+      [, ,]
+      [CC and]
+      [VP 
+        [VBD won]
+        [NP 
+          [CD seven]]]
+      [, ,]
+      [PP 
+        [VBG including]
+        [NP 
+          [NP 
+            [NP 
+              [JJS Best]]
+            [NP 
+              [NNP Film]]]
+          [, ,]
+          [NP 
+            [NP 
+              [JJS Best]
+              [NN Director]]
+            [CC and]
+            [NP 
+              [NP 
+                [JJS Best]
+                [JJ Original]
+                [NN Screenplay]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNP Hazanavicius]]]]]
+          [, ,]
+          [CC and]
+          [NP 
+            [NP 
+              [JJS Best]
+              [NN Actor]]
+            [PP 
+              [IN for]
+              [NP 
+                [NNP Dujardin]]]]]]]
+    [. .]]]
+
+It was nominated for ten Academy Awards and won five, including Best Picture for Langmann, Best Director for Hazanavicius, and Best Actor for Dujardin, making him the first French actor ever to win for Best Actor.
+[ROOT 
+  [S 
+    [NP 
+      [PRP It]]
+    [VP 
+      [VP 
+        [VBD was]
+        [VP 
+          [VBN nominated]
+          [PP 
+            [IN for]
+            [NP 
+              [CD ten]
+              [NNP Academy]
+              [NNS Awards]]]]]
+      [CC and]
+      [VP 
+        [VBD won]
+        [NP 
+          [NP 
+            [CD five]]
+          [, ,]
+          [PP 
+            [VBG including]
+            [NP 
+              [NP 
+                [NP 
+                  [JJS Best]]
+                [NP 
+                  [NP 
+                    [NNP Picture]]
+                  [PP 
+                    [IN for]
+                    [NP 
+                      [NNP Langmann]]]]]
+              [, ,]
+              [NP 
+                [NP 
+                  [JJS Best]
+                  [NN Director]]
+                [PP 
+                  [IN for]
+                  [NP 
+                    [NNP Hazanavicius]]]]
+              [, ,]
+              [CC and]
+              [NP 
+                [NP 
+                  [JJS Best]
+                  [NN Actor]]
+                [PP 
+                  [IN for]
+                  [NP 
+                    [NNP Dujardin]]]]]]
+          [, ,]
+          [VP 
+            [VBG making]
+            [S 
+              [NP 
+                [PRP him]]
+              [NP 
+                [DT the]
+                [JJ first]
+                [JJ French]
+                [NN actor]]]
+            [ADVP 
+              [RB ever]]]]
+        [S 
+          [VP 
+            [TO to]
+            [VP 
+              [VB win]
+              [PP 
+                [IN for]
+                [NP 
+                  [JJS Best]
+                  [NN Actor]]]]]]]]
+    [. .]]]
+
+It was also the first French film to ever win Best Picture, and the first mainly silent film to win since 1927's Wings won at the 1st Academy Awards in 1929.
+[ROOT 
+  [S 
+    [NP 
+      [PRP It]]
+    [VP 
+      [VBD was]
+      [ADVP 
+        [RB also]]
+      [NP 
+        [DT the]
+        [JJ first]
+        [JJ French]
+        [NN film]
+        [S 
+          [VP 
+            [TO to]
+            [VP 
+              [ADVP 
+                [RB ever]]
+              [VB win]
+              [S 
+                [NP 
+                  [NP 
+                    [NP 
+                      [JJS Best]]
+                    [NP 
+                      [NNP Picture]]]
+                  [, ,]
+                  [CC and]
+                  [NP 
+                    [DT the]
+                    [JJ first]
+                    [ADJP 
+                      [RB mainly]
+                      [JJ silent]]
+                    [NN film]]]
+                [VP 
+                  [TO to]
+                  [VP 
+                    [VB win]
+                    [SBAR 
+                      [IN since]
+                      [S 
+                        [NP 
+                          [NP 
+                            [CD 1927]
+                            [POS 's]]
+                          [NNPS Wings]]
+                        [VP 
+                          [VBD won]
+                          [PP 
+                            [IN at]
+                            [NP 
+                              [DT the]
+                              [JJ 1st]
+                              [NN Academy]
+                              [NNS Awards]]]
+                          [PP 
+                            [IN in]
+                            [NP 
+                              [CD 1929]]]]]]]]]]]]]]
+    [. .]]]
+
+It was also the first film presented in the 4:3 aspect ratio to win since 1953's From Here to Eternity.
+[ROOT 
+  [S 
+    [NP 
+      [PRP It]]
+    [VP 
+      [VBD was]
+      [ADVP 
+        [RB also]]
+      [NP 
+        [NP 
+          [DT the]
+          [JJ first]
+          [NN film]]
+        [VP 
+          [VBN presented]
+          [PP 
+            [IN in]
+            [NP 
+              [DT the]
+              [CD 4:3]
+              [NN aspect]
+              [NN ratio]]]
+          [S 
+            [VP 
+              [TO to]
+              [VP 
+                [VB win]
+                [PP 
+                  [IN since]
+                  [NP 
+                    [CD 1953]
+                    [POS 's]]]
+                [PP 
+                  [IN From]
+                  [NP 
+                    [RB Here]]]
+                [PP 
+                  [TO to]
+                  [NP 
+                    [NN Eternity]]]]]]]]]
+    [. .]]]
+
+Additionally, it was the first black-and-white film to win since 1993's Schindler's List, though that film contained limited colour sequences; it was the first 100% black-and-white film to win since 1960's The Apartment.
+[ROOT 
+  [S 
+    [S 
+      [ADVP 
+        [RB Additionally]]
+      [, ,]
+      [NP 
+        [PRP it]]
+      [VP 
+        [VBD was]
+        [NP 
+          [DT the]
+          [JJ first]
+          [JJ black-and-white]
+          [NN film]
+          [S 
+            [VP 
+              [TO to]
+              [VP 
+                [VB win]
+                [PP 
+                  [IN since]
+                  [NP 
+                    [CD 1993]
+                    [POS 's]]]
+                [NP 
+                  [NP 
+                    [NNP Schindler]
+                    [POS 's]]
+                  [NN List]]
+                [, ,]
+                [SBAR 
+                  [IN though]
+                  [S 
+                    [NP 
+                      [DT that]
+                      [NN film]]
+                    [VP 
+                      [VBD contained]
+                      [NP 
+                        [JJ limited]
+                        [NN colour]
+                        [NNS sequences]]]]]]]]]]]
+    [: ;]
+    [S 
+      [NP 
+        [PRP it]]
+      [VP 
+        [VBD was]
+        [NP 
+          [NP 
+            [DT the]
+            [JJ first]
+            [ADJP 
+              [CD 100]
+              [NN %]]
+            [JJ black-and-white]
+            [NN film]]
+          [SBAR 
+            [S 
+              [VP 
+                [TO to]
+                [VP 
+                  [VB win]
+                  [PP 
+                    [IN since]
+                    [NP 
+                      [NP 
+                        [CD 1960]
+                        [POS 's]]
+                      [DT The]
+                      [NN Apartment]]]]]]]]]]
+    [. .]]]
+
+In France it was nominated for ten Csar Awards, winning six, including Best Film, Best Director for Hazanavicius and Best Actress for Bejo.
+[ROOT 
+  [S 
+    [PP 
+      [IN In]
+      [NP 
+        [NNP France]]]
+    [NP 
+      [PRP it]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN nominated]
+        [PP 
+          [IN for]
+          [NP 
+            [CD ten]
+            [NNP Csar]
+            [NNS Awards]]]
+        [, ,]
+        [S 
+          [VP 
+            [VBG winning]
+            [NP 
+              [CD six]]]]
+        [, ,]
+        [PP 
+          [VBG including]
+          [NP 
+            [NP 
+              [NP 
+                [JJS Best]]
+              [NP 
+                [NNP Film]]]
+            [, ,]
+            [NP 
+              [NP 
+                [JJS Best]
+                [NN Director]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNP Hazanavicius]]]]
+            [CC and]
+            [NP 
+              [NP 
+                [JJS Best]
+                [NN Actress]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNP Bejo]]]]]]]]
+    [. .]]]
+
+The Artist became the most awarded French film in history.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [VP 
+      [VBD became]
+      [NP 
+        [NP 
+          [DT the]
+          [RBS most]]
+        [VP 
+          [VBN awarded]
+          [NP 
+            [JJ French]
+            [NN film]]
+          [PP 
+            [IN in]
+            [NP 
+              [NN history]]]]]]
+    [. .]]]
+
+PlotEdit
+[ROOT 
+  [NP 
+    [NN PlotEdit]]]
+
+In 1927, silent film star George Valentin is posing for pictures outside the premiere of his latest hit film when a young woman, Peppy Miller, accidentally bumps into him.
+[ROOT 
+  [S 
+    [PP 
+      [IN In]
+      [NP 
+        [CD 1927]]]
+    [, ,]
+    [NP 
+      [JJ silent]
+      [NN film]
+      [NN star]
+      [NNP George]
+      [NNP Valentin]]
+    [VP 
+      [VBZ is]
+      [VP 
+        [VBG posing]
+        [PP 
+          [IN for]
+          [NP 
+            [NP 
+              [NNS pictures]]
+            [PP 
+              [IN outside]
+              [NP 
+                [NP 
+                  [DT the]
+                  [NN premiere]]
+                [PP 
+                  [IN of]
+                  [NP 
+                    [PRP$ his]
+                    [JJS latest]
+                    [NN hit]
+                    [NN film]]]
+                [SBAR 
+                  [WHADVP 
+                    [WRB when]]
+                  [S 
+                    [NP 
+                      [NP 
+                        [NP 
+                          [DT a]
+                          [JJ young]
+                          [NN woman]]
+                        [, ,]
+                        [NP 
+                          [NNP Peppy]
+                          [NNP Miller]]
+                        [, ,]]
+                      [ADVP 
+                        [RB accidentally]]]
+                    [NP 
+                      [NP 
+                        [NNS bumps]]
+                      [PP 
+                        [IN into]
+                        [NP 
+                          [PRP him]]]]]]]]]]]]
+    [. .]]]
+
+Valentin reacts with humor to the accident and shows off with Peppy for the cameras.
+[ROOT 
+  [S 
+    [NP 
+      [NNP Valentin]]
+    [VP 
+      [VP 
+        [VBZ reacts]
+        [PP 
+          [IN with]
+          [NP 
+            [NN humor]]]
+        [PP 
+          [TO to]
+          [NP 
+            [DT the]
+            [NN accident]]]]
+      [CC and]
+      [VP 
+        [VBZ shows]
+        [PRT 
+          [RP off]]
+        [PP 
+          [IN with]
+          [NP 
+            [NP 
+              [JJ Peppy]]
+            [PP 
+              [IN for]
+              [NP 
+                [DT the]
+                [NNS cameras]]]]]]]
+    [. .]]]
+
+The next day, Peppy finds herself on the front page of Variety with the headline "Who's That Girl?"
+[ROOT 
+  [S 
+    [NP-TMP 
+      [DT The]
+      [JJ next]
+      [NN day]]
+    [, ,]
+    [NP 
+      [JJ Peppy]]
+    [VP 
+      [VBZ finds]
+      [NP 
+        [PRP herself]]
+      [PP 
+        [IN on]
+        [NP 
+          [NP 
+            [DT the]
+            [JJ front]
+            [NN page]]
+          [PP 
+            [IN of]
+            [NP 
+              [NNP Variety]]]]]
+      [PP 
+        [IN with]
+        [NP 
+          [NP 
+            [DT the]
+            [NN headline]]
+          [`` ``]
+          [SBAR 
+            [WHNP 
+              [WP Who]]
+            [S 
+              [VP 
+                [VBZ 's]
+                [NP 
+                  [DT That]
+                  [NNP Girl]]]]]]]]
+    [. ?]
+    ['' '']]]
+
+Later, Peppy auditions as a dancer and is spotted by Valentin, who insists that she have a part in Kinograph Studios' next production, despite objections from the studio boss, Al Zimmer.
+[ROOT 
+  [S 
+    [ADVP 
+      [RB Later]]
+    [, ,]
+    [NP 
+      [NP 
+        [JJ Peppy]
+        [NNS auditions]]
+      [PP 
+        [IN as]
+        [NP 
+          [DT a]
+          [NX 
+            [NX 
+              [NN dancer]]
+            [CC and]]]]]
+    [VP 
+      [VBZ is]
+      [VP 
+        [VBN spotted]
+        [PP 
+          [IN by]
+          [NP 
+            [NP 
+              [NNP Valentin]]
+            [, ,]
+            [SBAR 
+              [WHNP 
+                [WP who]]
+              [S 
+                [VP 
+                  [VBZ insists]
+                  [SBAR 
+                    [IN that]
+                    [S 
+                      [NP 
+                        [PRP she]]
+                      [VP 
+                        [VBP have]
+                        [NP 
+                          [NP 
+                            [DT a]
+                            [NN part]]
+                          [PP 
+                            [IN in]
+                            [NP 
+                              [NP 
+                                [NNP Kinograph]
+                                [NNP Studios]
+                                [POS ']]
+                              [JJ next]
+                              [NN production]]]]
+                        [, ,]
+                        [PP 
+                          [IN despite]
+                          [NP 
+                            [NP 
+                              [NNS objections]]
+                            [PP 
+                              [IN from]
+                              [NP 
+                                [NP 
+                                  [DT the]
+                                  [NN studio]
+                                  [NN boss]]
+                                [, ,]
+                                [NP 
+                                  [NNP Al]
+                                  [NNP Zimmer]]]]]]]]]]]]]]]]
+    [. .]]]
+
+While performing a scene in which they dance together, Valentin and Peppy show great chemistry, despite her being merely an extra.
+[ROOT 
+  [S 
+    [SBAR 
+      [IN While]
+      [S 
+        [VP 
+          [VBG performing]
+          [NP 
+            [NP 
+              [DT a]
+              [NN scene]]
+            [SBAR 
+              [WHPP 
+                [IN in]
+                [WHNP 
+                  [WDT which]]]
+              [S 
+                [NP 
+                  [PRP they]]
+                [VP 
+                  [VBP dance]
+                  [ADVP 
+                    [RB together]]]]]]]]]
+    [, ,]
+    [NP 
+      [NP 
+        [NNP Valentin]]
+      [CC and]
+      [NP 
+        [JJ Peppy]]]
+    [VP 
+      [NN show]
+      [NP 
+        [NP 
+          [JJ great]
+          [NN chemistry]]
+        [, ,]
+        [PP 
+          [IN despite]
+          [NP 
+            [PRP$ her]]]]
+      [S 
+        [VP 
+          [VBG being]
+          [NP 
+            [RB merely]
+            [DT an]
+            [JJ extra]]]]]
+    [. .]]]
+
+With a little guidance from Valentin (he draws a beauty spot on her, which will eventually be her trademark, after finding her in his dressing room), Peppy slowly rises through the industry, earning more prominent starring roles.
+[ROOT 
+  [S 
+    [PP 
+      [IN With]
+      [NP 
+        [NP 
+          [DT a]
+          [JJ little]
+          [NN guidance]]
+        [PP 
+          [IN from]
+          [NP 
+            [NNP Valentin]]]
+        [PRN 
+          [-LRB- -LRB-]
+          [S 
+            [NP 
+              [PRP he]]
+            [VP 
+              [VBZ draws]
+              [NP 
+                [DT a]
+                [NN beauty]
+                [NN spot]]
+              [PP 
+                [IN on]
+                [NP 
+                  [NP 
+                    [PRP her]]
+                  [, ,]
+                  [SBAR 
+                    [WHNP 
+                      [WDT which]]
+                    [S 
+                      [VP 
+                        [MD will]
+                        [ADVP 
+                          [RB eventually]]
+                        [VP 
+                          [VB be]
+                          [NP 
+                            [PRP$ her]
+                            [NN trademark]]
+                          [, ,]
+                          [PP 
+                            [IN after]
+                            [S 
+                              [VP 
+                                [VBG finding]
+                                [NP 
+                                  [PRP her]]
+                                [PP 
+                                  [IN in]
+                                  [NP 
+                                    [PRP$ his]
+                                    [VBG dressing]
+                                    [NN room]]]]]]]]]]]]]]
+          [-RRB- -RRB-]]]]
+    [, ,]
+    [NP 
+      [JJ Peppy]]
+    [ADVP 
+      [RB slowly]]
+    [VP 
+      [VBZ rises]
+      [PP 
+        [IN through]
+        [NP 
+          [DT the]
+          [NN industry]]]
+      [, ,]
+      [S 
+        [VP 
+          [VBG earning]
+          [NP 
+            [NP 
+              [JJR more]
+              [JJ prominent]]
+            [VP 
+              [VBG starring]
+              [NP 
+                [NNS roles]]]]]]]
+    [. .]]]
+
+Two years later, Zimmer announces the end of production of silent films at Kinograph Studios, but Valentin is dismissive, insisting that sound is just a fad.
+[ROOT 
+  [S 
+    [S 
+      [ADVP 
+        [NP 
+          [CD Two]
+          [NNS years]]
+        [RB later]]
+      [, ,]
+      [NP 
+        [NNP Zimmer]]
+      [VP 
+        [VBZ announces]
+        [NP 
+          [NP 
+            [DT the]
+            [NN end]]
+          [PP 
+            [IN of]
+            [NP 
+              [NP 
+                [NN production]]
+              [PP 
+                [IN of]
+                [NP 
+                  [JJ silent]
+                  [NNS films]]]]]]
+        [PP 
+          [IN at]
+          [NP 
+            [NNP Kinograph]
+            [NNP Studios]]]]]
+    [, ,]
+    [CC but]
+    [S 
+      [NP 
+        [NNP Valentin]]
+      [VP 
+        [VBZ is]
+        [ADJP 
+          [JJ dismissive]]]]
+    [, ,]
+    [S 
+      [VP 
+        [VBG insisting]
+        [SBAR 
+          [IN that]
+          [S 
+            [NP 
+              [NN sound]]
+            [VP 
+              [VBZ is]
+              [ADVP 
+                [RB just]]
+              [NP 
+                [DT a]
+                [NN fad]]]]]]]
+    [. .]]]
+
+In a dream, Valentin begins hearing sounds from his environment (as does the audience), but cannot speak himself, then wakes up in a sweat.
+[ROOT 
+  [S 
+    [PP 
+      [IN In]
+      [NP 
+        [DT a]
+        [NN dream]]]
+    [, ,]
+    [NP 
+      [NNP Valentin]]
+    [VP 
+      [VP 
+        [VBZ begins]
+        [S 
+          [VP 
+            [VBG hearing]
+            [NP 
+              [NNS sounds]]
+            [PP 
+              [IN from]
+              [NP 
+                [NP 
+                  [PRP$ his]
+                  [NN environment]]
+                [PRN 
+                  [-LRB- -LRB-]
+                  [SBAR 
+                    [IN as]
+                    [S 
+                      [VP 
+                        [VBZ does]
+                        [NP 
+                          [DT the]
+                          [NN audience]]]]]
+                  [-RRB- -RRB-]]]]]]]
+      [, ,]
+      [CC but]
+      [VP 
+        [MD can]
+        [RB not]
+        [VP 
+          [VB speak]
+          [NP 
+            [PRP himself]]]]
+      [, ,]
+      [ADVP 
+        [RB then]]
+      [VP 
+        [VBZ wakes]
+        [PRT 
+          [RP up]]
+        [PP 
+          [IN in]
+          [NP 
+            [DT a]
+            [NN sweat]]]]]
+    [. .]]]
+
+He decides to produce and direct his own silent film, financing it himself.
+[ROOT 
+  [S 
+    [NP 
+      [PRP He]]
+    [VP 
+      [VBZ decides]
+      [S 
+        [VP 
+          [TO to]
+          [VP 
+            [VB produce]
+            [CC and]
+            [VB direct]
+            [NP 
+              [PRP$ his]
+              [JJ own]
+              [JJ silent]
+              [NN film]]
+            [, ,]
+            [S 
+              [VP 
+                [VBG financing]
+                [S 
+                  [NP 
+                    [PRP it]]
+                  [NP 
+                    [PRP himself]]]]]]]]]
+    [. .]]]
+
+The film opens on the same day as Peppy's new sound film as well as the 1929 Stock Market Crash.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN film]]
+    [VP 
+      [VBZ opens]
+      [PP 
+        [IN on]
+        [NP 
+          [NP 
+            [NP 
+              [DT the]
+              [JJ same]
+              [NN day]]
+            [PP 
+              [IN as]
+              [NP 
+                [NP 
+                  [NNP Peppy]
+                  [POS 's]]
+                [JJ new]
+                [NN sound]
+                [NN film]]]]
+          [CONJP 
+            [RB as]
+            [RB well]
+            [IN as]]
+          [NP 
+            [DT the]
+            [CD 1929]
+            [NNP Stock]
+            [NNP Market]
+            [NNP Crash]]]]]
+    [. .]]]
+
+Now Valentin's only chance of avoiding bankruptcy is for his film to be a hit.
+[ROOT 
+  [S 
+    [ADVP 
+      [RB Now]]
+    [NP 
+      [NP 
+        [NP 
+          [NNP Valentin]
+          [POS 's]]
+        [JJ only]
+        [NN chance]]
+      [PP 
+        [IN of]
+        [S 
+          [VP 
+            [VBG avoiding]
+            [NP 
+              [NN bankruptcy]]]]]]
+    [VP 
+      [VBZ is]
+      [PP 
+        [IN for]
+        [NP 
+          [PRP$ his]
+          [NN film]
+          [S 
+            [VP 
+              [TO to]
+              [VP 
+                [VB be]
+                [NP 
+                  [DT a]
+                  [NN hit]]]]]]]]
+    [. .]]]
+
+Unfortunately audiences flock to Peppy's film instead and Valentin is ruined.
+[ROOT 
+  [S 
+    [ADVP 
+      [RB Unfortunately]]
+    [NP 
+      [NP 
+        [NP 
+          [NNS audiences]
+          [NN flock]]
+        [PP 
+          [TO to]
+          [NP 
+            [NP 
+              [NP 
+                [NNP Peppy]
+                [POS 's]]
+              [NN film]]
+            [ADVP 
+              [RB instead]]]]]
+      [CC and]
+      [NP 
+        [NNP Valentin]]]
+    [VP 
+      [VBZ is]
+      [ADJP 
+        [VBN ruined]]]
+    [. .]]]
+
+His wife, Doris, kicks him out, and he moves into an apartment with his valet/chauffeur, Clifton, and his dog.
+[ROOT 
+  [S 
+    [S 
+      [NP 
+        [NP 
+          [PRP$ His]
+          [NN wife]]
+        [, ,]
+        [NP 
+          [NNP Doris]]
+        [, ,]]
+      [VP 
+        [VBZ kicks]
+        [NP 
+          [PRP him]]
+        [PRT 
+          [RP out]]]]
+    [, ,]
+    [CC and]
+    [S 
+      [NP 
+        [PRP he]]
+      [VP 
+        [VBZ moves]
+        [PP 
+          [IN into]
+          [NP 
+            [NP 
+              [DT an]
+              [NN apartment]]
+            [PP 
+              [IN with]
+              [NP 
+                [NP 
+                  [PRP$ his]
+                  [NN valet/chauffeur]]
+                [, ,]
+                [NP 
+                  [NNP Clifton]]
+                [, ,]
+                [CC and]
+                [NP 
+                  [PRP$ his]
+                  [NN dog]]]]]]]]
+    [. .]]]
+
+Peppy goes on to become a major Hollywood star.
+[ROOT 
+  [S 
+    [NP 
+      [JJ Peppy]]
+    [VP 
+      [VBZ goes]
+      [PRT 
+        [IN on]]
+      [S 
+        [VP 
+          [TO to]
+          [VP 
+            [VB become]
+            [NP 
+              [DT a]
+              [JJ major]
+              [NNP Hollywood]
+              [NN star]]]]]]
+    [. .]]]
+
+Later, the bankrupt Valentin is forced to auction off all of his personal effects, and after realizing he has not paid loyal Clifton in over a year, gives him the car and fires him, telling him to get another job.
+[ROOT 
+  [S 
+    [ADVP 
+      [RB Later]]
+    [, ,]
+    [NP 
+      [DT the]
+      [JJ bankrupt]
+      [NNP Valentin]]
+    [VP 
+      [VP 
+        [VBZ is]
+        [VP 
+          [VBN forced]
+          [S 
+            [VP 
+              [TO to]
+              [VP 
+                [VB auction]
+                [PRT 
+                  [RP off]]
+                [NP 
+                  [NP 
+                    [DT all]]
+                  [PP 
+                    [IN of]
+                    [NP 
+                      [PRP$ his]
+                      [JJ personal]
+                      [NNS effects]]]]]]]]]
+      [, ,]
+      [CC and]
+      [VP 
+        [SBAR 
+          [IN after]
+          [S 
+            [S 
+              [VP 
+                [VBG realizing]
+                [NP 
+                  [PRP he]]]]
+            [VP 
+              [VBZ has]
+              [RB not]
+              [VP 
+                [VBN paid]
+                [NP 
+                  [JJ loyal]
+                  [NNP Clifton]]
+                [PP 
+                  [IN in]
+                  [PP 
+                    [IN over]
+                    [NP 
+                      [DT a]
+                      [NN year]]]]]]]]
+        [, ,]
+        [VP 
+          [VBZ gives]
+          [NP 
+            [PRP him]]
+          [NP 
+            [DT the]
+            [NN car]]]
+        [CC and]
+        [VP 
+          [VBZ fires]
+          [NP 
+            [PRP him]]]]
+      [, ,]
+      [S 
+        [VP 
+          [VBG telling]
+          [S 
+            [NP 
+              [PRP him]]
+            [VP 
+              [TO to]
+              [VP 
+                [VB get]
+                [NP 
+                  [DT another]
+                  [NN job]]]]]]]]
+    [. .]]]
+
+Depressed and drunk, Valentin angrily sets a match to his private collection of his earlier films.
+[ROOT 
+  [S 
+    [S 
+      [ADJP 
+        [JJ Depressed]
+        [CC and]
+        [JJ drunk]]]
+    [, ,]
+    [NP 
+      [NNP Valentin]]
+    [ADVP 
+      [RB angrily]]
+    [VP 
+      [VBZ sets]
+      [NP 
+        [DT a]
+        [NN match]]
+      [PP 
+        [TO to]
+        [NP 
+          [NP 
+            [PRP$ his]
+            [JJ private]
+            [NN collection]]
+          [PP 
+            [IN of]
+            [NP 
+              [PRP$ his]
+              [JJR earlier]
+              [NNS films]]]]]]
+    [. .]]]
+
+As the nitrate film quickly blazes out of control he is overwhelmed by the smoke and passes out inside the burning house, still clutching a single film canister.
+[ROOT 
+  [S 
+    [SBAR 
+      [IN As]
+      [S 
+        [NP 
+          [DT the]
+          [JJ nitrate]
+          [NN film]]
+        [ADVP 
+          [RB quickly]]
+        [VP 
+          [VBZ blazes]
+          [PRT 
+            [IN out]]
+          [PP 
+            [IN of]
+            [NP 
+              [NN control]]]]]]
+    [NP 
+      [PRP he]]
+    [VP 
+      [VP 
+        [VBZ is]
+        [VP 
+          [VBN overwhelmed]
+          [PP 
+            [IN by]
+            [NP 
+              [DT the]
+              [NN smoke]]]]]
+      [CC and]
+      [VP 
+        [VBZ passes]
+        [PRT 
+          [RP out]]
+        [PP 
+          [IN inside]
+          [NP 
+            [DT the]
+            [NN burning]
+            [NN house]]]]
+      [, ,]
+      [S 
+        [VP 
+          [ADVP 
+            [RB still]]
+          [VBG clutching]
+          [NP 
+            [DT a]
+            [JJ single]
+            [NN film]
+            [NN canister]]]]]
+    [. .]]]
+
+However, Valentin's dog attracts the help of a nearby policeman, and after being rescued Valentin is hospitalized for injuries suffered in the fire.
+[ROOT 
+  [S 
+    [ADVP 
+      [RB However]]
+    [, ,]
+    [S 
+      [NP 
+        [NP 
+          [NNP Valentin]
+          [POS 's]]
+        [NN dog]]
+      [VP 
+        [VBZ attracts]
+        [NP 
+          [NP 
+            [DT the]
+            [NN help]]
+          [PP 
+            [IN of]
+            [NP 
+              [DT a]
+              [JJ nearby]
+              [NN policeman]]]]]]
+    [, ,]
+    [CC and]
+    [S 
+      [PP 
+        [IN after]
+        [S 
+          [VP 
+            [VBG being]
+            [VP 
+              [VBD rescued]]]]]
+      [NP 
+        [NNP Valentin]]
+      [VP 
+        [VBZ is]
+        [VP 
+          [VBN hospitalized]
+          [PP 
+            [IN for]
+            [NP 
+              [NP 
+                [NNS injuries]]
+              [VP 
+                [VBN suffered]
+                [PP 
+                  [IN in]
+                  [NP 
+                    [DT the]
+                    [NN fire]]]]]]]]]
+    [. .]]]
+
+Peppy visits the hospital and discovers that the film he rescued is the one with them dancing together.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [JJ Peppy]
+        [NNS visits]]
+      [UCP 
+        [NP 
+          [DT the]
+          [NN hospital]]
+        [CC and]
+        [S 
+          [VP 
+            [VBZ discovers]
+            [SBAR 
+              [IN that]
+              [S 
+                [NP 
+                  [NP 
+                    [DT the]
+                    [NN film]]
+                  [NP 
+                    [PRP he]]]
+                [VP 
+                  [VBD rescued]]]]]]]]
+    [VP 
+      [VBZ is]
+      [NP 
+        [NP 
+          [DT the]
+          [CD one]]
+        [PP 
+          [IN with]
+          [S 
+            [NP 
+              [PRP them]]
+            [VP 
+              [VBG dancing]
+              [ADVP 
+                [RB together]]]]]]]
+    [. .]]]
+
+She asks for him to be moved to her house to recuperate.
+[ROOT 
+  [S 
+    [NP 
+      [PRP She]]
+    [VP 
+      [VBZ asks]
+      [SBAR 
+        [IN for]
+        [S 
+          [NP 
+            [PRP him]]
+          [VP 
+            [TO to]
+            [VP 
+              [VB be]
+              [VP 
+                [VBN moved]
+                [PP 
+                  [TO to]
+                  [NP 
+                    [PRP$ her]
+                    [NN house]
+                    [S 
+                      [VP 
+                        [TO to]
+                        [VP 
+                          [VB recuperate]]]]]]]]]]]]
+    [. .]]]
+
+Valentin awakens in a bed at her house, to find that Clifton is now working for Peppy.
+[ROOT 
+  [S 
+    [NP 
+      [NNP Valentin]]
+    [VP 
+      [VBZ awakens]
+      [PP 
+        [IN in]
+        [NP 
+          [NP 
+            [DT a]
+            [NN bed]]
+          [PP 
+            [IN at]
+            [NP 
+              [PRP$ her]
+              [NN house]]]]]
+      [, ,]
+      [S 
+        [VP 
+          [TO to]
+          [VP 
+            [VB find]
+            [SBAR 
+              [IN that]
+              [S 
+                [NP 
+                  [NNP Clifton]]
+                [VP 
+                  [VBZ is]
+                  [ADVP 
+                    [RB now]]
+                  [VP 
+                    [VBG working]
+                    [PP 
+                      [IN for]
+                      [NP 
+                        [NNP Peppy]]]]]]]]]]]
+    [. .]]]
+
+Valentin seems to remain dismissive of Peppy having taken him in, prompting Clifton to sternly remind Valentin of his changing luck.
+[ROOT 
+  [S 
+    [NP 
+      [NNP Valentin]]
+    [VP 
+      [VBZ seems]
+      [S 
+        [VP 
+          [TO to]
+          [VP 
+            [VB remain]
+            [ADJP 
+              [JJ dismissive]
+              [PP 
+                [IN of]
+                [ADJP 
+                  [JJ Peppy]]]]
+            [S 
+              [VP 
+                [VBG having]
+                [VP 
+                  [VBN taken]
+                  [NP 
+                    [PRP him]]
+                  [PP 
+                    [IN in]]]]]
+            [, ,]
+            [S 
+              [VP 
+                [VBG prompting]
+                [S 
+                  [NP 
+                    [NNP Clifton]]
+                  [VP 
+                    [TO to]
+                    [VP 
+                      [ADVP 
+                        [RB sternly]]
+                      [VB remind]
+                      [NP 
+                        [NP 
+                          [NNP Valentin]]
+                        [PP 
+                          [IN of]
+                          [NP 
+                            [PRP$ his]
+                            [VBG changing]
+                            [NN luck]]]]]]]]]]]]]
+    [. .]]]
+
+Peppy insists to Zimmer that Valentin co-star in her next film, threatening to quit Kinograph if Zimmer does not agree to her terms.
+[ROOT 
+  [S 
+    [NP 
+      [JJ Peppy]]
+    [VP 
+      [VBZ insists]
+      [PP 
+        [TO to]
+        [NP 
+          [NP 
+            [NNP Zimmer]]
+          [SBAR 
+            [WHNP 
+              [WDT that]]
+            [S 
+              [VP 
+                [NNP Valentin]
+                [NP 
+                  [NN co-star]]
+                [PP 
+                  [IN in]
+                  [NP 
+                    [PRP$ her]
+                    [JJ next]
+                    [NN film]]]]]]]]
+      [, ,]
+      [S 
+        [VP 
+          [VBG threatening]
+          [S 
+            [VP 
+              [TO to]
+              [VP 
+                [VB quit]
+                [NP 
+                  [NNP Kinograph]]
+                [SBAR 
+                  [IN if]
+                  [S 
+                    [NP 
+                      [NNP Zimmer]]
+                    [VP 
+                      [VBZ does]
+                      [RB not]
+                      [VP 
+                        [VB agree]
+                        [PP 
+                          [TO to]
+                          [NP 
+                            [PRP$ her]
+                            [NNS terms]]]]]]]]]]]]]
+    [. .]]]
+
+After Valentin learns to his dismay that it had been Peppy who had purchased all his auctioned effects, he returns in despair to his burnt-out apartment.
+[ROOT 
+  [S 
+    [SBAR 
+      [IN After]
+      [S 
+        [NP 
+          [NNP Valentin]]
+        [VP 
+          [VBZ learns]
+          [PP 
+            [TO to]
+            [NP 
+              [PRP$ his]
+              [NN dismay]]]
+          [SBAR 
+            [IN that]
+            [S 
+              [NP 
+                [PRP it]]
+              [VP 
+                [VBD had]
+                [VP 
+                  [VBN been]
+                  [ADJP 
+                    [JJ Peppy]
+                    [SBAR 
+                      [WHNP 
+                        [WP who]]
+                      [S 
+                        [VP 
+                          [VBD had]
+                          [VP 
+                            [VBN purchased]
+                            [NP 
+                              [NP 
+                                [PDT all]]
+                              [SBAR 
+                                [S 
+                                  [NP 
+                                    [PRP$ his]]
+                                  [VP 
+                                    [VBN auctioned]
+                                    [NP 
+                                      [NNS effects]]]]]]]]]]]]]]]]]]
+    [, ,]
+    [NP 
+      [PRP he]]
+    [VP 
+      [VBZ returns]
+      [PP 
+        [IN in]
+        [NP 
+          [NN despair]]]
+      [PP 
+        [TO to]
+        [NP 
+          [PRP$ his]
+          [JJ burnt-out]
+          [NN apartment]]]]
+    [. .]]]
+
+Peppy arrives, panicked, and finds that Valentin is about to attempt suicide with a handgun.
+[ROOT 
+  [S 
+    [NP 
+      [JJ Peppy]]
+    [VP 
+      [VP 
+        [VBZ arrives]]
+      [, ,]
+      [VP 
+        [VBN panicked]]
+      [, ,]
+      [CC and]
+      [VP 
+        [VBZ finds]
+        [SBAR 
+          [IN that]
+          [S 
+            [NP 
+              [NNP Valentin]]
+            [VP 
+              [VBZ is]
+              [VP 
+                [IN about]
+                [S 
+                  [VP 
+                    [TO to]
+                    [VP 
+                      [VB attempt]
+                      [NP 
+                        [NN suicide]]
+                      [PP 
+                        [IN with]
+                        [NP 
+                          [DT a]
+                          [NN handgun]]]]]]]]]]]]
+    [. .]]]
+
+Peppy tells him she only wanted to help him.
+[ROOT 
+  [S 
+    [NP 
+      [JJ Peppy]]
+    [VP 
+      [VBZ tells]
+      [NP 
+        [PRP him]]
+      [SBAR 
+        [S 
+          [NP 
+            [PRP she]]
+          [ADVP 
+            [RB only]]
+          [VP 
+            [VBD wanted]
+            [S 
+              [VP 
+                [TO to]
+                [VP 
+                  [VB help]
+                  [NP 
+                    [PRP him]]]]]]]]]
+    [. .]]]
+
+They embrace and Valentin tells her it's no use; no one wants to hear him speak.
+[ROOT 
+  [S 
+    [S 
+      [S 
+        [NP 
+          [PRP They]]
+        [VP 
+          [VBP embrace]]]
+      [CC and]
+      [S 
+        [NP 
+          [NNP Valentin]]
+        [VP 
+          [VBZ tells]
+          [NP 
+            [PRP$ her]]
+          [SBAR 
+            [S 
+              [NP 
+                [PRP it]]
+              [VP 
+                [VBZ 's]
+                [NP 
+                  [DT no]
+                  [NN use]]]]]]]]
+    [: ;]
+    [S 
+      [NP 
+        [DT no]
+        [NN one]]
+      [VP 
+        [VBZ wants]
+        [S 
+          [VP 
+            [TO to]
+            [VP 
+              [VB hear]
+              [S 
+                [NP 
+                  [PRP him]]
+                [VP 
+                  [VB speak]]]]]]]]
+    [. .]]]
+
+Remembering Valentin's superb dancing ability, Peppy persuades Zimmer to let them make a musical together.
+[ROOT 
+  [S 
+    [S 
+      [VP 
+        [VBG Remembering]
+        [NP 
+          [NP 
+            [NNP Valentin]
+            [POS 's]]
+          [JJ superb]
+          [NN dancing]
+          [NN ability]]]]
+    [, ,]
+    [NP 
+      [JJ Peppy]]
+    [VP 
+      [VBZ persuades]
+      [S 
+        [NP 
+          [NNP Zimmer]]
+        [VP 
+          [TO to]
+          [VP 
+            [VB let]
+            [S 
+              [NP 
+                [PRP them]]
+              [VP 
+                [VB make]
+                [NP 
+                  [DT a]
+                  [JJ musical]]
+                [ADVP 
+                  [RB together]]]]]]]]
+    [. .]]]
+
+Now the audience hears sound for the second time, as the film starts rolling for a dance scene with Peppy and Valentin and their tap-dancing can be heard.
+[ROOT 
+  [S 
+    [S 
+      [ADVP 
+        [RB Now]]
+      [NP 
+        [DT the]
+        [NN audience]]
+      [VP 
+        [VBZ hears]
+        [NP 
+          [NP 
+            [NN sound]]
+          [PP 
+            [IN for]
+            [NP 
+              [DT the]
+              [JJ second]
+              [NN time]]]]
+        [, ,]
+        [SBAR 
+          [IN as]
+          [S 
+            [NP 
+              [DT the]
+              [NN film]]
+            [VP 
+              [VBZ starts]
+              [S 
+                [VP 
+                  [VBG rolling]
+                  [PP 
+                    [IN for]
+                    [NP 
+                      [NP 
+                        [DT a]
+                        [NN dance]
+                        [NN scene]]
+                      [PP 
+                        [IN with]
+                        [NP 
+                          [JJ Peppy]
+                          [CC and]
+                          [NNP Valentin]]]]]]]]]]]]
+    [CC and]
+    [S 
+      [NP 
+        [PRP$ their]
+        [NN tap-dancing]]
+      [VP 
+        [MD can]
+        [VP 
+          [VB be]
+          [VP 
+            [VBN heard]]]]]
+    [. .]]]
+
+Once the choreography is complete, the two dancers are heard panting.
+[ROOT 
+  [S 
+    [SBAR 
+      [RB Once]
+      [S 
+        [NP 
+          [DT the]
+          [NN choreography]]
+        [VP 
+          [VBZ is]
+          [ADJP 
+            [JJ complete]]]]]
+    [, ,]
+    [NP 
+      [DT the]
+      [CD two]
+      [NNS dancers]]
+    [VP 
+      [VBP are]
+      [VP 
+        [VBN heard]
+        [NP 
+          [NN panting]]]]
+    [. .]]]
+
+The director of the musical calls out audibly, "Cut!"
+[ROOT 
+  [FRAG 
+    [ADVP 
+      [ADVP 
+        [NP 
+          [DT The]
+          [NN director]]
+        [PP 
+          [IN of]
+          [NP 
+            [DT the]
+            [JJ musical]
+            [NNS calls]]]]
+      [PP 
+        [IN out]
+        [ADVP 
+          [RB audibly]]]]
+    [, ,]
+    [`` ``]
+    [NP 
+      [NNP Cut]]
+    [. !]
+    ['' '']]]
+
+to which Zimmer adds: "Perfect.
+[ROOT 
+  [FRAG 
+    [PP 
+      [TO to]
+      [NP 
+        [SBAR 
+          [WHNP 
+            [WDT which]]
+          [S 
+            [NP 
+              [NNP Zimmer]]
+            [VP 
+              [VBZ adds]]]]
+        [: :]
+        [NP 
+          [`` ``]
+          [NNP Perfect]]]]
+    [. .]]]
+
+Beautiful.
+[ROOT 
+  [FRAG 
+    [ADJP 
+      [JJ Beautiful]]
+    [. .]]]
+
+Could you give me one more?"
+[ROOT 
+  [FRAG 
+    [S 
+      [VP 
+        [MD Could]
+        [NP 
+          [PRP you]]
+        [S 
+          [VP 
+            [VB give]
+            [NP 
+              [PRP me]]
+            [NP 
+              [CD one]
+              [JJR more]]]]]]
+    [. ?]
+    ['' '']]]
+
+Valentin, in his only audible line, replies "With pleasure!"
+[ROOT 
+  [S 
+    [NP 
+      [NNP Valentin]]
+    [, ,]
+    [PP 
+      [IN in]
+      [NP 
+        [PRP$ his]
+        [JJ only]
+        [JJ audible]
+        [NN line]]]
+    [, ,]
+    [VP 
+      [VBZ replies]
+      [S 
+        [`` ``]
+        [PP 
+          [IN With]
+          [NP 
+            [NN pleasure]]]]]
+    [. !]
+    ['' '']]]
+
+revealing his French accent.
+[ROOT 
+  [S 
+    [VP 
+      [VBG revealing]
+      [NP 
+        [PRP$ his]
+        [JJ French]
+        [NN accent]]]
+    [. .]]]
+
+The camera then pulls back to the sounds of the film crew as they prepare to shoot another take.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN camera]]
+    [ADVP 
+      [RB then]]
+    [VP 
+      [VBZ pulls]
+      [ADVP 
+        [RB back]
+        [PP 
+          [TO to]
+          [NP 
+            [NP 
+              [DT the]
+              [NNS sounds]]
+            [PP 
+              [IN of]
+              [NP 
+                [DT the]
+                [NN film]
+                [NN crew]]]]]]
+      [SBAR 
+        [IN as]
+        [S 
+          [NP 
+            [PRP they]]
+          [VP 
+            [VBP prepare]
+            [S 
+              [VP 
+                [TO to]
+                [VP 
+                  [VB shoot]
+                  [NP 
+                    [DT another]
+                    [NN take]]]]]]]]]
+    [. .]]]
+
+CastEdit
+[ROOT 
+  [NP 
+    [NNP CastEdit]]]
+
+ProductionEdit
+[ROOT 
+  [NP 
+    [NNP ProductionEdit]]]
+
+Director Michel Hazanavicius had been fantasizing about making a silent film for many years, both because many filmmakers he admires emerged in the silent era, and because of the image-driven nature of the form.
+[ROOT 
+  [S 
+    [NP 
+      [NNP Director]
+      [NNP Michel]
+      [NNP Hazanavicius]]
+    [VP 
+      [VBD had]
+      [VP 
+        [VBN been]
+        [VP 
+          [VBG fantasizing]
+          [PP 
+            [PP 
+              [IN about]
+              [S 
+                [VP 
+                  [VBG making]
+                  [NP 
+                    [DT a]
+                    [JJ silent]
+                    [NN film]]
+                  [PP 
+                    [IN for]
+                    [NP 
+                      [JJ many]
+                      [NNS years]]]]]]
+            [, ,]
+            [CC both]
+            [PP 
+              [IN because]
+              [NP 
+                [NP 
+                  [JJ many]
+                  [NNS filmmakers]]
+                [SBAR 
+                  [S 
+                    [NP 
+                      [PRP he]]
+                    [VP 
+                      [VBZ admires]
+                      [VP 
+                        [VBN emerged]
+                        [PP 
+                          [IN in]
+                          [NP 
+                            [DT the]
+                            [JJ silent]
+                            [NN era]]]]]]]]]
+            [, ,]
+            [CC and]
+            [PP 
+              [IN because]
+              [PP 
+                [IN of]
+                [NP 
+                  [NP 
+                    [DT the]
+                    [JJ image-driven]
+                    [NN nature]]
+                  [PP 
+                    [IN of]
+                    [NP 
+                      [DT the]
+                      [NN form]]]]]]]]]]
+    [. .]]]
+
+According to Hazanavicius his wish to make a silent film was at first not taken seriously, but after the financial success of his spy-film pastiches OSS 117: Cairo, Nest of Spies and OSS 117: Lost in Rio, producers started to express interest.
+[ROOT 
+  [S 
+    [PP 
+      [VBG According]
+      [PP 
+        [TO to]
+        [NP 
+          [NNP Hazanavicius]]]]
+    [S 
+      [NP 
+        [PRP$ his]
+        [NN wish]
+        [S 
+          [VP 
+            [TO to]
+            [VP 
+              [VB make]
+              [NP 
+                [DT a]
+                [JJ silent]
+                [NN film]]]]]]
+      [VP 
+        [VBD was]
+        [ADVP 
+          [IN at]
+          [NP 
+            [RB first]
+            [RB not]]]
+        [VP 
+          [VBN taken]
+          [ADVP 
+            [RB seriously]]]]]
+    [, ,]
+    [CC but]
+    [S 
+      [PP 
+        [IN after]
+        [NP 
+          [NP 
+            [DT the]
+            [JJ financial]
+            [NN success]]
+          [PP 
+            [IN of]
+            [NP 
+              [PRP$ his]
+              [JJ spy-film]
+              [NNS pastiches]
+              [NN OSS]]]
+          [SBAR 
+            [FRAG 
+              [NP 
+                [CD 117]]
+              [: :]
+              [NP 
+                [NP 
+                  [NNP Cairo]
+                  [, ,]
+                  [NNP Nest]]
+                [PP 
+                  [IN of]
+                  [NP 
+                    [NP 
+                      [NNPS Spies]]
+                    [CC and]
+                    [NP 
+                      [NNP OSS]
+                      [CD 117]]]]]
+              [: :]
+              [VP 
+                [VBN Lost]
+                [PP 
+                  [IN in]
+                  [NP 
+                    [NNP Rio]]]]]]]]
+      [, ,]
+      [NP 
+        [NNS producers]]
+      [VP 
+        [VBD started]
+        [S 
+          [VP 
+            [TO to]
+            [VP 
+              [VB express]
+              [NP 
+                [NN interest]]]]]]]
+    [. .]]]
+
+The forming of the film's narrative started with Hazanavicius' desire to work again with actors Jean Dujardin and Brnice Bejo, Hazanivicius's wife, who had both starred in OSS 117: Cairo, Nest of Spies.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [DT The]
+        [VBG forming]]
+      [PP 
+        [IN of]
+        [NP 
+          [NP 
+            [DT the]
+            [NN film]
+            [POS 's]]
+          [NN narrative]]]]
+    [VP 
+      [VBD started]
+      [PP 
+        [IN with]
+        [NP 
+          [NP 
+            [NNP Hazanavicius]
+            [POS ']]
+          [NN desire]
+          [S 
+            [VP 
+              [TO to]
+              [VP 
+                [VB work]
+                [ADVP 
+                  [RB again]]
+                [PP 
+                  [IN with]
+                  [NP 
+                    [NP 
+                      [NNS actors]
+                      [NNP Jean]
+                      [NNP Dujardin]
+                      [CC and]
+                      [NNP Brnice]
+                      [NNP Bejo]]
+                    [, ,]
+                    [NP 
+                      [NP 
+                        [NP 
+                          [NP 
+                            [NNP Hazanivicius]
+                            [POS 's]]
+                          [NN wife]]
+                        [, ,]
+                        [SBAR 
+                          [WHNP 
+                            [WP who]]
+                          [S 
+                            [VP 
+                              [VBD had]
+                              [DT both]
+                              [VP 
+                                [VBD starred]
+                                [PP 
+                                  [IN in]
+                                  [NP 
+                                    [NN OSS]
+                                    [CD 117]]]]]]]]
+                      [: :]
+                      [NP 
+                        [NP 
+                          [NNP Cairo]
+                          [, ,]
+                          [NNP Nest]]
+                        [PP 
+                          [IN of]
+                          [NP 
+                            [NNPS Spies]]]]]]]]]]]]]
+    [. .]]]
+
+Hazanavicius chose the form of the melodrama, mostly because he thought many of the films from the silent era which have aged best are melodramas.
+[ROOT 
+  [S 
+    [NP 
+      [NNP Hazanavicius]]
+    [VP 
+      [VBD chose]
+      [NP 
+        [NP 
+          [DT the]
+          [NN form]]
+        [PP 
+          [IN of]
+          [NP 
+            [DT the]
+            [NN melodrama]]]]
+      [, ,]
+      [SBAR 
+        [ADVP 
+          [RB mostly]]
+        [IN because]
+        [S 
+          [NP 
+            [PRP he]]
+          [VP 
+            [VBD thought]
+            [NP 
+              [NP 
+                [JJ many]]
+              [PP 
+                [IN of]
+                [NP 
+                  [DT the]
+                  [NNS films]]]]
+            [PP 
+              [IN from]
+              [NP 
+                [NP 
+                  [DT the]
+                  [JJ silent]
+                  [NN era]]
+                [SBAR 
+                  [WHNP 
+                    [WDT which]]
+                  [S 
+                    [VP 
+                      [VBP have]
+                      [VP 
+                        [VBN aged]
+                        [SBAR 
+                          [S 
+                            [NP 
+                              [JJS best]]
+                            [VP 
+                              [VBP are]
+                              [NP 
+                                [NNS melodramas]]]]]]]]]]]]]]]
+    [. .]]]
+
+He did extensive research about 1920s Hollywood, and studied silent films to find the right techniques to make the story comprehensible without having to use too many intertitles.
+[ROOT 
+  [S 
+    [NP 
+      [PRP He]]
+    [VP 
+      [VP 
+        [VBD did]
+        [S 
+          [NP 
+            [NP 
+              [JJ extensive]
+              [NN research]]
+            [PP 
+              [IN about]
+              [NP 
+                [CD 1920s]]]]
+          [NP 
+            [NNP Hollywood]]]]
+      [, ,]
+      [CC and]
+      [VP 
+        [VBN studied]
+        [NP 
+          [JJ silent]
+          [NNS films]]
+        [S 
+          [VP 
+            [TO to]
+            [VP 
+              [VB find]
+              [S 
+                [NP 
+                  [DT the]
+                  [JJ right]
+                  [NNS techniques]]
+                [VP 
+                  [TO to]
+                  [VP 
+                    [VB make]
+                    [NP 
+                      [DT the]
+                      [NN story]
+                      [NN comprehensible]]
+                    [PP 
+                      [IN without]
+                      [S 
+                        [VP 
+                          [VBG having]
+                          [S 
+                            [VP 
+                              [TO to]
+                              [VP 
+                                [VB use]
+                                [NP 
+                                  [ADJP 
+                                    [RB too]
+                                    [JJ many]]
+                                  [NNS intertitles]]]]]]]]]]]]]]]]
+    [. .]]]
+
+The screenplay took four months to write.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN screenplay]]
+    [VP 
+      [VBD took]
+      [NP 
+        [CD four]
+        [NNS months]]
+      [S 
+        [VP 
+          [TO to]
+          [VP 
+            [VB write]]]]]
+    [. .]]]
+
+Chief among the influences shaping the screenplays protagonist was Douglas Fairbanks.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [NNP Chief]]
+      [PP 
+        [IN among]
+        [NP 
+          [NP 
+            [DT the]
+            [NNS influences]]
+          [VP 
+            [VBG shaping]
+            [NP 
+              [DT the]
+              [NNS screenplays]
+              [NN protagonist]]]]]]
+    [VP 
+      [VBD was]
+      [NP 
+        [NNP Douglas]
+        [NNP Fairbanks]]]
+    [. .]]]
+
+The Academy of Motion Picture Arts and Sciences recent book Douglas Fairbanks by Jeffrey Vance, as well as the Academys Douglas Fairbanks exhibition and screening events both in Los Angeles and New York City, afforded Hollywoods first swashbuckling hero and the Academy's first president some significant media attention.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [NP 
+          [DT The]
+          [NN Academy]]
+        [PP 
+          [IN of]
+          [NP 
+            [NNP Motion]
+            [NNP Picture]
+            [NNS Arts]]]]
+      [CC and]
+      [NP 
+        [NP 
+          [NNPS Sciences]]
+        [PP 
+          [PP 
+            [NP 
+              [JJ recent]
+              [NN book]
+              [NNP Douglas]
+              [NNP Fairbanks]]
+            [IN by]
+            [NP 
+              [NP 
+                [NNP Jeffrey]
+                [NNP Vance]]
+              [, ,]
+              [CONJP 
+                [RB as]
+                [RB well]
+                [IN as]]
+              [NP 
+                [NP 
+                  [DT the]
+                  [NNP Academys]
+                  [NNP Douglas]
+                  [NNP Fairbanks]
+                  [NN exhibition]]
+                [CC and]
+                [NP 
+                  [NN screening]
+                  [NNS events]]]]]
+          [CC both]
+          [PP 
+            [IN in]
+            [NP 
+              [NP 
+                [NNP Los]
+                [NNP Angeles]]
+              [CC and]
+              [NP 
+                [NNP New]
+                [NNP York]
+                [NNP City]]]]
+          [, ,]]]]
+    [VP 
+      [VBD afforded]
+      [NP 
+        [NP 
+          [NP 
+            [NNP Hollywoods]]
+          [NP 
+            [RB first]
+            [JJ swashbuckling]
+            [NN hero]]]
+        [CC and]
+        [NP 
+          [NP 
+            [NP 
+              [DT the]
+              [NNP Academy]
+              [POS 's]]
+            [JJ first]
+            [NN president]]
+          [NP 
+            [DT some]
+            [JJ significant]
+            [NNS media]
+            [NN attention]]]]]
+    [. .]]]
+
+Principal photography on The Artist began in November 2010, taking place over the course of thirty-five days, made in the 1.33:1 screen ratio commonly used in the silent film era.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [NN Principal]
+        [NN photography]]
+      [PP 
+        [IN on]
+        [NP 
+          [DT The]
+          [NNP Artist]]]]
+    [VP 
+      [VBD began]
+      [PP 
+        [IN in]
+        [NP 
+          [NNP November]
+          [CD 2010]]]
+      [, ,]
+      [S 
+        [VP 
+          [VBG taking]
+          [NP 
+            [NN place]]
+          [PP 
+            [IN over]
+            [NP 
+              [NP 
+                [DT the]
+                [NN course]]
+              [PP 
+                [IN of]
+                [NP 
+                  [NP 
+                    [CD thirty-five]
+                    [NNS days]]
+                  [, ,]
+                  [VP 
+                    [VBN made]
+                    [PP 
+                      [IN in]
+                      [NP 
+                        [NP 
+                          [DT the]
+                          [CD 1.33:1]
+                          [NN screen]
+                          [NN ratio]]
+                        [VP 
+                          [ADVP 
+                            [RB commonly]]
+                          [VBN used]
+                          [PP 
+                            [IN in]
+                            [NP 
+                              [DT the]
+                              [JJ silent]
+                              [NN film]
+                              [NN era]]]]]]]]]]]]]]
+    [. .]]]
+
+Though presented in black-and-white, it was shot in color by cinematographer Guillaume Schiffman.
+[ROOT 
+  [S 
+    [SBAR 
+      [IN Though]
+      [S 
+        [VP 
+          [VBN presented]
+          [PP 
+            [IN in]
+            [NP 
+              [JJ black-and-white]]]]]]
+    [, ,]
+    [NP 
+      [PRP it]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN shot]
+        [PP 
+          [IN in]
+          [NP 
+            [NN color]]]
+        [PP 
+          [IN by]
+          [NP 
+            [NN cinematographer]
+            [NNP Guillaume]
+            [NNP Schiffman]]]]]
+    [. .]]]
+
+All the technical details, including lenses, lighting and camera moves, were calibrated to aesthetically match silent films of the period.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [PDT All]
+        [DT the]
+        [JJ technical]
+        [NNS details]]
+      [, ,]
+      [PP 
+        [VBG including]
+        [NP 
+          [NNS lenses]
+          [, ,]
+          [NN lighting]
+          [CC and]
+          [NN camera]
+          [NNS moves]]]
+      [, ,]]
+    [VP 
+      [VBD were]
+      [ADJP 
+        [VBN calibrated]
+        [S 
+          [VP 
+            [TO to]
+            [VP 
+              [ADVP 
+                [RB aesthetically]]
+              [VB match]
+              [NP 
+                [NP 
+                  [JJ silent]
+                  [NNS films]]
+                [PP 
+                  [IN of]
+                  [NP 
+                    [DT the]
+                    [NN period]]]]]]]]]
+    [. .]]]
+
+To recreate the slightly sped-up look of 1920s silent films, the film was shot at a slightly lower frame rate of 22 fps as opposed to the standard 24 fps.
+[ROOT 
+  [S 
+    [S 
+      [VP 
+        [TO To]
+        [VP 
+          [VB recreate]
+          [NP 
+            [NP 
+              [DT the]
+              [RB slightly]
+              [JJ sped-up]
+              [NN look]]
+            [PP 
+              [IN of]
+              [NP 
+                [CD 1920s]
+                [JJ silent]
+                [NNS films]]]]]]]
+    [, ,]
+    [NP 
+      [DT the]
+      [NN film]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN shot]
+        [PP 
+          [IN at]
+          [NP 
+            [NP 
+              [DT a]
+              [ADJP 
+                [RB slightly]
+                [JJR lower]]
+              [NN frame]
+              [NN rate]]
+            [PP 
+              [IN of]
+              [NP 
+                [CD 22]
+                [NNS fps]]]]]
+        [PP 
+          [IN as]
+          [ADJP 
+            [VBN opposed]
+            [PP 
+              [TO to]
+              [NP 
+                [DT the]
+                [JJ standard]
+                [CD 24]
+                [NNS fps]]]]]]]
+    [. .]]]
+
+Most of the film is silent, except for two brief scenes with sound as well as the non-diegetic soundtrack.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [JJS Most]]
+      [PP 
+        [IN of]
+        [NP 
+          [DT the]
+          [NN film]]]]
+    [VP 
+      [VBZ is]
+      [ADJP 
+        [JJ silent]]
+      [, ,]
+      [SBAR 
+        [IN except]
+        [FRAG 
+          [PP 
+            [IN for]
+            [NP 
+              [CD two]
+              [JJ brief]
+              [NNS scenes]]]]]
+      [PP 
+        [IN with]
+        [NP 
+          [NP 
+            [NN sound]]
+          [CONJP 
+            [RB as]
+            [RB well]
+            [IN as]]
+          [NP 
+            [DT the]
+            [JJ non-diegetic]
+            [NN soundtrack]]]]]
+    [. .]]]
+
+Throughout the shoot, Hazanavicius played music from classic Hollywood films while the actors performed.
+[ROOT 
+  [S 
+    [PP 
+      [IN Throughout]
+      [NP 
+        [DT the]
+        [NN shoot]]]
+    [, ,]
+    [NP 
+      [NNP Hazanavicius]]
+    [VP 
+      [VBD played]
+      [NP 
+        [NN music]]
+      [PP 
+        [IN from]
+        [NP 
+          [JJ classic]
+          [NNP Hollywood]
+          [NNS films]]]
+      [SBAR 
+        [IN while]
+        [S 
+          [NP 
+            [DT the]
+            [NNS actors]]
+          [VP 
+            [VBN performed]]]]]
+    [. .]]]
+
+The film was produced by La Petite Reine and ARP Slection for 13.47 million euro, including co-production support from Studio 37 and France 3 Cinma, and pre-sales investment from Canal+ and CinCinma.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN film]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN produced]
+        [PP 
+          [IN by]
+          [NP 
+            [NP 
+              [NNP La]
+              [NNP Petite]
+              [NNP Reine]
+              [CC and]
+              [NNP ARP]
+              [NNP Slection]]
+            [PP 
+              [IN for]
+              [NP 
+                [QP 
+                  [CD 13.47]
+                  [CD million]]
+                [NN euro]]]
+            [, ,]
+            [PP 
+              [VBG including]
+              [NP 
+                [NP 
+                  [NP 
+                    [NN co-production]
+                    [NN support]]
+                  [PP 
+                    [IN from]
+                    [NP 
+                      [NNP Studio]
+                      [CD 37]]]]
+                [CC and]
+                [NP 
+                  [NP 
+                    [NNP France]
+                    [CD 3]]
+                  [NP 
+                    [NNP Cinma]]]
+                [, ,]
+                [CC and]
+                [NP 
+                  [NP 
+                    [NNS pre-sales]
+                    [NN investment]]
+                  [PP 
+                    [IN from]
+                    [NP 
+                      [NP 
+                        [NP 
+                          [NNP Canal]]
+                        [SBAR 
+                          [S 
+                            [NP 
+                              [CC +]]]]]
+                      [CC and]
+                      [NP 
+                        [NNP CinCinma]]]]]]]]]]]
+    [. .]]]
+
+The cast and the crew included both French and American members.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [DT The]
+        [NN cast]]
+      [CC and]
+      [NP 
+        [DT the]
+        [NN crew]]]
+    [VP 
+      [VBD included]
+      [PP 
+        [CC both]
+        [NP 
+          [JJ French]
+          [CC and]
+          [JJ American]
+          [NNS members]]]]
+    [. .]]]
+
+All the scenes were shot in Los Angeles, primarily in Hollywood, but also in downtown theaters, restaurants and houses, including the one in which Mary Pickford lived.
+[ROOT 
+  [S 
+    [NP 
+      [PDT All]
+      [DT the]
+      [NNS scenes]]
+    [VP 
+      [VBD were]
+      [VP 
+        [VBN shot]
+        [PP 
+          [IN in]
+          [NP 
+            [NP 
+              [NNP Los]
+              [NNP Angeles]]
+            [PRN 
+              [, ,]
+              [PP 
+                [RB primarily]
+                [PP 
+                  [IN in]
+                  [NP 
+                    [NNP Hollywood]]]
+                [, ,]
+                [CONJP 
+                  [CC but]
+                  [RB also]]
+                [PP 
+                  [IN in]
+                  [NP 
+                    [NN downtown]]]]
+              [NP 
+                [NP 
+                  [NNS theaters]]
+                [, ,]
+                [NP 
+                  [NNS restaurants]
+                  [CC and]
+                  [NNS houses]]]
+              [, ,]
+              [PP 
+                [VBG including]
+                [NP 
+                  [DT the]
+                  [CD one]]]]
+            [SBAR 
+              [WHPP 
+                [IN in]
+                [WHNP 
+                  [WDT which]]]
+              [S 
+                [NP 
+                  [NNP Mary]
+                  [NNP Pickford]]
+                [VP 
+                  [VBD lived]]]]]]]]
+    [. .]]]
+
+Soundstage work was done at Red Studios, and the studio lot itself doubled for part of the fictional Kinograph Studios lot, with Red's Lillian Way entrance doubling as the Kinograph entrance in several sequences.
+[ROOT 
+  [S 
+    [S 
+      [NP 
+        [NN Soundstage]
+        [NN work]]
+      [VP 
+        [VBD was]
+        [VP 
+          [VBN done]
+          [PP 
+            [IN at]
+            [NP 
+              [NNP Red]
+              [NNP Studios]]]]]]
+    [, ,]
+    [CC and]
+    [S 
+      [NP 
+        [DT the]
+        [NN studio]
+        [NN lot]]
+      [ADVP 
+        [PRP itself]]
+      [VP 
+        [VBD doubled]
+        [PP 
+          [IN for]
+          [NP 
+            [NP 
+              [NN part]]
+            [PP 
+              [IN of]
+              [NP 
+                [DT the]
+                [JJ fictional]
+                [NNP Kinograph]
+                [NNP Studios]
+                [NN lot]]]]]
+        [, ,]
+        [PP 
+          [IN with]
+          [NP 
+            [NP 
+              [NP 
+                [NNP Red]
+                [POS 's]]
+              [NNP Lillian]
+              [NNP Way]
+              [NN entrance]]
+            [VP 
+              [VBG doubling]
+              [PP 
+                [IN as]
+                [NP 
+                  [DT the]
+                  [NNP Kinograph]
+                  [NN entrance]]]
+              [PP 
+                [IN in]
+                [NP 
+                  [JJ several]
+                  [NNS sequences]]]]]]]]
+    [. .]]]
+
+The iconic Bradbury Building in downtown L.A. provided the location for the film's distinctive staircase sequence.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [DT The]
+        [JJ iconic]
+        [NNP Bradbury]
+        [NNP Building]]
+      [PP 
+        [IN in]
+        [NP 
+          [NN downtown]
+          [NNP L.A.]]]]
+    [VP 
+      [VBD provided]
+      [NP 
+        [DT the]
+        [NN location]]
+      [PP 
+        [IN for]
+        [NP 
+          [NP 
+            [DT the]
+            [NN film]
+            [POS 's]]
+          [JJ distinctive]
+          [NN staircase]
+          [NN sequence]]]]
+    [. .]]]
+
+The dance sequence that closes the film took seventeen takes, and required Dujardin and Bejo to spend five months studying tap dancing, with Dujardin claiming that "in the first week it's fun, the fifth week it's a little boring, at the end it's thrilling".
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [DT The]
+        [NN dance]
+        [NN sequence]]
+      [SBAR 
+        [WHNP 
+          [WDT that]]
+        [S 
+          [VP 
+            [VBZ closes]
+            [SBAR 
+              [S 
+                [NP 
+                  [DT the]
+                  [NN film]]
+                [VP 
+                  [VBD took]
+                  [NP 
+                    [CD seventeen]]]]]]]]]
+    [VP 
+      [VP 
+        [VBZ takes]]
+      [, ,]
+      [CC and]
+      [VP 
+        [VBN required]
+        [S 
+          [NP 
+            [NNP Dujardin]
+            [CC and]
+            [NNP Bejo]]
+          [VP 
+            [TO to]
+            [VP 
+              [VB spend]
+              [NP 
+                [NP 
+                  [CD five]
+                  [NNS months]]
+                [VP 
+                  [VBG studying]
+                  [NP 
+                    [NN tap]
+                    [NN dancing]]]]]]]
+        [, ,]
+        [PP 
+          [IN with]
+          [S 
+            [NP 
+              [NNP Dujardin]]
+            [VP 
+              [VBG claiming]
+              [SBAR 
+                [IN that]
+                [S 
+                  [`` ``]
+                  [S 
+                    [PP 
+                      [IN in]
+                      [NP 
+                        [DT the]
+                        [JJ first]
+                        [NN week]]]
+                    [NP 
+                      [PRP it]]
+                    [VP 
+                      [VBZ 's]
+                      [NP 
+                        [NN fun]]]]
+                  [, ,]
+                  [S 
+                    [NP-TMP 
+                      [DT the]
+                      [JJ fifth]
+                      [NN week]]
+                    [NP 
+                      [PRP it]]
+                    [VP 
+                      [VBZ 's]
+                      [NP 
+                        [DT a]
+                        [JJ little]
+                        [NN boring]]]]
+                  [, ,]
+                  [S 
+                    [PP 
+                      [IN at]
+                      [NP 
+                        [DT the]
+                        [NN end]]]
+                    [NP 
+                      [PRP it]]
+                    [VP 
+                      [VBZ 's]
+                      [NP 
+                        [NN thrilling]]]]
+                  ['' '']]]]]]]]
+    [. .]]]
+
+American costume designer Mark Bridges created the wardrobe for the film's cast.
+[ROOT 
+  [S 
+    [NP 
+      [JJ American]
+      [NN costume]
+      [NN designer]
+      [NNP Mark]
+      [NNP Bridges]]
+    [VP 
+      [VBD created]
+      [NP 
+        [DT the]
+        [NN wardrobe]]
+      [PP 
+        [IN for]
+        [NP 
+          [NP 
+            [DT the]
+            [NN film]
+            [POS 's]]
+          [NN cast]]]]
+    [. .]]]
+
+MusicEdit
+[ROOT 
+  [NP 
+    [NN MusicEdit]]]
+
+The film's music was largely composed by Ludovic Bource, but includes works by other composers such as Alberto Ginastera's "Estancia".
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [DT The]
+        [NN film]
+        [POS 's]]
+      [NN music]]
+    [VP 
+      [VP 
+        [VBD was]
+        [VP 
+          [ADVP 
+            [RB largely]]
+          [VBN composed]
+          [PP 
+            [IN by]
+            [NP 
+              [NNP Ludovic]
+              [NNP Bource]]]]]
+      [, ,]
+      [CC but]
+      [VP 
+        [VBZ includes]
+        [NP 
+          [NNS works]]
+        [PP 
+          [IN by]
+          [NP 
+            [NP 
+              [JJ other]
+              [NNS composers]]
+            [PP 
+              [JJ such]
+              [IN as]
+              [NP 
+                [NP 
+                  [NNP Alberto]
+                  [NNP Ginastera]
+                  [POS 's]]
+                [`` ``]
+                [NP 
+                  [FW Estancia]]
+                ['' '']]]]]]]
+    [. .]]]
+
+The soundtrack was recorded in Belgium by the Brussels Philharmonic and was conducted by Ernst Van Tiel; the Brussels Jazz Orchestra also cooperated.
+[ROOT 
+  [S 
+    [S 
+      [NP 
+        [DT The]
+        [NN soundtrack]]
+      [VP 
+        [VP 
+          [VBD was]
+          [VP 
+            [VBN recorded]
+            [PP 
+              [IN in]
+              [NP 
+                [NNP Belgium]]]
+            [PP 
+              [IN by]
+              [NP 
+                [DT the]
+                [NNP Brussels]
+                [NNP Philharmonic]]]]]
+        [CC and]
+        [VP 
+          [VBD was]
+          [VP 
+            [VBN conducted]
+            [PP 
+              [IN by]
+              [NP 
+                [NNP Ernst]
+                [NNP Van]
+                [NNP Tiel]]]]]]]
+    [: ;]
+    [S 
+      [NP 
+        [DT the]
+        [NNP Brussels]
+        [NN Jazz]
+        [NNP Orchestra]]
+      [ADVP 
+        [RB also]]
+      [VP 
+        [VBD cooperated]]]
+    [. .]]]
+
+The recording took place during six days in April 2011 at Flagey's Studio 4 in Brussels.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN recording]]
+    [VP 
+      [VBD took]
+      [NP 
+        [NN place]]
+      [PP 
+        [IN during]
+        [NP 
+          [NP 
+            [CD six]
+            [NNS days]]
+          [PP 
+            [IN in]
+            [NP 
+              [NNP April]
+              [CD 2011]]]]]
+      [PP 
+        [IN at]
+        [NP 
+          [NP 
+            [NP 
+              [NNP Flagey]
+              [POS 's]]
+            [NNP Studio]
+            [CD 4]]
+          [PP 
+            [IN in]
+            [NP 
+              [NNP Brussels]]]]]]
+    [. .]]]
+
+The film's climactic scene is set to Bernard Herrmann's "Scne d'amour" from his score to Alfred Hitchcock's film Vertigo.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [DT The]
+        [NN film]
+        [POS 's]]
+      [JJ climactic]
+      [NN scene]]
+    [VP 
+      [VBZ is]
+      [VP 
+        [VBN set]
+        [PP 
+          [TO to]
+          [NP 
+            [NP 
+              [NNP Bernard]
+              [NNP Herrmann]
+              [POS 's]]
+            [`` ``]
+            [NP 
+              [FW Scne]
+              [FW d'amour]]
+            ['' '']]]
+        [PP 
+          [IN from]
+          [NP 
+            [PRP$ his]
+            [NN score]]]
+        [PP 
+          [TO to]
+          [NP 
+            [NP 
+              [NNP Alfred]
+              [NNP Hitchcock]
+              [POS 's]]
+            [NN film]
+            [NNP Vertigo]]]]]
+    [. .]]]
+
+In Vertigo, that composition similarly accompanies an extended scene without dialogue.
+[ROOT 
+  [S 
+    [PP 
+      [IN In]
+      [NP 
+        [NNP Vertigo]]]
+    [, ,]
+    [X 
+      [IN that]]
+    [NP 
+      [NN composition]]
+    [VP 
+      [ADVP 
+        [RB similarly]]
+      [VBZ accompanies]
+      [NP 
+        [DT an]
+        [JJ extended]
+        [NN scene]]
+      [PP 
+        [IN without]
+        [NP 
+          [NN dialogue]]]]
+    [. .]]]
+
+Only one song (sung, with lyrics) is used in the soundtrack, "Pennies from Heaven", sung by Rose "Chi-Chi" Murphy (uncredited).
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [RB Only]
+        [CD one]
+        [NN song]]
+      [PRN 
+        [-LRB- -LRB-]
+        [VP 
+          [VBN sung]
+          [, ,]
+          [PP 
+            [IN with]
+            [NP 
+              [NNS lyrics]]]]
+        [-RRB- -RRB-]]]
+    [VP 
+      [VBZ is]
+      [VP 
+        [VBN used]
+        [PP 
+          [IN in]
+          [NP 
+            [NP 
+              [DT the]
+              [NN soundtrack]]
+            [, ,]
+            [NP 
+              [`` ``]
+              [NP 
+                [NNS Pennies]]
+              [PP 
+                [IN from]
+                [NP 
+                  [NNP Heaven]]]
+              ['' '']]
+            [, ,]
+            [VP 
+              [VBN sung]
+              [PP 
+                [IN by]
+                [NP 
+                  [NP 
+                    [NNP Rose]
+                    [`` ``]
+                    [NNP Chi-Chi]
+                    ['' '']
+                    [NNP Murphy]]
+                  [PRN 
+                    [-LRB- -LRB-]
+                    [ADJP 
+                      [JJ uncredited]]
+                    [-RRB- -RRB-]]]]]]]]]
+    [. .]]]
+
+This song was written in 1936 although the film is set between 1927 and 1932.
+[ROOT 
+  [S 
+    [NP 
+      [DT This]
+      [NN song]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN written]
+        [PP 
+          [IN in]
+          [NP 
+            [CD 1936]]]
+        [SBAR 
+          [IN although]
+          [S 
+            [NP 
+              [DT the]
+              [NN film]]
+            [VP 
+              [VBZ is]
+              [VP 
+                [VBN set]
+                [PP 
+                  [IN between]
+                  [NP 
+                    [CD 1927]
+                    [CC and]
+                    [CD 1932]]]]]]]]]
+    [. .]]]
+
+The soundtrack was released on 21 October 2011 through Sony Classical Records.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN soundtrack]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN released]
+        [PP 
+          [IN on]
+          [NP 
+            [CD 21]]]
+        [NP-TMP 
+          [NNP October]
+          [CD 2011]]
+        [PP 
+          [IN through]
+          [NP 
+            [NP 
+              [NNP Sony]]
+            [NP 
+              [JJ Classical]
+              [NNPS Records]]]]]]
+    [. .]]]
+
+Track listingEdit
+[ROOT 
+  [NP 
+    [NNP Track]
+    [NNP listingEdit]]]
+
+Chart positionsEdit
+[ROOT 
+  [NP 
+    [NN Chart]
+    [NN positionsEdit]]]
+
+CertificationsEdit
+[ROOT 
+  [NP 
+    [NNP CertificationsEdit]]]
+
+ReleaseEdit
+[ROOT 
+  [NP 
+    [NN ReleaseEdit]]]
+
+The film premiered on 15 May 2011 in competition at the 2011 Cannes Film Festival.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN film]]
+    [VP 
+      [VBD premiered]
+      [PP 
+        [IN on]
+        [NP 
+          [CD 15]]]
+      [NP-TMP 
+        [NNP May]
+        [CD 2011]]
+      [PP 
+        [IN in]
+        [NP 
+          [NP 
+            [NN competition]]
+          [PP 
+            [IN at]
+            [NP 
+              [DT the]
+              [CD 2011]
+              [NNP Cannes]
+              [NNP Film]
+              [NNP Festival]]]]]]
+    [. .]]]
+
+It was initially announced as an out of competition entry, but was moved to the competition a week before the festival opened.
+[ROOT 
+  [S 
+    [NP 
+      [PRP It]]
+    [VP 
+      [VP 
+        [VBD was]
+        [VP 
+          [ADVP 
+            [RB initially]]
+          [VBN announced]
+          [PP 
+            [IN as]
+            [NP 
+              [DT an]
+              [ADJP 
+                [IN out]
+                [PP 
+                  [IN of]
+                  [NP 
+                    [NN competition]]]]
+              [NN entry]]]]]
+      [, ,]
+      [CC but]
+      [VP 
+        [VBD was]
+        [VP 
+          [VBN moved]
+          [PP 
+            [TO to]
+            [NP 
+              [DT the]
+              [NN competition]]]
+          [NP-TMP 
+            [DT a]
+            [NN week]]
+          [SBAR 
+            [IN before]
+            [S 
+              [NP 
+                [DT the]
+                [NN festival]]
+              [VP 
+                [VBD opened]]]]]]]
+    [. .]]]
+
+The French regular release was on 12 October 2011 through Warner Bros. France.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [JJ French]
+      [JJ regular]
+      [NN release]]
+    [VP 
+      [VBD was]
+      [PP 
+        [IN on]
+        [NP 
+          [CD 12]]]
+      [NP-TMP 
+        [NNP October]
+        [CD 2011]]
+      [PP 
+        [IN through]
+        [NP 
+          [NNP Warner]
+          [NNP Bros.]]]]
+    [. .]]]
+
+The Weinstein Company bought the distribution rights for the United States and Australia and Entertainment Film Distributors bought the UK distribution.
+[ROOT 
+  [S 
+    [S 
+      [NP 
+        [DT The]
+        [NNP Weinstein]
+        [NNP Company]]
+      [VP 
+        [VBD bought]
+        [NP 
+          [DT the]
+          [NN distribution]
+          [NNS rights]]
+        [PP 
+          [IN for]
+          [NP 
+            [DT the]
+            [NNP United]
+            [NNPS States]
+            [CC and]
+            [NNP Australia]]]]]
+    [CC and]
+    [S 
+      [NP 
+        [NNP Entertainment]
+        [NNP Film]
+        [NNPS Distributors]]
+      [VP 
+        [VBD bought]
+        [NP 
+          [DT the]
+          [NNP UK]
+          [NN distribution]]]]
+    [. .]]]
+
+The film was initially given limited release in the United States on 23 November 2011.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN film]]
+    [VP 
+      [VBD was]
+      [ADVP 
+        [RB initially]]
+      [VP 
+        [VBN given]
+        [NP 
+          [JJ limited]
+          [NN release]]
+        [PP 
+          [IN in]
+          [NP 
+            [NP 
+              [DT the]
+              [NNP United]
+              [NNPS States]]
+            [PP 
+              [IN on]
+              [NP 
+                [CD 23]]]
+            [NP-TMP 
+              [NNP November]
+              [CD 2011]]]]]]
+    [. .]]]
+
+Following its wins at the 69th Golden Globe Awards, it was announced Warner Bros. would re-release the film in France in 362 theaters on 25 January 2012.
+[ROOT 
+  [S 
+    [PP 
+      [VBG Following]
+      [NP 
+        [NP 
+          [PRP$ its]
+          [NNS wins]]
+        [PP 
+          [IN at]
+          [NP 
+            [DT the]
+            [JJ 69th]
+            [NNP Golden]
+            [NNP Globe]
+            [NNS Awards]]]]]
+    [, ,]
+    [NP 
+      [PRP it]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN announced]
+        [SBAR 
+          [S 
+            [NP 
+              [NNP Warner]
+              [NNP Bros.]]
+            [VP 
+              [MD would]
+              [VP 
+                [VB re-release]
+                [NP 
+                  [NP 
+                    [DT the]
+                    [NN film]]
+                  [PP 
+                    [IN in]
+                    [NP 
+                      [NNP France]]]]
+                [PP 
+                  [IN in]
+                  [NP 
+                    [CD 362]
+                    [NNS theaters]]]
+                [PP 
+                  [IN on]
+                  [NP 
+                    [CD 25]]]
+                [NP-TMP 
+                  [NNP January]
+                  [CD 2012]]]]]]]]
+    [. .]]]
+
+It was also re-released in Belgium on 22 February 2012.
+[ROOT 
+  [S 
+    [NP 
+      [PRP It]]
+    [VP 
+      [VBD was]
+      [ADVP 
+        [RB also]]
+      [VP 
+        [VBN re-released]
+        [PP 
+          [IN in]
+          [NP 
+            [NP 
+              [NNP Belgium]]
+            [PP 
+              [IN on]
+              [NP 
+                [CD 22]]]]]
+        [NP-TMP 
+          [NNP February]
+          [CD 2012]]]]
+    [. .]]]
+
+Box officeEdit
+[ROOT 
+  [NP 
+    [NP 
+      [NNP Box]]
+    [NP 
+      [NN officeEdit]]]]
+
+The Artist grossed $44,671,682 in North America, along with $88,761,174 in other territories for a worldwide total of $133,432,856.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [VP 
+      [VBD grossed]
+      [NP 
+        [$ $]
+        [CD 44,671,682]]
+      [PP 
+        [IN in]
+        [NP 
+          [NP 
+            [NNP North]
+            [NNP America]]
+          [, ,]
+          [ADVP 
+            [IN along]
+            [PP 
+              [IN with]
+              [NP 
+                [NP 
+                  [$ $]
+                  [CD 88,761,174]]
+                [PP 
+                  [IN in]
+                  [NP 
+                    [JJ other]
+                    [NNS territories]]]]]]]]
+      [PP 
+        [IN for]
+        [NP 
+          [NP 
+            [DT a]
+            [JJ worldwide]
+            [NN total]]
+          [PP 
+            [IN of]
+            [NP 
+              [$ $]
+              [CD 133,432,856]]]]]]
+    [. .]]]
+
+After its success at the Academy Awards, the film saw a moderate boost the following week on the box office in North America.
+[ROOT 
+  [S 
+    [PP 
+      [IN After]
+      [NP 
+        [NP 
+          [PRP$ its]
+          [NN success]]
+        [PP 
+          [IN at]
+          [NP 
+            [DT the]
+            [NNP Academy]
+            [NNS Awards]]]]]
+    [, ,]
+    [NP 
+      [DT the]
+      [NN film]]
+    [VP 
+      [VBD saw]
+      [NP 
+        [DT a]
+        [JJ moderate]
+        [NN boost]]
+      [S 
+        [NP 
+          [NP 
+            [DT the]
+            [VBG following]
+            [NN week]]
+          [PP 
+            [IN on]
+            [NP 
+              [NP 
+                [DT the]
+                [NN box]
+                [NN office]]
+              [PP 
+                [IN in]
+                [NP 
+                  [NNP North]
+                  [NNP America]]]]]]]]
+    [. .]]]
+
+It appeared on the week's top 10 chart and got an increase of 34% while expanding its release from 966 theaters to 1,756.
+[ROOT 
+  [S 
+    [NP 
+      [PRP It]]
+    [VP 
+      [VP 
+        [VBD appeared]
+        [PP 
+          [IN on]
+          [NP 
+            [NP 
+              [DT the]
+              [NN week]
+              [POS 's]]
+            [ADJP 
+              [JJ top]
+              [NP-TMP 
+                [CD 10]]]
+            [NN chart]]]]
+      [CC and]
+      [VP 
+        [VBD got]
+        [NP 
+          [NP 
+            [DT an]
+            [NN increase]]
+          [PP 
+            [IN of]
+            [NP 
+              [CD 34]
+              [NN %]]]]
+        [PP 
+          [IN while]
+          [S 
+            [VP 
+              [VBG expanding]
+              [NP 
+                [PRP$ its]
+                [NN release]]
+              [PP 
+                [IN from]
+                [NP 
+                  [NP 
+                    [CD 966]
+                    [NNS theaters]]
+                  [PP 
+                    [TO to]
+                    [NP 
+                      [CD 1,756]]]]]]]]]]
+    [. .]]]
+
+Critical responseEdit
+[ROOT 
+  [NP 
+    [JJ Critical]
+    [NN responseEdit]]]
+
+The film received universal acclaim upon its release, with many critics praising Dujardin and Bejo's performances.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN film]]
+    [VP 
+      [VBD received]
+      [NP 
+        [JJ universal]
+        [NN acclaim]]
+      [PP 
+        [IN upon]
+        [NP 
+          [PRP$ its]
+          [NN release]]]
+      [, ,]
+      [PP 
+        [IN with]
+        [NP 
+          [NP 
+            [JJ many]
+            [NNS critics]]
+          [VP 
+            [VBG praising]
+            [NP 
+              [NP 
+                [NNP Dujardin]
+                [CC and]
+                [NNP Bejo]
+                [POS 's]]
+              [NNS performances]]]]]]
+    [. .]]]
+
+Review aggregate Rotten Tomatoes reports that 97% of critics have given The Artist a positive review based on 276 reviews, with an average rating of 8.8/10, making the film a "Certified fresh" on the website's rating system.
+[ROOT 
+  [S 
+    [NP 
+      [NN Review]
+      [NN aggregate]
+      [NNP Rotten]
+      [NNP Tomatoes]]
+    [VP 
+      [VBZ reports]
+      [SBAR 
+        [IN that]
+        [S 
+          [NP 
+            [NP 
+              [CD 97]
+              [NN %]]
+            [PP 
+              [IN of]
+              [NP 
+                [NNS critics]]]]
+          [VP 
+            [VBP have]
+            [VP 
+              [VBN given]
+              [NP 
+                [DT The]
+                [NNP Artist]]
+              [NP 
+                [NP 
+                  [DT a]
+                  [JJ positive]
+                  [NN review]]
+                [VP 
+                  [VBN based]
+                  [PP 
+                    [IN on]
+                    [NP 
+                      [CD 276]
+                      [NNS reviews]]]
+                  [, ,]
+                  [PP 
+                    [IN with]
+                    [NP 
+                      [NP 
+                        [DT an]
+                        [JJ average]
+                        [NN rating]]
+                      [PP 
+                        [IN of]
+                        [NP 
+                          [NP 
+                            [CD 8.8]]
+                          [PRN 
+                            [: /]
+                            [NP 
+                              [CD 10]]]]]]]
+                  [, ,]
+                  [S 
+                    [VP 
+                      [VBG making]
+                      [S 
+                        [NP 
+                          [DT the]
+                          [NN film]]
+                        [NP 
+                          [NP 
+                            [DT a]
+                            [`` ``]
+                            [JJ Certified]]
+                          [ADJP 
+                            [JJ fresh]
+                            ['' '']
+                            [PP 
+                              [IN on]
+                              [NP 
+                                [NP 
+                                  [DT the]
+                                  [NN website]
+                                  [POS 's]]
+                                [NN rating]
+                                [NN system]]]]]]]]]]]]]]]
+    [. .]]]
+
+At Metacritic, which assigns a weighted mean rating out of 100 to reviews from mainstream critics, the film received an average score of 89, based on 41 reviews, which indicates "Universal acclaim".
+[ROOT 
+  [S 
+    [PP 
+      [IN At]
+      [NP 
+        [NP 
+          [NNP Metacritic]]
+        [, ,]
+        [SBAR 
+          [WHNP 
+            [WDT which]]
+          [S 
+            [VP 
+              [VBZ assigns]
+              [NP 
+                [DT a]
+                [JJ weighted]
+                [NN mean]
+                [NN rating]]
+              [ADVP 
+                [IN out]
+                [PP 
+                  [IN of]
+                  [NP 
+                    [CD 100]]
+                  [PP 
+                    [TO to]
+                    [NP 
+                      [NP 
+                        [NNS reviews]]
+                      [PP 
+                        [IN from]
+                        [NP 
+                          [NN mainstream]
+                          [NNS critics]]]]]]]]]]]]
+    [, ,]
+    [NP 
+      [DT the]
+      [NN film]]
+    [VP 
+      [VBD received]
+      [NP 
+        [NP 
+          [DT an]
+          [JJ average]
+          [NN score]]
+        [PP 
+          [IN of]
+          [NP 
+            [CD 89]]]]
+      [, ,]
+      [PP 
+        [VBN based]
+        [PP 
+          [IN on]
+          [NP 
+            [NP 
+              [CD 41]
+              [NNS reviews]]
+            [, ,]
+            [SBAR 
+              [WHNP 
+                [WDT which]]
+              [S 
+                [VP 
+                  [VBZ indicates]
+                  [S 
+                    [`` ``]
+                    [NP 
+                      [NNP Universal]
+                      [NN acclaim]]
+                    ['' '']]]]]]]]]
+    [. .]]]
+
+The reviewers at Spill.com gave it their highest rating, a "Better Than Sex!"
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [DT The]
+        [NNS reviewers]]
+      [PP 
+        [IN at]
+        [NP 
+          [NNP Spill.com]]]]
+    [VP 
+      [VBD gave]
+      [NP 
+        [PRP it]]
+      [NP 
+        [PRP$ their]
+        [JJS highest]
+        [NN rating]]
+      [, ,]
+      [NP 
+        [NP 
+          [DT a]
+          [`` ``]
+          [NNP Better]]
+        [PP 
+          [IN Than]
+          [NP 
+            [NN Sex]]]]]
+    [. !]
+    ['' '']]]
+
+Mark Adams of Screen Daily called the film "a real pleasure"; "propelled elegantly forward by delightful performances from Jean Dujardin and Brnice Bejo it is the most unlikely of feel-good movies."
+[ROOT 
+  [S 
+    [S 
+      [NP 
+        [NP 
+          [NNP Mark]
+          [NNP Adams]]
+        [PP 
+          [IN of]
+          [NP 
+            [NNP Screen]
+            [NNP Daily]]]]
+      [VP 
+        [VBD called]
+        [NP 
+          [DT the]
+          [NN film]
+          [`` ``]
+          [NP 
+            [DT a]
+            [JJ real]
+            [NN pleasure]]
+          ['' '']]]]
+    [: ;]
+    [`` ``]
+    [S 
+      [S 
+        [VP 
+          [VBD propelled]
+          [ADVP 
+            [RB elegantly]]
+          [ADVP 
+            [RB forward]]
+          [PP 
+            [IN by]
+            [NP 
+              [JJ delightful]
+              [NNS performances]]]
+          [PP 
+            [IN from]
+            [NP 
+              [NP 
+                [NNP Jean]
+                [NNP Dujardin]]
+              [CC and]
+              [NP 
+                [NNP Brnice]
+                [NNP Bejo]]]]]]
+      [NP 
+        [PRP it]]
+      [VP 
+        [VBZ is]
+        [NP 
+          [NP 
+            [DT the]
+            [ADJP 
+              [RBS most]
+              [JJ unlikely]]]
+          [PP 
+            [IN of]
+            [NP 
+              [JJ feel-good]
+              [NNS movies]]]]]]
+    [. .]
+    ['' '']]]
+
+He added however: "The film does feel a little sluggish towards the end of the first third as the music is a little repetitive and the intertitles are infrequent, but Hazanavicius manages to give the film a real sense of charm and warmth, and film fans will be competing to spot visual and musical references."
+[ROOT 
+  [S 
+    [S 
+      [NP 
+        [PRP He]]
+      [VP 
+        [VBD added]
+        [ADVP 
+          [RB however]]
+        [: :]
+        [`` ``]
+        [S 
+          [S 
+            [NP 
+              [DT The]
+              [NN film]]
+            [VP 
+              [VBZ does]
+              [VP 
+                [VB feel]
+                [ADJP 
+                  [NP 
+                    [DT a]
+                    [JJ little]]
+                  [JJ sluggish]
+                  [PP 
+                    [IN towards]
+                    [NP 
+                      [NP 
+                        [DT the]
+                        [NN end]]
+                      [PP 
+                        [IN of]
+                        [NP 
+                          [DT the]
+                          [JJ first]
+                          [JJ third]]]]]]
+                [SBAR 
+                  [IN as]
+                  [S 
+                    [NP 
+                      [DT the]
+                      [NN music]]
+                    [VP 
+                      [VBZ is]
+                      [ADJP 
+                        [NP 
+                          [DT a]
+                          [JJ little]]
+                        [JJ repetitive]]]]]]]]
+          [CC and]
+          [S 
+            [NP 
+              [DT the]
+              [NNS intertitles]]
+            [VP 
+              [VBP are]
+              [ADJP 
+                [JJ infrequent]]]]]]]
+    [, ,]
+    [CC but]
+    [S 
+      [S 
+        [NP 
+          [NNP Hazanavicius]]
+        [VP 
+          [VBZ manages]
+          [S 
+            [VP 
+              [TO to]
+              [VP 
+                [VB give]
+                [NP 
+                  [DT the]
+                  [NN film]]
+                [NP 
+                  [NP 
+                    [DT a]
+                    [JJ real]
+                    [NN sense]]
+                  [PP 
+                    [IN of]
+                    [NP 
+                      [NN charm]
+                      [CC and]
+                      [NN warmth]]]]]]]]]
+      [, ,]
+      [CC and]
+      [S 
+        [NP 
+          [NN film]
+          [NNS fans]]
+        [VP 
+          [MD will]
+          [VP 
+            [VB be]
+            [VP 
+              [VBG competing]
+              [S 
+                [VP 
+                  [TO to]
+                  [VP 
+                    [VB spot]
+                    [NP 
+                      [JJ visual]
+                      [CC and]
+                      [JJ musical]
+                      [NNS references]]]]]]]]]]
+    [. .]
+    ['' '']]]
+
+Peter Bradshaw of The Guardian described how the film "had me on my feet cheering throughout the final credits" and stated "I can't wait to see it again".
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [NNP Peter]
+        [NNP Bradshaw]]
+      [PP 
+        [IN of]
+        [NP 
+          [DT The]
+          [NNP Guardian]]]]
+    [VP 
+      [VP 
+        [VBD described]
+        [SBAR 
+          [WHADVP 
+            [WRB how]]
+          [S 
+            [NP 
+              [DT the]
+              [NN film]]
+            [`` ``]
+            [VP 
+              [VBD had]
+              [NP 
+                [PRP me]]
+              [PP 
+                [IN on]
+                [NP 
+                  [NP 
+                    [PRP$ my]
+                    [NNS feet]]
+                  [VP 
+                    [VBG cheering]
+                    [PP 
+                      [IN throughout]
+                      [NP 
+                        [DT the]
+                        [JJ final]
+                        [NNS credits]]]]]]]
+            ['' '']]]]
+      [CC and]
+      [VP 
+        [VBN stated]
+        [`` ``]
+        [S 
+          [NP 
+            [PRP I]]
+          [VP 
+            [MD ca]
+            [RB n't]
+            [VP 
+              [VB wait]
+              [S 
+                [VP 
+                  [TO to]
+                  [VP 
+                    [VB see]
+                    [NP 
+                      [PRP it]]
+                    [ADVP 
+                      [RB again]]]]]]]]
+        ['' '']]]
+    [. .]]]
+
+Geoffrey McNab at The Independent called the film "both a surefire crowdpleaser and a magnificent piece of film-making" in his 5 star review from the Cannes Film Festival.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [NNP Geoffrey]
+        [NNP McNab]]
+      [PP 
+        [IN at]
+        [NP 
+          [DT The]
+          [NNP Independent]]]]
+    [VP 
+      [VBD called]
+      [S 
+        [NP 
+          [DT the]
+          [NN film]]
+        [`` ``]
+        [NP 
+          [CC both]
+          [NP 
+            [DT a]
+            [JJ surefire]
+            [NN crowdpleaser]]
+          [CC and]
+          [NP 
+            [NP 
+              [DT a]
+              [JJ magnificent]
+              [NN piece]]
+            [PP 
+              [IN of]
+              [NP 
+                [NN film-making]]]]]
+        ['' '']]
+      [PP 
+        [IN in]
+        [NP 
+          [NP 
+            [PRP$ his]
+            [CD 5]
+            [NN star]
+            [NN review]]
+          [PP 
+            [IN from]
+            [NP 
+              [DT the]
+              [NNP Cannes]
+              [NNP Film]
+              [NNP Festival]]]]]]
+    [. .]]]
+
+Rick Groen of The Globe and Mail assessed The Artist highly, noting the film "uses old technology to dazzling effect to illustrate the insistent conquest of a new technology."
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [NNP Rick]
+        [NNP Groen]]
+      [PP 
+        [IN of]
+        [NP 
+          [DT The]
+          [NNP Globe]
+          [CC and]
+          [NNP Mail]]]]
+    [VP 
+      [VBD assessed]
+      [NP 
+        [DT The]
+        [NNP Artist]]
+      [ADVP 
+        [RB highly]]
+      [, ,]
+      [S 
+        [VP 
+          [VBG noting]
+          [SBAR 
+            [S 
+              [NP 
+                [DT the]
+                [NN film]]
+              [`` ``]
+              [VP 
+                [VBZ uses]
+                [NP 
+                  [JJ old]
+                  [NN technology]]
+                [PP 
+                  [TO to]
+                  [NP 
+                    [JJ dazzling]
+                    [NN effect]]]
+                [S 
+                  [VP 
+                    [TO to]
+                    [VP 
+                      [VB illustrate]
+                      [NP 
+                        [NP 
+                          [DT the]
+                          [ADJP 
+                            [JJ insistent]]
+                          [NN conquest]]
+                        [PP 
+                          [IN of]
+                          [NP 
+                            [DT a]
+                            [JJ new]
+                            [NN technology]]]]]]]]]]]]]
+    [. .]
+    ['' '']]]
+
+Sukanya Verma for Rediff.com feels The Artist is an extremely well-researched film and is an instant classic.
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [NNP Sukanya]
+        [NNP Verma]]
+      [PP 
+        [IN for]
+        [NP 
+          [NNP Rediff.com]]]]
+    [VP 
+      [VP 
+        [VBZ feels]
+        [SBAR 
+          [S 
+            [NP 
+              [DT The]
+              [NNP Artist]]
+            [VP 
+              [VBZ is]
+              [NP 
+                [DT an]
+                [ADJP 
+                  [RB extremely]
+                  [JJ well-researched]]
+                [NN film]]]]]]
+      [CC and]
+      [VP 
+        [VBZ is]
+        [NP 
+          [DT an]
+          [JJ instant]
+          [NN classic]]]]
+    [. .]]]
+
+David Thomson of The New Republic called The Artist an "accomplished and witty entertainment" and went on to write, "Whether Hazanavicius can do more things as elegant and touching, without the gimmick of silence, remains to be seen (and heard).
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [NNP David]
+        [NNP Thomson]]
+      [PP 
+        [IN of]
+        [NP 
+          [DT The]
+          [NNP New]
+          [NNP Republic]]]]
+    [VP 
+      [VP 
+        [VBD called]
+        [S 
+          [NP 
+            [DT The]
+            [NNP Artist]]
+          [NP 
+            [DT an]
+            [`` ``]
+            [JJ accomplished]
+            [CC and]
+            [JJ witty]
+            [NN entertainment]]]]
+      ['' '']
+      [CC and]
+      [VP 
+        [VBD went]
+        [PRT 
+          [IN on]]
+        [S 
+          [VP 
+            [TO to]
+            [VP 
+              [VB write]
+              [, ,]
+              [`` ``]
+              [S 
+                [NP 
+                  [NNP Whether]
+                  [NNP Hazanavicius]]
+                [VP 
+                  [MD can]
+                  [VP 
+                    [VB do]
+                    [NP 
+                      [JJR more]
+                      [NNS things]]
+                    [PP 
+                      [IN as]
+                      [NP 
+                        [JJ elegant]
+                        [CC and]
+                        [JJ touching]]]
+                    [, ,]
+                    [PP 
+                      [IN without]
+                      [NP 
+                        [NP 
+                          [DT the]
+                          [NN gimmick]]
+                        [PP 
+                          [IN of]
+                          [NP 
+                            [NN silence]]]]]]]]]]]]
+      [, ,]
+      [VP 
+        [VBZ remains]
+        [S 
+          [VP 
+            [TO to]
+            [VP 
+              [VB be]
+              [VP 
+                [VBN seen]
+                [PRN 
+                  [-LRB- -LRB-]
+                  [CC and]
+                  [VP 
+                    [VBN heard]]
+                  [-RRB- -RRB-]]]]]]]]
+    [. .]]]
+
+Meanwhile, he is to be congratulated on the grounds of pleasure alone.
+[ROOT 
+  [S 
+    [ADVP 
+      [RB Meanwhile]]
+    [, ,]
+    [NP 
+      [PRP he]]
+    [VP 
+      [VBZ is]
+      [S 
+        [VP 
+          [TO to]
+          [VP 
+            [VB be]
+            [VP 
+              [VBN congratulated]
+              [PP 
+                [IN on]
+                [NP 
+                  [NP 
+                    [DT the]
+                    [NNS grounds]]
+                  [PP 
+                    [IN of]
+                    [NP 
+                      [NN pleasure]]]]]
+              [ADVP 
+                [RB alone]]]]]]]
+    [. .]]]
+
+He may be due for much more in the way of rewards."
+[ROOT 
+  [S 
+    [NP 
+      [PRP He]]
+    [VP 
+      [MD may]
+      [VP 
+        [VB be]
+        [ADJP 
+          [JJ due]
+          [PP 
+            [IN for]
+            [NP 
+              [NP 
+                [RB much]
+                [JJR more]]
+              [PP 
+                [IN in]
+                [NP 
+                  [NP 
+                    [DT the]
+                    [NN way]]
+                  [PP 
+                    [IN of]
+                    [NP 
+                      [NNS rewards]]]]]]]]]]
+    [. .]
+    ['' '']]]
+
+Chicago Sun-Times film critic Roger Ebert gave the film four stars out of four, praising the performances, and calling the film "one of the most entertaining films in many a moon, a film that charms because of its story, its performances and because of the sly way it plays with being silent and black and white."
+[ROOT 
+  [S 
+    [NP 
+      [NNP Chicago]
+      [NNP Sun-Times]
+      [NN film]
+      [NN critic]
+      [NNP Roger]
+      [NNP Ebert]]
+    [VP 
+      [VBD gave]
+      [NP 
+        [DT the]
+        [NN film]]
+      [NP 
+        [CD four]]
+      [SBAR 
+        [SBAR 
+          [S 
+            [VP 
+              [VBZ stars]
+              [PRT 
+                [IN out]]
+              [PP 
+                [IN of]
+                [NP 
+                  [CD four]]]
+              [, ,]
+              [S 
+                [VP 
+                  [VP 
+                    [VBG praising]
+                    [NP 
+                      [DT the]
+                      [NNS performances]]]
+                  [, ,]
+                  [CC and]
+                  [VP 
+                    [VBG calling]
+                    [NP 
+                      [DT the]
+                      [NN film]]
+                    [`` ``]
+                    [NP 
+                      [CD one]]
+                    [PP 
+                      [IN of]
+                      [NP 
+                        [NP 
+                          [DT the]
+                          [ADJP 
+                            [RBS most]
+                            [JJ entertaining]]
+                          [NNS films]]
+                        [PP 
+                          [IN in]
+                          [NP 
+                            [NP 
+                              [JJ many]
+                              [DT a]
+                              [NN moon]]
+                            [, ,]
+                            [NP 
+                              [NP 
+                                [DT a]
+                                [NN film]]
+                              [SBAR 
+                                [WHNP 
+                                  [WDT that]]
+                                [S 
+                                  [VP 
+                                    [VBZ charms]
+                                    [PP 
+                                      [IN because]
+                                      [IN of]
+                                      [NP 
+                                        [NP 
+                                          [PRP$ its]
+                                          [NN story]]
+                                        [, ,]
+                                        [NP 
+                                          [PRP$ its]
+                                          [NNS performances]]]]]]]]]]]]]]]]]]
+        [CC and]
+        [SBAR 
+          [IN because]
+          [S 
+            [PP 
+              [IN of]
+              [NP 
+                [DT the]
+                [JJ sly]
+                [NN way]]]
+            [NP 
+              [PRP it]]
+            [VP 
+              [VBZ plays]
+              [PP 
+                [IN with]
+                [S 
+                  [VP 
+                    [VBG being]
+                    [ADJP 
+                      [JJ silent]
+                      [CC and]
+                      [JJ black]
+                      [CC and]
+                      [JJ white]]]]]]]]]]
+    [. .]
+    ['' '']]]
+
+Writing for Slant Magazine, Jaime N. Christley gave the film 1.5 out of 4 stars, explaining Michel Hazanavicius ignores "everything that's fascinating and memorable about the era, focusing instead on a patchwork of general knowledge, so eroded of inconvenient facts that it doesn't even qualify as a roman  clef."
+[ROOT 
+  [S 
+    [S 
+      [VP 
+        [VBG Writing]
+        [PP 
+          [IN for]
+          [NP 
+            [NNP Slant]
+            [NNP Magazine]]]]]
+    [, ,]
+    [NP 
+      [NNP Jaime]
+      [NNP N.]
+      [NNP Christley]]
+    [VP 
+      [VBD gave]
+      [NP 
+        [NP 
+          [DT the]
+          [NN film]]
+        [PP 
+          [ADVP 
+            [NP 
+              [CD 1.5]]
+            [IN out]]
+          [IN of]
+          [NP 
+            [CD 4]
+            [NNS stars]]]]
+      [, ,]
+      [S 
+        [VP 
+          [VBG explaining]
+          [SBAR 
+            [S 
+              [NP 
+                [NNP Michel]
+                [NNP Hazanavicius]]
+              [VP 
+                [VBZ ignores]
+                [`` ``]
+                [NP 
+                  [NP 
+                    [NN everything]]
+                  [SBAR 
+                    [WHNP 
+                      [WDT that]]
+                    [S 
+                      [VP 
+                        [VBZ 's]
+                        [ADJP 
+                          [JJ fascinating]
+                          [CC and]
+                          [JJ memorable]]
+                        [PP 
+                          [IN about]
+                          [NP 
+                            [DT the]
+                            [NN era]]]
+                        [, ,]
+                        [VP 
+                          [VBG focusing]
+                          [PP 
+                            [RB instead]
+                            [IN on]
+                            [NP 
+                              [NP 
+                                [DT a]
+                                [NN patchwork]]
+                              [PP 
+                                [IN of]
+                                [NP 
+                                  [JJ general]
+                                  [NN knowledge]]]
+                              [, ,]
+                              [VP 
+                                [ADVP 
+                                  [RB so]]
+                                [VBN eroded]
+                                [PP 
+                                  [IN of]
+                                  [NP 
+                                    [JJ inconvenient]
+                                    [NNS facts]]]
+                                [SBAR 
+                                  [IN that]
+                                  [S 
+                                    [NP 
+                                      [PRP it]]
+                                    [VP 
+                                      [VBZ does]
+                                      [RB n't]
+                                      [ADVP 
+                                        [RB even]]
+                                      [VP 
+                                        [VB qualify]
+                                        [PP 
+                                          [IN as]
+                                          [NP 
+                                            [DT a]
+                                            [NN roman]
+                                            [NN clef]]]]]]]]]]]]]]]]]]]]]
+    [. .]
+    ['' '']]]
+
+America argued that while Jean Dujardin carried the film, Bejo's performance was disappointing.
+[ROOT 
+  [S 
+    [NP 
+      [NNP America]]
+    [VP 
+      [VBD argued]
+      [SBAR 
+        [IN that]
+        [S 
+          [SBAR 
+            [IN while]
+            [S 
+              [NP 
+                [NNP Jean]
+                [NNP Dujardin]]
+              [VP 
+                [VBD carried]
+                [NP 
+                  [DT the]
+                  [NN film]]]]]
+          [, ,]
+          [NP 
+            [NP 
+              [NNP Bejo]
+              [POS 's]]
+            [NN performance]]
+          [VP 
+            [VBD was]
+            [ADJP 
+              [JJ disappointing]]]]]]
+    [. .]]]
+
+Kim Novak controversyEdit
+[ROOT 
+  [NP 
+    [NP 
+      [NNP Kim]
+      [NNP Novak]]
+    [NP 
+      [NN controversyEdit]]]]
+
+On 9 January 2012, actress Kim Novak stated that "rape" had been committed in regard to the musical score by Ludovic Bource, which incorporates a portion of Bernard Herrmann's score from Alfred Hitchcock's 1958 film Vertigo (in which Novak had starred).
+[ROOT 
+  [S 
+    [PP 
+      [IN On]
+      [NP 
+        [CD 9]]]
+    [NP-TMP 
+      [NNP January]
+      [CD 2012]]
+    [, ,]
+    [NP 
+      [NN actress]
+      [NNP Kim]
+      [NNP Novak]]
+    [VP 
+      [VBD stated]
+      [SBAR 
+        [IN that]
+        [S 
+          [NP 
+            [`` ``]
+            [NN rape]
+            ['' '']]
+          [VP 
+            [VBD had]
+            [VP 
+              [VBN been]
+              [VP 
+                [VBN committed]
+                [PP 
+                  [IN in]
+                  [NP 
+                    [NP 
+                      [NN regard]]
+                    [PP 
+                      [TO to]
+                      [NP 
+                        [DT the]
+                        [JJ musical]
+                        [NN score]]]]]
+                [PP 
+                  [IN by]
+                  [NP 
+                    [NP 
+                      [NNP Ludovic]
+                      [NNP Bource]]
+                    [, ,]
+                    [SBAR 
+                      [WHNP 
+                        [WDT which]]
+                      [S 
+                        [VP 
+                          [VBZ incorporates]
+                          [NP 
+                            [NP 
+                              [DT a]
+                              [NN portion]]
+                            [PP 
+                              [IN of]
+                              [NP 
+                                [NP 
+                                  [NNP Bernard]
+                                  [NNP Herrmann]
+                                  [POS 's]]
+                                [NN score]]]]
+                          [PP 
+                            [IN from]
+                            [NP 
+                              [NP 
+                                [NP 
+                                  [NP 
+                                    [NNP Alfred]
+                                    [NNP Hitchcock]
+                                    [POS 's]]
+                                  [CD 1958]
+                                  [NN film]]
+                                [NP 
+                                  [NNP Vertigo]]]
+                              [PRN 
+                                [-LRB- -LRB-]
+                                [SBAR 
+                                  [WHPP 
+                                    [IN in]
+                                    [WHNP 
+                                      [WDT which]]]
+                                  [S 
+                                    [NP 
+                                      [NNP Novak]]
+                                    [VP 
+                                      [VBD had]
+                                      [VP 
+                                        [VBN starred]]]]]
+                                [-RRB- -RRB-]]]]]]]]]]]]]]]
+    [. .]]]
+
+In the article published, by Variety, she stated that "I feel as if my body  or at least my body of work  has been violated by the movie."
+[ROOT 
+  [S 
+    [PP 
+      [IN In]
+      [NP 
+        [NP 
+          [DT the]
+          [NN article]]
+        [VP 
+          [VBN published]
+          [, ,]
+          [PP 
+            [IN by]
+            [NP 
+              [NNP Variety]]]]]]
+    [, ,]
+    [NP 
+      [PRP she]]
+    [VP 
+      [VBD stated]
+      [SBAR 
+        [IN that]
+        [`` ``]
+        [S 
+          [NP 
+            [PRP I]]
+          [VP 
+            [VBP feel]
+            [SBAR 
+              [IN as]
+              [IN if]
+              [S 
+                [NP 
+                  [NP 
+                    [PRP$ my]
+                    [NN body]]
+                  [CC or]
+                  [NP 
+                    [ADVP 
+                      [IN at]
+                      [JJS least]]
+                    [NP 
+                      [PRP$ my]
+                      [NN body]]
+                    [PP 
+                      [IN of]
+                      [NP 
+                        [NN work]]]]]
+                [VP 
+                  [VBZ has]
+                  [VP 
+                    [VBN been]
+                    [VP 
+                      [VBN violated]
+                      [PP 
+                        [IN by]
+                        [NP 
+                          [DT the]
+                          [NN movie]]]]]]]]]]]]
+    [. .]
+    ['' '']]]
+
+"This film should've been able to stand on its own without depending on Bernard Herrmann's score from Alfred Hitchcock's 'Vertigo' to provide more drama" and that "It is morally wrong for the artistry of our industry to use and abuse famous pieces of work to gain attention and applause for other than what they were intended", ending her comments with "Shame on them!"
+[ROOT 
+  [S 
+    [`` ``]
+    [NP 
+      [DT This]
+      [NN film]]
+    [VP 
+      [MD should]
+      [VP 
+        [VB 've]
+        [VP 
+          [VBN been]
+          [ADJP 
+            [JJ able]
+            [S 
+              [VP 
+                [TO to]
+                [VP 
+                  [VB stand]
+                  [PP 
+                    [IN on]
+                    [NP 
+                      [PRP$ its]
+                      [JJ own]]]
+                  [PP 
+                    [IN without]
+                    [S 
+                      [VP 
+                        [VBG depending]
+                        [PP 
+                          [IN on]
+                          [NP 
+                            [NP 
+                              [NNP Bernard]
+                              [NNP Herrmann]
+                              [POS 's]]
+                            [NN score]]]
+                        [PP 
+                          [IN from]
+                          [NP 
+                            [NP 
+                              [NNP Alfred]
+                              [NNP Hitchcock]
+                              [POS 's]]
+                            [`` `]
+                            [NNP Vertigo]
+                            ['' ']]]]]]]]]]
+          [SBAR 
+            [SBAR 
+              [S 
+                [VP 
+                  [TO to]
+                  [VP 
+                    [VB provide]
+                    [NP 
+                      [JJR more]
+                      [NN drama]]]]]]
+            ['' '']
+            [CC and]
+            [SBAR 
+              [IN that]
+              [`` ``]
+              [S 
+                [NP 
+                  [PRP It]]
+                [VP 
+                  [VBZ is]
+                  [ADJP 
+                    [RB morally]
+                    [JJ wrong]]
+                  [PP 
+                    [IN for]
+                    [NP 
+                      [NP 
+                        [DT the]
+                        [NN artistry]]
+                      [PP 
+                        [IN of]
+                        [NP 
+                          [PRP$ our]
+                          [NN industry]
+                          [S 
+                            [VP 
+                              [TO to]
+                              [VP 
+                                [VB use]
+                                [CC and]
+                                [VB abuse]
+                                [NP 
+                                  [NP 
+                                    [JJ famous]
+                                    [NNS pieces]]
+                                  [PP 
+                                    [IN of]
+                                    [NP 
+                                      [NN work]]]]
+                                [S 
+                                  [VP 
+                                    [TO to]
+                                    [VP 
+                                      [VB gain]
+                                      [NP 
+                                        [NN attention]
+                                        [CC and]
+                                        [NN applause]]
+                                      [PP 
+                                        [IN for]
+                                        [NP 
+                                          [NP 
+                                            [JJ other]]
+                                          [PP 
+                                            [IN than]
+                                            [SBAR 
+                                              [WHNP 
+                                                [WP what]]
+                                              [S 
+                                                [NP 
+                                                  [PRP they]]
+                                                [VP 
+                                                  [VBD were]
+                                                  [VP 
+                                                    [VBN intended]]]]]]]]]]]]]]]]]]
+                  ['' '']
+                  [, ,]
+                  [S 
+                    [VP 
+                      [VBG ending]
+                      [NP 
+                        [PRP$ her]
+                        [NNS comments]]
+                      [PP 
+                        [IN with]
+                        [`` ``]
+                        [NP 
+                          [NP 
+                            [NNP Shame]]
+                          [PP 
+                            [IN on]
+                            [NP 
+                              [PRP them]]]]]]]]]]]]]]
+    [. !]
+    ['' '']]]
+
+In response, director Hazanavicius released a statement:
+[ROOT 
+  [S 
+    [PP 
+      [IN In]
+      [NP 
+        [NN response]]]
+    [, ,]
+    [NP 
+      [NN director]
+      [NNP Hazanavicius]]
+    [VP 
+      [VBD released]
+      [NP 
+        [DT a]
+        [NN statement]]]
+    [: :]]]
+
+"The Artist was made as a love letter to cinema, and grew out of my (and all of my cast and crews) admiration and respect for movies throughout history.
+[ROOT 
+  [S 
+    [`` ``]
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [VP 
+      [VP 
+        [VBD was]
+        [VP 
+          [VBN made]
+          [PP 
+            [IN as]
+            [NP 
+              [DT a]
+              [NN love]
+              [NN letter]]]
+          [PP 
+            [TO to]
+            [NP 
+              [NN cinema]]]]]
+      [, ,]
+      [CC and]
+      [VP 
+        [VBD grew]
+        [PRT 
+          [IN out]]
+        [PP 
+          [IN of]
+          [NP 
+            [NP 
+              [PRP$ my]
+              [PRN 
+                [-LRB- -LRB-]
+                [CC and]
+                [NP 
+                  [NP 
+                    [DT all]]
+                  [PP 
+                    [IN of]
+                    [NP 
+                      [PRP$ my]
+                      [NN cast]
+                      [CC and]
+                      [NNS crews]]]]
+                [-RRB- -RRB-]]
+              [NN admiration]]
+            [CC and]
+            [NP 
+              [NP 
+                [NN respect]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNS movies]]]]]]
+        [PP 
+          [IN throughout]
+          [NP 
+            [NN history]]]]]
+    [. .]]]
+
+It was inspired by the work of Hitchcock, Lang, Ford, Lubitsch, Murnau and Wilder.
+[ROOT 
+  [S 
+    [NP 
+      [PRP It]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN inspired]
+        [PP 
+          [IN by]
+          [NP 
+            [NP 
+              [DT the]
+              [NN work]]
+            [PP 
+              [IN of]
+              [NP 
+                [NNP Hitchcock]
+                [, ,]
+                [NNP Lang]
+                [, ,]
+                [NNP Ford]
+                [, ,]
+                [NNP Lubitsch]
+                [, ,]
+                [NNP Murnau]
+                [CC and]
+                [NNP Wilder]]]]]]]
+    [. .]]]
+
+I love Bernard Herrmann and his music has been used in many different films and Im very pleased to have it in mine.
+[ROOT 
+  [S 
+    [NP 
+      [PRP I]]
+    [VP 
+      [VBP love]
+      [SBAR 
+        [S 
+          [NP 
+            [NP 
+              [NNP Bernard]
+              [NNP Herrmann]]
+            [CC and]
+            [NP 
+              [PRP$ his]
+              [NN music]]]
+          [VP 
+            [VBZ has]
+            [VP 
+              [VBN been]
+              [VP 
+                [VBN used]
+                [PP 
+                  [IN in]
+                  [NP 
+                    [NP 
+                      [JJ many]
+                      [JJ different]
+                      [NNS films]]
+                    [CC and]
+                    [NP 
+                      [NP 
+                        [NN Im]]
+                      [ADJP 
+                        [RB very]
+                        [JJ pleased]]]]]
+                [S 
+                  [VP 
+                    [TO to]
+                    [VP 
+                      [VB have]
+                      [NP 
+                        [PRP it]]
+                      [PP 
+                        [IN in]
+                        [NP 
+                          [NN mine]]]]]]]]]]]]
+    [. .]]]
+
+I respect Kim Novak greatly and Im sorry to hear she disagrees."
+[ROOT 
+  [S 
+    [S 
+      [NP 
+        [PRP I]]
+      [VP 
+        [VBP respect]
+        [NP 
+          [NNP Kim]
+          [NNP Novak]]
+        [ADVP 
+          [RB greatly]]]]
+    [CC and]
+    [S 
+      [NP 
+        [NP 
+          [NN Im]]
+        [ADJP 
+          [JJ sorry]
+          [S 
+            [VP 
+              [TO to]
+              [VP 
+                [VB hear]
+                [NP 
+                  [PRP she]]]]]]]
+      [VP 
+        [VBZ disagrees]]]
+    [. .]
+    ['' '']]]
+
+Hazanavicius also told CNN "I used music from another movie, but its not illegal.
+[ROOT 
+  [S 
+    [NP 
+      [NNP Hazanavicius]]
+    [ADVP 
+      [RB also]]
+    [VP 
+      [VBD told]
+      [SBAR 
+        [S 
+          [S 
+            [NP 
+              [NNP CNN]]
+            [`` ``]
+            [NP 
+              [PRP I]]
+            [VP 
+              [VBD used]
+              [NP 
+                [NN music]]
+              [PP 
+                [IN from]
+                [NP 
+                  [DT another]
+                  [NN movie]]]]
+            [, ,]]
+          [CC but]
+          [S 
+            [NP 
+              [PRP$ its]]
+            [ADJP 
+              [RB not]
+              [JJ illegal]]]]]]
+    [. .]]]
+
+We paid for that, we asked for that and we had the permission to do it.
+[ROOT 
+  [S 
+    [S 
+      [NP 
+        [PRP We]]
+      [VP 
+        [VBD paid]
+        [PP 
+          [IN for]
+          [NP 
+            [DT that]]]]]
+    [, ,]
+    [S 
+      [NP 
+        [PRP we]]
+      [VP 
+        [VBD asked]
+        [PP 
+          [IN for]
+          [NP 
+            [DT that]]]]]
+    [CC and]
+    [S 
+      [NP 
+        [PRP we]]
+      [VP 
+        [VBD had]
+        [NP 
+          [DT the]
+          [NN permission]
+          [S 
+            [VP 
+              [TO to]
+              [VP 
+                [VB do]
+                [NP 
+                  [PRP it]]]]]]]]
+    [. .]]]
+
+For me there is no real controversy....
+[ROOT 
+  [S 
+    [IN For]
+    [ADVP 
+      [PRP me]]
+    [NP 
+      [EX there]]
+    [VP 
+      [VBZ is]
+      [NP 
+        [DT no]
+        [JJ real]
+        [NN controversy]]]
+    [: ...]]]
+
+I feel sorry for her, but theres a lot of movies with music from other movies, directors do that all the time and Im not sure its a big deal."
+[ROOT 
+  [S 
+    [S 
+      [NP 
+        [PRP I]]
+      [VP 
+        [VP 
+          [VBP feel]
+          [ADJP 
+            [JJ sorry]
+            [PP 
+              [IN for]
+              [NP 
+                [PRP her]]]]]
+        [, ,]
+        [CC but]
+        [VP 
+          [VBZ theres]
+          [NP 
+            [NP 
+              [DT a]
+              [NN lot]]
+            [PP 
+              [IN of]
+              [NP 
+                [NP 
+                  [NNS movies]]
+                [PP 
+                  [IN with]
+                  [NP 
+                    [NN music]]]]]]
+          [PP 
+            [IN from]
+            [NP 
+              [JJ other]
+              [NNS movies]]]]]]
+    [, ,]
+    [NP 
+      [NNS directors]]
+    [VP 
+      [VBP do]
+      [ADVP 
+        [IN that]
+        [NP 
+          [NP 
+            [PDT all]
+            [DT the]
+            [NN time]]
+          [CC and]
+          [NP 
+            [NP 
+              [NN Im]]
+            [ADJP 
+              [RB not]
+              [JJ sure]]]]]
+      [NP 
+        [PRP$ its]
+        [ADJP 
+          [DT a]
+          [JJ big]]
+        [NN deal]]]
+    [. .]
+    ['' '']]]
+
+In May 2011, when the film was first shown at the Cannes Festival, Todd McCarthy from The Hollywood Reporter mentioned the use of Herrmann's music, "Hazanavicius and Bource daringly choose to explicitly employ Bernard Herrmanns love theme from Vertigo, which is dramatically effective in its own right but is so well known that it yanks you out of one film and places you in the mind-set of another.
+[ROOT 
+  [S 
+    [PP 
+      [IN In]
+      [NP 
+        [NNP May]
+        [CD 2011]]]
+    [, ,]
+    [SBAR 
+      [WHADVP 
+        [WRB when]]
+      [S 
+        [NP 
+          [DT the]
+          [NN film]]
+        [VP 
+          [VBD was]
+          [ADVP 
+            [JJ first]]
+          [VP 
+            [VBN shown]
+            [PP 
+              [IN at]
+              [NP 
+                [DT the]
+                [NNP Cannes]
+                [NNP Festival]]]]]]]
+    [, ,]
+    [PRN 
+      [S 
+        [NP 
+          [NP 
+            [NNP Todd]
+            [NNP McCarthy]]
+          [PP 
+            [IN from]
+            [NP 
+              [DT The]
+              [NNP Hollywood]
+              [NN Reporter]]]]
+        [VP 
+          [VBD mentioned]
+          [NP 
+            [NP 
+              [DT the]
+              [NN use]]
+            [PP 
+              [IN of]
+              [NP 
+                [NP 
+                  [NNP Herrmann]
+                  [POS 's]]
+                [NN music]]]]]]
+      [, ,]]
+    [`` ``]
+    [NP 
+      [NNP Hazanavicius]
+      [CC and]
+      [NNP Bource]]
+    [ADVP 
+      [RB daringly]]
+    [VP 
+      [VB choose]
+      [S 
+        [VP 
+          [TO to]
+          [VP 
+            [ADVP 
+              [RB explicitly]]
+            [VB employ]
+            [SBAR 
+              [S 
+                [NP 
+                  [NNP Bernard]
+                  [NNPS Herrmanns]]
+                [VP 
+                  [VP 
+                    [VBP love]
+                    [NP 
+                      [NN theme]]
+                    [PP 
+                      [IN from]
+                      [NP 
+                        [NP 
+                          [NNP Vertigo]]
+                        [, ,]
+                        [SBAR 
+                          [WHNP 
+                            [WDT which]]
+                          [S 
+                            [VP 
+                              [VBZ is]
+                              [ADJP 
+                                [RB dramatically]
+                                [JJ effective]
+                                [PP 
+                                  [IN in]
+                                  [NP 
+                                    [PRP$ its]
+                                    [JJ own]
+                                    [NN right]]]]]]]]]]
+                  [CC but]
+                  [VP 
+                    [VBZ is]
+                    [ADVP 
+                      [RB so]
+                      [RB well]]
+                    [VP 
+                      [VBN known]
+                      [SBAR 
+                        [IN that]
+                        [S 
+                          [NP 
+                            [PRP it]]
+                          [VP 
+                            [VBZ yanks]
+                            [S 
+                              [NP 
+                                [PRP you]]
+                              [ADJP 
+                                [IN out]
+                                [PP 
+                                  [IN of]
+                                  [NP 
+                                    [NP 
+                                      [CD one]
+                                      [NN film]]
+                                    [CC and]
+                                    [NP 
+                                      [NNS places]]]]]
+                              [NP 
+                                [PRP you]]
+                              [PP 
+                                [IN in]
+                                [NP 
+                                  [NP 
+                                    [DT the]
+                                    [NN mind-set]]
+                                  [PP 
+                                    [IN of]
+                                    [NP 
+                                      [DT another]]]]]]]]]]]]]]]]]]
+    [. .]]]
+
+Surely some sort of reworked equivalent would have been a better idea."
+[ROOT 
+  [S 
+    [ADVP 
+      [RB Surely]]
+    [NP 
+      [NP 
+        [DT some]
+        [NN sort]]
+      [PP 
+        [IN of]
+        [NP 
+          [VBN reworked]
+          [NN equivalent]]]]
+    [VP 
+      [MD would]
+      [VP 
+        [VB have]
+        [VP 
+          [VBN been]
+          [NP 
+            [DT a]
+            [JJR better]
+            [NN idea]]]]]
+    [. .]
+    ['' '']]]
+
+Top ten listsEdit
+[ROOT 
+  [NP 
+    [NP 
+      [JJ Top]]
+    [NP 
+      [CD ten]
+      [NN listsEdit]]]]
+
+The film has appeared on the following critics' top ten lists for the best films of 2011:
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NN film]]
+    [VP 
+      [VBZ has]
+      [VP 
+        [VBN appeared]
+        [PP 
+          [IN on]
+          [NP 
+            [NP 
+              [DT the]
+              [VBG following]]
+            [PP 
+              [NP 
+                [NP 
+                  [NNS critics]
+                  [POS ']]
+                [JJ top]
+                [CD ten]
+                [NNS lists]]
+              [IN for]
+              [NP 
+                [NP 
+                  [DT the]
+                  [JJS best]
+                  [NNS films]]
+                [PP 
+                  [IN of]
+                  [NP 
+                    [CD 2011]]]]]]]]]
+    [: :]]]
+
+AccoladesEdit
+[ROOT 
+  [NP 
+    [NNP AccoladesEdit]]]
+
+At the 65th British Academy Film Awards, the film won seven awards, including Best Film, Best Actor for Dujardin, Best Original Screenplay for Hazanavicius, Cinematography for Schiffman, Costume Design for Bridges and Original Score for Ludovic Bource.
+[ROOT 
+  [S 
+    [PP 
+      [IN At]
+      [NP 
+        [DT the]
+        [JJ 65th]
+        [JJ British]
+        [NN Academy]
+        [NNP Film]
+        [NNS Awards]]]
+    [, ,]
+    [NP 
+      [DT the]
+      [NN film]]
+    [VP 
+      [VBD won]
+      [NP 
+        [NP 
+          [CD seven]
+          [NNS awards]]
+        [, ,]
+        [PP 
+          [VBG including]
+          [NP 
+            [NP 
+              [NP 
+                [JJS Best]]
+              [NP 
+                [NNP Film]]]
+            [, ,]
+            [NP 
+              [NP 
+                [JJS Best]
+                [NN Actor]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNP Dujardin]]]]
+            [, ,]
+            [NP 
+              [NP 
+                [JJS Best]
+                [JJ Original]
+                [NN Screenplay]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNP Hazanavicius]]]]
+            [, ,]
+            [NP 
+              [NP 
+                [NNP Cinematography]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNP Schiffman]]]]
+            [, ,]
+            [NP 
+              [NP 
+                [NNP Costume]
+                [NNP Design]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNPS Bridges]]]]
+            [CC and]
+            [NP 
+              [NP 
+                [NNP Original]
+                [NN Score]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNP Ludovic]
+                  [NNP Bource]]]]]]]]
+    [. .]]]
+
+At the 69th Golden Globe Awards, the film was nominated for six Golden Globes to win three of them; Best Motion Picture  Musical or Comedy, Best Actor  Motion Picture Musical or Comedy for Dujardin and Best Musical Score for Bource.
+[ROOT 
+  [S 
+    [PP 
+      [IN At]
+      [NP 
+        [DT the]
+        [JJ 69th]
+        [NNP Golden]
+        [NNP Globe]
+        [NNS Awards]]]
+    [, ,]
+    [NP 
+      [DT the]
+      [NN film]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN nominated]
+        [PP 
+          [IN for]
+          [NP 
+            [NP 
+              [NP 
+                [NP 
+                  [NP 
+                    [CD six]
+                    [NNP Golden]
+                    [NNP Globes]]
+                  [SBAR 
+                    [S 
+                      [VP 
+                        [TO to]
+                        [VP 
+                          [VB win]
+                          [NP 
+                            [NP 
+                              [CD three]]
+                            [PP 
+                              [IN of]
+                              [NP 
+                                [PRP them]]]]]]]]]
+                [: ;]
+                [NP 
+                  [NP 
+                    [JJS Best]]
+                  [NP 
+                    [NNP Motion]
+                    [NNP Picture]]]]
+              [ADJP 
+                [JJ Musical]
+                [CC or]
+                [NN Comedy]]
+              [, ,]
+              [NP 
+                [NP 
+                  [JJS Best]]
+                [NP 
+                  [NN Actor]
+                  [NNP Motion]
+                  [NNP Picture]
+                  [JJ Musical]]]
+              [CC or]
+              [NP 
+                [NP 
+                  [NN Comedy]]
+                [PP 
+                  [IN for]
+                  [NP 
+                    [NNP Dujardin]]]]]
+            [CC and]
+            [NP 
+              [NP 
+                [JJS Best]
+                [JJ Musical]
+                [NN Score]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNP Bource]]]]]]]]
+    [. .]]]
+
+At the 84th Academy Awards, The Artist received ten nominations, winning five awards, including Best Picture, Best Director for Hazanavicius, Best Actor in a Leading Role for Jean Dujardin, Best Costume Design, and Best Original Score.
+[ROOT 
+  [S 
+    [PP 
+      [IN At]
+      [NP 
+        [DT the]
+        [JJ 84th]
+        [NN Academy]
+        [NNS Awards]]]
+    [, ,]
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [VP 
+      [VBD received]
+      [NP 
+        [CD ten]
+        [NNS nominations]]
+      [, ,]
+      [S 
+        [VP 
+          [VBG winning]
+          [NP 
+            [NP 
+              [CD five]
+              [NNS awards]]
+            [, ,]
+            [PP 
+              [VBG including]
+              [NP 
+                [NP 
+                  [NP 
+                    [JJS Best]]
+                  [NP 
+                    [NNP Picture]]]
+                [, ,]
+                [NP 
+                  [NP 
+                    [JJS Best]
+                    [NN Director]]
+                  [PP 
+                    [IN for]
+                    [NP 
+                      [NNP Hazanavicius]]]]
+                [, ,]
+                [NP 
+                  [NP 
+                    [JJS Best]
+                    [NN Actor]]
+                  [PP 
+                    [IN in]
+                    [NP 
+                      [NP 
+                        [DT a]
+                        [VBG Leading]
+                        [NN Role]]
+                      [PP 
+                        [IN for]
+                        [NP 
+                          [NP 
+                            [NNP Jean]
+                            [NNP Dujardin]]
+                          [, ,]
+                          [NP 
+                            [JJS Best]
+                            [NN Costume]
+                            [NN Design]]
+                          [, ,]
+                          [CC and]
+                          [NP 
+                            [JJS Best]
+                            [JJ Original]
+                            [NN Score]]]]]]]]]]]]]
+    [. .]]]
+
+Home mediaEdit
+[ROOT 
+  [NP 
+    [NNP Home]
+    [NNP mediaEdit]]]
+
+The Artist was released on region 1 DVD and Blu-ray on 26 June 2012.
+[ROOT 
+  [S 
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN released]
+        [PP 
+          [IN on]
+          [NP 
+            [NP 
+              [NP 
+                [NN region]]
+              [ADJP 
+                [CD 1]
+                [NN DVD]]]
+            [CC and]
+            [NP 
+              [NP 
+                [NN Blu-ray]]
+              [PP 
+                [IN on]
+                [NP 
+                  [CD 26]]]]]]
+        [NP-TMP 
+          [NNP June]
+          [CD 2012]]]]
+    [. .]]]
+
+It was released in the UK on 28 May 2012.
+[ROOT 
+  [S 
+    [NP 
+      [PRP It]]
+    [VP 
+      [VBD was]
+      [VP 
+        [VBN released]
+        [PP 
+          [IN in]
+          [NP 
+            [NP 
+              [DT the]
+              [NNP UK]]
+            [PP 
+              [IN on]
+              [NP 
+                [CD 28]]]]]
+        [NP-TMP 
+          [NNP May]
+          [CD 2012]]]]
+    [. .]]]
+
+See alsoEdit
+[ROOT 
+  [S 
+    [VP 
+      [VB See]
+      [NP 
+        [NN alsoEdit]]]]]
+
+List of black-and-white films produced since 1970
+[ROOT 
+  [S 
+    [NP 
+      [NP 
+        [NN List]]
+      [PP 
+        [IN of]
+        [NP 
+          [JJ black-and-white]
+          [NNS films]]]]
+    [VP 
+      [VBD produced]
+      [PP 
+        [IN since]
+        [NP 
+          [CD 1970]]]]]]
+
+NotesEdit
+[ROOT 
+  [NP 
+    [NNP NotesEdit]]]
+
+ReferencesEdit
+[ROOT 
+  [NP 
+    [NN ReferencesEdit]]]
+
+External linksEdit
+[ROOT 
+  [NP 
+    [JJ External]
+    [NN linksEdit]]]
+
+Official website
+[ROOT 
+  [NP 
+    [NP 
+      [NNP Official]]
+    [NP 
+      [NN website]]]]
+
+The Artist at the Internet Movie Database
+[ROOT 
+  [NP 
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [PP 
+      [IN at]
+      [NP 
+        [DT the]
+        [NN Internet]
+        [NN Movie]
+        [NN Database]]]]]
+
+The Artist at Box Office Mojo
+[ROOT 
+  [NP 
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [PP 
+      [IN at]
+      [NP 
+        [NNP Box]
+        [NNP Office]
+        [NNP Mojo]]]]]
+
+The Artist at Rotten Tomatoes
+[ROOT 
+  [NP 
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [PP 
+      [IN at]
+      [NP 
+        [NNP Rotten]
+        [NNP Tomatoes]]]]]
+
+The Artist at Metacritic
+[ROOT 
+  [NP 
+    [NP 
+      [DT The]
+      [NNP Artist]]
+    [PP 
+      [IN at]
+      [NP 
+        [NNP Metacritic]]]]]
+
