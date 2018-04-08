@@ -2,14 +2,15 @@
 # Conjunction in VP? Discarding for now
 # have as real verb or auxiliary verb? fixed in function 'analyze_vp_structure'
 # NNP and NP? fixed in function "lowercase_if_needed"
-# TODO
 # Anaylyze what "it" refers to
+
+import sys
+sys.path.append('../utility/')
 
 from stanfordcorenlp import StanfordCoreNLP
 from const_tree import const_tree
 from pattern.en import lemma
-import nltk
-import re
+
 import string
 from nltk.tag.stanford import StanfordNERTagger
 from nltk.tag.stanford import CoreNLPNERTagger
@@ -30,13 +31,7 @@ ner = CoreNLPNERTagger(url='http://nlp01.lti.cs.cmu.edu:9000/')
 
 
 
-def text2sentences(text):
-    ret = list()
-    # remove non-ascii characters
-    text = re.sub(r'[^\x00-\x7f]',r'', text)
-    for sentence in nltk.sent_tokenize(text):
-        ret += re.split('\n+', sentence)
-    return ret
+
 
 # Lower case the NP in the top level, if needed (when it's not a proper noun)
 def lowercase_if_needed(parent_NP):
