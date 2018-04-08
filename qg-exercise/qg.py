@@ -11,16 +11,23 @@ from pattern.en import lemma
 import nltk
 import re
 import string
+from nltk.tag.stanford import StanfordNERTagger
+from nltk.tag.stanford import CoreNLPNERTagger
 
 
-STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
+# STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 #STANFORD_NLP_PATH = "/home/lxy/stanford-corenlp-full-2017-06-09"
+STANFORD_NLP_PATH = "/Users/anitawang/Desktop/11411/NLP/stanford-corenlp-full-2018-02-27"
 
 AUX_VERBS = {'am', 'are', 'is', 'was', 'were', 'being', 'been', 'can', \
              'could', 'dare', 'do', 'does', 'did', 'have', 'has', 'had', 'having', \
              'may', 'might', 'must', 'need', 'ought', 'shall', 'should', 'will', 'would'}
 VERB_TYPE_AUX_VERB_MAPPING = {'VB': 'Do', 'VBZ': 'Does', 'VBP': 'Do', 'VBD': 'Did'}
 BE_VERBS = {'am', 'is', 'are', 'were', 'was'}
+st = StanfordNERTagger('/Users/anitawang/Desktop/11411/NLP/stanford-ner-2018-02-27/classifiers/english.all.3class.distsim.crf.ser.gz',
+           '/Users/anitawang/Desktop/11411/NLP/stanford-ner-2018-02-27/stanford-ner.jar')
+ner = CoreNLPNERTagger(url='http://nlp01.lti.cs.cmu.edu:9000/')
+
 
 
 def text2sentences(text):
@@ -86,7 +93,53 @@ def analyze_vp_structure(node, parent_NP):
     return question
 
 
-def generate_binary_question(sentence):
+# takes in a NP node
+def getWhWord(np):
+    result = None
+    for child in np.children:
+        childTag = child.type
+        if childTag == "PRP" and str.lower(child.word) != "it":
+            if result != None and result != "Who": return None
+            result = "Who"
+    NP_string = const_tree.to_string(np)
+    NER_result = ner.tag(NP_string.split())
+    for (word, tag) in NER_result:
+        if tag == "PERSON":
+            if result != None and result != "Who": return None
+            result = "Who"
+        elif tag == "LOCATION":
+            if result != None and result != "LOCATION": return None
+            result = "Where"
+        elif tag == "TIME":
+            if result != None and result != "TIME": return None
+            result == "When"
+        elif tag == "DATE":
+            if result != None and result != "DATE": return None
+            result == "When"
+        elif tag == "MONEY":
+            if result != None and result != "MONEY": return None
+            result = "How much"
+        elif tag == "GPE":
+            if result != None and result != "GPE": return None
+            result = "Where"
+    return result
+
+
+def generate_wh_question(vp,np):
+    question = ""
+    hasPerson = False
+    WH = getWhWord(np)
+    if not WH:
+        return None
+    question +=  WH + " "
+    rest = const_tree.to_string(vp)
+    question += rest
+    question += "?"
+    return question
+
+
+
+def generate_binary_question(sentence, wh):
     print "[Sentence] ", sentence
     question = ''
     parsed_string = nlp.parse(sentence)
@@ -102,7 +155,9 @@ def generate_binary_question(sentence):
     if np == None or vp == None:
         return None
     # case on VP
-    return analyze_vp_structure(vp, np)
+    return generate_wh_question(vp, np)
+
+
 
 
 if __name__ == '__main__':
@@ -118,7 +173,7 @@ if __name__ == '__main__':
     nlp = StanfordCoreNLP(STANFORD_NLP_PATH)
 
     questions = list()
-
+    
 
     for sentence in sentences:
         question = generate_binary_question(sentence)
@@ -127,4 +182,13 @@ if __name__ == '__main__':
             print "[Question] ", question
             print '\n'
 
+
+    # sentence = "I ate an sandwich"
+    # print(generate_binary_question(sentence, True))
+    # nltk.tag.corenlp.CoreNLPNERTagger
+    # print nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize("I work in China yesterday.")))
+    # print st.tag("I work in China yesterday.".split())
+    # print parser.ner("I work in China yesterday")
+    sentence = '''David Thomson of The New Republic called The Artist an "accomplished and witty entertainment" and went on to write, "Whether Hazanavicius can do more things as elegant and touching, without the gimmick of silence, remains to be seen (and heard).'''
+    print nlp.parse(sentence)
     nlp.close()
