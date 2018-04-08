@@ -1,0 +1,499 @@
+Did the Artist receive highly positive reviews from critics and won many accolades?
+[ROOT 
+  [S 
+    [VP 
+      [VBD Did]
+      [SBAR 
+        [S 
+          [NP 
+            [DT the]
+            [NNP Artist]]
+          [VP 
+            [VP 
+              [VBP receive]
+              [NP 
+                [ADJP 
+                  [RB highly]
+                  [JJ positive]]
+                [NNS reviews]]
+              [PP 
+                [IN from]
+                [NP 
+                  [NNS critics]]]]
+            [CC and]
+            [VP 
+              [VBD won]
+              [NP 
+                [JJ many]
+                [NNS accolades]]]]]]]
+    [. ?]]]
+
+What became the most awarded French film in history?
+[ROOT 
+  [SBARQ 
+    [WHNP 
+      [WDT What]]
+    [SQ 
+      [VP 
+        [VBD became]
+        [NP 
+          [NP 
+            [DT the]
+            [RBS most]]
+          [VP 
+            [VBN awarded]
+            [NP 
+              [JJ French]
+              [NN film]]
+            [PP 
+              [IN in]
+              [NP 
+                [NN history]]]]]]]
+    [. ?]]]
+
+Is the Artist a 2011 French romantic comedy-drama in the style of a black-and-white silent film?
+[ROOT 
+  [SQ 
+    [VBZ Is]
+    [NP 
+      [DT the]
+      [NNP Artist]]
+    [NP 
+      [DT a]
+      [CD 2011]
+      [JJ French]
+      [NP 
+        [NP 
+          [JJ romantic]
+          [NN comedy-drama]]
+        [PP 
+          [IN in]
+          [NP 
+            [NP 
+              [DT the]
+              [NN style]]
+            [PP 
+              [IN of]
+              [NP 
+                [DT a]
+                [JJ black-and-white]
+                [JJ silent]
+                [NN film]]]]]]]
+    [. ?]]]
+
+Was it written , directed , and co-edited by Michel Hazanavicius , produced by Thomas Langmann and starred Jean Dujardin and Brnice Bejo?
+[ROOT 
+  [SQ 
+    [VBD Was]
+    [NP 
+      [PRP it]]
+    [VP 
+      [VP 
+        [VP 
+          [VBN written]]
+        [, ,]
+        [VP 
+          [VBN directed]]
+        [, ,]
+        [CC and]
+        [VP 
+          [JJ co-edited]
+          [PP 
+            [IN by]
+            [NP 
+              [NNP Michel]
+              [NNP Hazanavicius]]]]]
+      [, ,]
+      [VP 
+        [VBN produced]
+        [PP 
+          [IN by]
+          [NP 
+            [NNP Thomas]
+            [NNP Langmann]]]]
+      [CC and]
+      [VP 
+        [VBD starred]
+        [NP 
+          [NP 
+            [NNP Jean]
+            [NNP Dujardin]]
+          [CC and]
+          [NP 
+            [NNP Brnice]
+            [NNP Bejo]]]]]
+    [. ?]]]
+
+Did dujardin win the Best Actor Award at the 2011 Cannes Film Festival , where the film premiered?
+[ROOT 
+  [SQ 
+    [VBD Did]
+    [NP 
+      [NNP dujardin]]
+    [VP 
+      [VB win]
+      [NP 
+        [NP 
+          [DT the]
+          [JJS Best]
+          [NN Actor]
+          [NN Award]]
+        [PP 
+          [IN at]
+          [NP 
+            [NP 
+              [DT the]
+              [CD 2011]
+              [NNP Cannes]
+              [NNP Film]
+              [NNP Festival]]
+            [, ,]
+            [SBAR 
+              [WHADVP 
+                [WRB where]]
+              [S 
+                [NP 
+                  [DT the]
+                  [NN film]]
+                [VP 
+                  [VBD premiered]]]]]]]]
+    [. ?]]]
+
+Was the film nominated for twelve BAFTAs , the most of any film from 2011 , and won seven , including Best Film , Best Director and Best Original Screenplay for Hazanavicius , and Best Actor for Dujardin?
+[ROOT 
+  [SQ 
+    [VBD Was]
+    [NP 
+      [DT the]
+      [NN film]]
+    [VP 
+      [VP 
+        [VBN nominated]
+        [PP 
+          [IN for]
+          [NP 
+            [NP 
+              [CD twelve]
+              [NNS BAFTAs]]
+            [, ,]
+            [NP 
+              [NP 
+                [DT the]
+                [JJS most]]
+              [PP 
+                [IN of]
+                [NP 
+                  [NP 
+                    [DT any]
+                    [NN film]]
+                  [PP 
+                    [IN from]
+                    [NP 
+                      [CD 2011]]]]]]
+            [, ,]]]]
+      [CC and]
+      [VP 
+        [VBD won]
+        [NP 
+          [CD seven]]]
+      [, ,]
+      [PP 
+        [VBG including]
+        [NP 
+          [NP 
+            [NP 
+              [JJS Best]]
+            [NP 
+              [NNP Film]]]
+          [, ,]
+          [NP 
+            [NP 
+              [JJS Best]
+              [NN Director]]
+            [CC and]
+            [NP 
+              [NP 
+                [JJS Best]
+                [JJ Original]
+                [NN Screenplay]]
+              [PP 
+                [IN for]
+                [NP 
+                  [NNP Hazanavicius]]]]]
+          [, ,]
+          [CC and]
+          [NP 
+            [NP 
+              [JJS Best]
+              [NN Actor]]
+            [PP 
+              [IN for]
+              [NP 
+                [NNP Dujardin]]]]]]]
+    [. ?]]]
+
+Was it nominated for ten Academy Awards and won five , including Best Picture for Langmann , Best Director for Hazanavicius , and Best Actor for Dujardin , making him the first French actor ever to win for Best Actor?
+[ROOT 
+  [SQ 
+    [VBD Was]
+    [NP 
+      [NP 
+        [PRP it]]
+      [SBAR 
+        [S 
+          [VP 
+            [VP 
+              [VBD nominated]
+              [PP 
+                [IN for]
+                [NP 
+                  [CD ten]
+                  [NNP Academy]
+                  [NNS Awards]]]]
+            [CC and]
+            [VP 
+              [VBD won]
+              [NP 
+                [NP 
+                  [CD five]]
+                [, ,]
+                [PP 
+                  [VBG including]
+                  [NP 
+                    [NP 
+                      [NP 
+                        [JJS Best]]
+                      [NP 
+                        [NP 
+                          [NNP Picture]]
+                        [PP 
+                          [IN for]
+                          [NP 
+                            [NNP Langmann]]]]]
+                    [, ,]
+                    [NP 
+                      [NP 
+                        [JJS Best]
+                        [NN Director]]
+                      [PP 
+                        [IN for]
+                        [NP 
+                          [NNP Hazanavicius]]]]
+                    [, ,]
+                    [CC and]
+                    [NP 
+                      [NP 
+                        [JJS Best]
+                        [NN Actor]]
+                      [PP 
+                        [IN for]
+                        [NP 
+                          [NNP Dujardin]]]]]]
+                [, ,]]]]]]]
+    [VP 
+      [VBG making]
+      [NP 
+        [PRP him]
+        [NP 
+          [NP 
+            [DT the]
+            [JJ first]
+            [JJ French]
+            [NN actor]]
+          [NP 
+            [RB ever]]]]
+      [S 
+        [VP 
+          [TO to]
+          [VP 
+            [VB win]
+            [PP 
+              [IN for]
+              [NP 
+                [JJS Best]
+                [NN Actor]]]]]]]
+    [. ?]]]
+
+Was it also the first French film to ever win Best Picture , and the first mainly silent film to win since 1927 's Wings won at the 1st Academy Awards in 1929?
+[ROOT 
+  [SQ 
+    [VBD Was]
+    [NP 
+      [PRP it]]
+    [SBAR 
+      [X 
+        [ADVP 
+          [RB also]]
+        [NP 
+          [DT the]
+          [JJ first]
+          [JJ French]
+          [NN film]]]
+      [S 
+        [S 
+          [VP 
+            [TO to]
+            [VP 
+              [ADVP 
+                [RB ever]]
+              [VB win]
+              [S 
+                [NP 
+                  [NP 
+                    [NP 
+                      [JJS Best]]
+                    [NP 
+                      [NNP Picture]]]
+                  [, ,]
+                  [CC and]
+                  [NP 
+                    [DT the]
+                    [JJ first]
+                    [ADJP 
+                      [RB mainly]
+                      [JJ silent]]
+                    [NN film]]]
+                [VP 
+                  [TO to]
+                  [VP 
+                    [VB win]
+                    [PP 
+                      [IN since]
+                      [NP 
+                        [NP 
+                          [CD 1927]
+                          [POS 's]]
+                        [NNPS Wings]]]]]]]]]
+        [VP 
+          [VBD won]
+          [PP 
+            [IN at]
+            [NP 
+              [DT the]
+              [JJ 1st]
+              [NN Academy]
+              [NNS Awards]]]
+          [PP 
+            [IN in]
+            [NP 
+              [CD 1929]]]]]]
+    [. ?]]]
+
+Was it also the first film presented in the 4:3 aspect ratio to win since 1953 's From Here to Eternity?
+[ROOT 
+  [SQ 
+    [VBD Was]
+    [NP 
+      [PRP it]]
+    [VP 
+      [ADVP 
+        [ADVP 
+          [RB also]]
+        [NP 
+          [DT the]
+          [JJ first]
+          [NN film]]]
+      [VBN presented]
+      [PP 
+        [IN in]
+        [NP 
+          [DT the]
+          [CD 4:3]
+          [NN aspect]
+          [NN ratio]]]
+      [S 
+        [VP 
+          [TO to]
+          [VP 
+            [VB win]
+            [PP 
+              [IN since]
+              [NP 
+                [CD 1953]
+                [POS 's]]]
+            [PP 
+              [IN From]
+              [NP 
+                [RB Here]]]
+            [PP 
+              [TO to]
+              [NP 
+                [NN Eternity]]]]]]]
+    [. ?]]]
+
+Was it nominated for ten Csar Awards , winning six , including Best Film , Best Director for Hazanavicius and Best Actress for Bejo?
+[ROOT 
+  [SQ 
+    [VBD Was]
+    [NP 
+      [NP 
+        [PRP it]]
+      [SBAR 
+        [S 
+          [VP 
+            [VBD nominated]
+            [PP 
+              [IN for]
+              [NP 
+                [NP 
+                  [CD ten]
+                  [NNP Csar]
+                  [NNS Awards]]
+                [, ,]
+                [VP 
+                  [VBG winning]
+                  [NP 
+                    [CD six]]]
+                [, ,]]]]]]]
+    [VP 
+      [VBG including]
+      [NP 
+        [NP 
+          [NP 
+            [JJS Best]]
+          [NP 
+            [NNP Film]]]
+        [, ,]
+        [NP 
+          [NP 
+            [JJS Best]
+            [NN Director]]
+          [PP 
+            [IN for]
+            [NP 
+              [NNP Hazanavicius]]]]
+        [CC and]
+        [NP 
+          [NP 
+            [JJS Best]
+            [NN Actress]]
+          [PP 
+            [IN for]
+            [NP 
+              [NNP Bejo]]]]]]
+    [. ?]]]
+
+Did the Artist become the most awarded French film in history?
+[ROOT 
+  [SQ 
+    [VBD Did]
+    [NP 
+      [DT the]
+      [NNP Artist]]
+    [VP 
+      [VB become]
+      [NP 
+        [NP 
+          [DT the]
+          [RBS most]]
+        [VP 
+          [VBN awarded]
+          [NP 
+            [JJ French]
+            [NN film]]
+          [PP 
+            [IN in]
+            [NP 
+              [NN history]]]]]]
+    [. ?]]]
+

@@ -2,9 +2,14 @@ import sys
 sys.path.append('../utility/')
 from utility import *
 from tfidf import TfIdfModel
+from const_tree import const_tree
+
 
 from nltk.tag.stanford import CoreNLPNERTagger
 tagger = CoreNLPNERTagger(url='http://nlp01.lti.cs.cmu.edu:9000/')
+
+from nltk.parse.corenlp import CoreNLPParser
+parser = CoreNLPParser(url='http://nlp01.lti.cs.cmu.edu:9000/')
 
 # TODO by LXY
 def get_relevant_sentence(N, input):
@@ -31,15 +36,54 @@ class Answer:
 
         self.questions = text2sentences(questions)
 
-        print self.questions
+        self.auxiliaries = {"am", "are", "is", "was", "were", "being", \
+        "been", "can", "could", "dare", "do", "does", "did", "have", "has", \
+        "had", "having", "may", "might", "must", "need", "ought", "shall", \
+        "should", "will", "would"}
+        # print self.questions
+
+    def _sentence_to_const_tree(sentence):
+        return const_tree.to_const_tree(str(next(parser.raw_parse(sentence))))
+
+    def _isBinary(sentence):
+        try:
+            first_word = sentence.split()[0]
+        except:
+            return None
+        return first_word.lower() in self.auxiliaries
+
+    def _answer_binary_question(question):
+        """
+        Check if important words, their synonyms, or hypernyms exist in the
+        original sentence.
+        List of important words' tags:
+            CD: Cardinal Number
+            
+        """
+        most_relevant_sentence = self.tfidf.getNRelevantSentences(question, 1)[0]
+
+        
+
+    def _answer_wh_question(question):
+        return "dummy answer"
 
     def answer_questions(self):
         for Q in self.questions:
+            isBinary = self._isBinary(Q)
+            if isBinary is None:
+                continue
+            if isBinary:
+                A = _answer_binary_question(Q)
+            else:
+                A = _answer_wh_question(Q)
 
-            results0 = self.tfidf.getNRelevantSentences(Q, 2)
-            print "Sample Question: " + Q
-            print "Top 2 relevant sentences: " + str(results0)
-            print
+            print "Question: " + Q
+            print "Answer: " + A
+
+            # results0 = self.tfidf.getNRelevantSentences(Q, 2)
+            # print "Sample Question: " + Q
+            # print "Top 2 relevant sentences: " + str(results0)
+            # print
 
 
 if __name__ == "__main__":
@@ -51,6 +95,3 @@ if __name__ == "__main__":
     TOP_N_SENTENCES = 3 # Number of top relevant function
     A = Answer(ARTICLE_FILENAME, QUESTIONS_FILENAME)
     A.answer_questions()
-
-
-
