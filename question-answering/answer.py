@@ -6,7 +6,7 @@ from const_tree import const_tree
 
 
 from nltk.tag.stanford import CoreNLPNERTagger
-tagger = CoreNLPNERTagger(url='http://nlp01.lti.cs.cmu.edu:9000/')
+nerTagger = CoreNLPNERTagger(url='http://nlp01.lti.cs.cmu.edu:9000/')
 
 from nltk.parse.corenlp import CoreNLPParser
 parser = CoreNLPParser(url='http://nlp01.lti.cs.cmu.edu:9000/')
@@ -18,6 +18,10 @@ parser = CoreNLPParser(url='http://nlp01.lti.cs.cmu.edu:9000/')
 YES_NO = "YES_NO"
 WH = "WH"
 EITHER_OR = "EITHER_OR"
+
+# define key words for WH questions
+WHO = "who"
+
 
 # TODO by LXY
 def get_relevant_sentence(N, input):
@@ -89,8 +93,20 @@ class Answer:
         most_relevant_sentence = self.tfidf.getNRelevantSentences(question, 1)[0]
         return most_relevant_sentence
 
+    # find all NER tag/noun that refers to a person
+    def _answer_who(self, question):
+        tokens = question.split()
+        for tok in tokens:
+            print nerTagger.tag(tok)
+        sys.exit(1)
+
+        # TODO Unimplemented
+        return self.tfidf.getNRelevantSentences(question, 1)[0]
 
     def _answer_wh_question(self, question):
+        question_word = question.split()[0]
+        if question_word == WHO:
+            return self._answer_who()
         # TODO Unimplemented
         return self.tfidf.getNRelevantSentences(question, 1)[0]
 
@@ -104,17 +120,22 @@ class Answer:
             if question_type == None:
                 continue
             if question_type == YES_NO:
+                print "[INFO] type: binary question"
                 A = self._answer_binary_question(Q)
             elif question_type == WH:
+                print "[INFO] type: wh question"
                 A = self._answer_wh_question(Q)
             elif question_type == EITHER_OR:
+                print "[INFO] type: either or question"
                 A = self._answer_either_or_question(Q)
             else:
                 # default answer
+                print "[INFO] type: can't determine"
                 A = self.tfidf.getNRelevantSentences(Q, 1)[0]
 
             print "Question: ", Q
             print "Answer: ", A
+            print
 
 
 if __name__ == "__main__":
