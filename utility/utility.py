@@ -33,5 +33,5 @@ def text2sentences(text):
 def get_word_supersenses(w):
     synsets = wn.synsets(w)
     if len(synsets) == 0:
-        raise Exception("No supersense found for: {}!".format(w))
+        return set([])
     return set([s.lexname().encode("utf-8") for s in synsets])
