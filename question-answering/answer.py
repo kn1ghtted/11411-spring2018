@@ -97,24 +97,27 @@ class Answer:
 
     # find all NER tag/noun that refers to a person
     # return None if cannot be answered
+    # TODO: DET words?
     def _answer_who(self, question):
-        tokens = question.split()
-        tokens_tagged = nerTagger.tag(tokens)
-        possibles = []
-        # scan for names
-        for tok_tagged in tokens_tagged:
-            if tok_tagged[1].encode("utf-8").lower() == PERSON:
-                possibles.append(tok_tagged[0])
-        # scan for nouns that represent persons
-        for tok in tokens:
-            if "noun.person" in get_word_supersenses(tok):
-                possibles.append(tok)
-        print "[INFO] possibles: ", possibles
-        if len(possibles) == 0:
-            return None
+        return None
+        # candidate = self.tfidf.getNRelevantSentences(question, 1)[0][0]
+        # tokens = candidate.split()
+        # tokens_tagged = nerTagger.tag(tokens)
+        # possibles = []
+        # # scan for names
+        # for tok_tagged in tokens_tagged:
+        #     if tok_tagged[1].encode("utf-8").lower() == PERSON:
+        #         possibles.append(tok_tagged[0])
+        # # scan for nouns that represent persons
+        # for tok in tokens:
+        #     if "noun.person" in get_word_supersenses(tok):
+        #         possibles.append(tok)
+        # print "[INFO] possibles: ", possibles
+        # if len(possibles) == 0:
+        #     return None
 
     def _answer_wh_question(self, question):
-        question_word = question.split()[0]
+        question_word = question.split()[0].lower()
         if question_word == WHO:
             return self._answer_who(question)
         # TODO Unimplemented
