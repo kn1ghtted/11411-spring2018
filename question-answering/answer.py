@@ -5,12 +5,14 @@ from tfidf import TfIdfModel
 from const_tree import const_tree
 
 
+
 from nltk.tag.stanford import CoreNLPNERTagger
 nerTagger = CoreNLPNERTagger(url='http://nlp01.lti.cs.cmu.edu:9000/')
 
 from nltk.parse.corenlp import CoreNLPParser
 parser = CoreNLPParser(url='http://nlp01.lti.cs.cmu.edu:9000/')
 
+PERSON = "person"
 
 
 # define question types
@@ -94,19 +96,27 @@ class Answer:
         return most_relevant_sentence
 
     # find all NER tag/noun that refers to a person
+    # return None if cannot be answered
     def _answer_who(self, question):
         tokens = question.split()
+        tokens_tagged = nerTagger.tag(tokens)
+        possibles = []
+        # scan for names
+        for tok_tagged in tokens_tagged:
+            if tok_tagged[1].encode("utf-8").lower() == PERSON:
+                possibles.append(tok_tagged[0])
+        # scan for nouns that represent persons
         for tok in tokens:
-            print nerTagger.tag(tok)
-        sys.exit(1)
-
-        # TODO Unimplemented
-        return self.tfidf.getNRelevantSentences(question, 1)[0]
+            if "noun.person" in get_word_supersenses(tok):
+                possibles.append(tok)
+        print "[INFO] possibles: ", possibles
+        if len(possibles) == 0:
+            return None
 
     def _answer_wh_question(self, question):
         question_word = question.split()[0]
         if question_word == WHO:
-            return self._answer_who()
+            return self._answer_who(question)
         # TODO Unimplemented
         return self.tfidf.getNRelevantSentences(question, 1)[0]
 
@@ -131,6 +141,9 @@ class Answer:
             else:
                 # default answer
                 print "[INFO] type: can't determine"
+                A = self.tfidf.getNRelevantSentences(Q, 1)[0]
+
+            if A == None:
                 A = self.tfidf.getNRelevantSentences(Q, 1)[0]
 
             print "Question: ", Q
