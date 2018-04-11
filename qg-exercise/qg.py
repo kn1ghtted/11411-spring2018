@@ -14,6 +14,8 @@ from pattern.en import lemma
 import string
 from nltk.tag.stanford import StanfordNERTagger
 from nltk.tag.stanford import CoreNLPNERTagger
+from nltk.parse.corenlp import CoreNLPParser
+from utility import *
 
 
 # STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
@@ -87,7 +89,23 @@ def analyze_vp_structure(node, parent_NP):
             question += ' ' + parent_NP_string + ' ' + lemma(VBX.to_string()) + ' ' + vp_without_verb + '?'
     return question
 
+def get_supersense(np_string):
+    result = None
+    for word in np_string.split(" "):
+        try:
+            labelSet = get_word_supersenses(word)
+        except:
+            continue
+        # if is person
+        if "noun.person" in labelSet:
+            result = "Who"
+        elif "noun.artifact" in labelSet:
+            result = "What"
+        else:
+            result = None
+        return result
 
+    
 # takes in a NP node
 def getWhWord(np):
     result = None
@@ -102,9 +120,6 @@ def getWhWord(np):
         if tag == "PERSON":
             if result != None and result != "Who": return None
             result = "Who"
-        elif tag == "LOCATION":
-            if result != None and result != "LOCATION": return None
-            result = "Where"
         elif tag == "TIME":
             if result != None and result != "TIME": return None
             result == "When"
@@ -117,6 +132,9 @@ def getWhWord(np):
         elif tag == "GPE":
             if result != None and result != "GPE": return None
             result = "Where"
+    if not result:
+        result = get_supersense(NP_string)
+
     return result
 
 
@@ -137,7 +155,7 @@ def generate_wh_question(vp,np):
 def generate_binary_question(sentence, wh):
     print "[Sentence] ", sentence
     question = ''
-    parsed_string = nlp.parse(sentence)
+    parsed_string = str(next(nlpParser.raw_parse(sentence)))
     root = const_tree.to_const_tree(parsed_string)
     np = None
     vp = None
@@ -163,15 +181,15 @@ if __name__ == '__main__':
     sentences = text2sentences(text)
 
     # remove sentences not ending with '.'
+
     sentences = [x for x in sentences if x[-1:] is '.']
 
-    nlp = StanfordCoreNLP(STANFORD_NLP_PATH)
-
+    nlpParser = CoreNLPParser(url='http://nlp01.lti.cs.cmu.edu:9000/')
     questions = list()
     
 
     for sentence in sentences:
-        question = generate_binary_question(sentence)
+        question = generate_binary_question(sentence,True)
         if question is not None:
             questions.append(question)
             print "[Question] ", question
@@ -184,6 +202,3 @@ if __name__ == '__main__':
     # print nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize("I work in China yesterday.")))
     # print st.tag("I work in China yesterday.".split())
     # print parser.ner("I work in China yesterday")
-    sentence = '''David Thomson of The New Republic called The Artist an "accomplished and witty entertainment" and went on to write, "Whether Hazanavicius can do more things as elegant and touching, without the gimmick of silence, remains to be seen (and heard).'''
-    print nlp.parse(sentence)
-    nlp.close()
