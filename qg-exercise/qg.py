@@ -244,11 +244,15 @@ def generate_why_question(node, parent_NP):
             break
     return question
 
-def generate_questions(sentence, questionType):
-    # print "[Sentence] ", sentence
-    question = ''
+def parse_sentence(sentence):
     parsed_string = str(next(nlpParser.raw_parse(sentence)))
     root = const_tree.to_const_tree(parsed_string)
+    return root
+
+
+def generate_questions(root, questionType):
+    # print "[Sentence] ", sentence
+    question = ''
     np = None
     vp = None
     for child in root.children[0].children:
@@ -291,8 +295,9 @@ if __name__ == '__main__':
     totalTypes = 4
 
     for sentence in sentences:
+        sentence_root = parse_sentence(sentence)
         for typeNum in xrange(totalTypes):
-            q = generate_questions(sentence, typeNum)
+            q = generate_questions(sentence_root, typeNum)
             if q != None:
                 questions.append(q)
                 print "[Question] ", q
