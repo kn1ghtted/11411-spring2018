@@ -274,7 +274,8 @@ def generate_questions(root, questionType):
 
 
 if __name__ == '__main__':
-    input_file = 'sample_input.txt'
+    input_file = sys.argv[1]
+    totalNum = int(sys.argv[2])
     with open(input_file, 'r') as f:
         text = f.read()
 
@@ -288,15 +289,19 @@ if __name__ == '__main__':
     questions = list()
 
     totalTypes = 4
+    totalQuestions = 0
 
-    for sentence in sentences:
-        print "[Sentence] ", sentence
-        parsed_string = str(next(nlpParser.raw_parse(sentence)))
-        for typeNum in xrange(totalTypes):
-            root = const_tree.to_const_tree(parsed_string)
-            q = generate_questions(root, typeNum)
-            if q != None:
-                questions.append(q)
-                print "[Question] ", q
-                print '\n'
+    while totalQuestions < totalNum:
+
+        for sentence in sentences:
+            parsed_string = str(next(nlpParser.raw_parse(sentence)))
+            for typeNum in xrange(totalTypes):
+                root = const_tree.to_const_tree(parsed_string)
+                q = generate_questions(root, typeNum)
+                # here might be a bug, q could be empty instead of None
+                if q != None and q!="":
+                    questions.append(q)
+                    totalQuestions+=1
+                    print q
+                  
 
