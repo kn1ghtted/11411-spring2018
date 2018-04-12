@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 sys.path.append('../utility/')
 from utility import *
@@ -8,13 +10,15 @@ import string
 
 
 from nltk.tag.stanford import CoreNLPNERTagger
-tagger = CoreNLPNERTagger(url='http://nlp01.lti.cs.cmu.edu:9000/')
+tagger = CoreNLPNERTagger(url='http://nlp02.lti.cs.cmu.edu:9000/')
 
 from nltk.parse.corenlp import CoreNLPParser
-parser = CoreNLPParser(url='http://nlp01.lti.cs.cmu.edu:9000/')
+parser = CoreNLPParser(url='http://nlp02.lti.cs.cmu.edu:9000/')
 
 from nltk.corpus import wordnet as wn
 import nltk
+nltk.download('averaged_perceptron_tagger')
+
 
 # define question types
 
@@ -22,16 +26,15 @@ YES_NO = "YES_NO"
 WH = "WH"
 EITHER_OR = "EITHER_OR"
 
-# TODO by LXY
-def get_relevant_sentence(N, input):
-    pass
 
-# given a sentence, return declarative form
-# TODO maybe needed
+# define answer strings
+YES_ANSWER = "Yes."
+NO_ANSWER = "No."
 
-def get_declarative_form(Q):
-    pass
+logger = Logger()
 
+# uncomment this line to print debug outputs
+logger.set_level(DEBUG)
 
 class Answer:
 
@@ -136,45 +139,47 @@ class Answer:
             if tag == 'CD':
                 if not _check_word_existence(word, word_sets) and \
                 not _check_synonyms_existence(word, word_sets, None):
-                    return 'No'
+                    return NO_ANSWER
             elif tag == 'NN' or tag == 'NNS':
                 if not _check_word_existence(word, word_sets) and \
                 not _check_synonyms_existence(word, word_sets, wn.NOUN):
-                    return 'No'
+                    return NO_ANSWER
             elif tag == 'NNP' or tag == 'NNPS':
                 if not _check_word_existence(word, word_sets):
-                    return 'No'
+                    return NO_ANSWER
             elif tag[:2] == 'VB':
                 if not _check_word_existence(word, word_sets) and \
                 not _check_synonyms_existence(word, word_sets, wn.VERB):
-                    return 'No'
+                    return NO_ANSWER
             elif tag[:2] == 'JJ':
                 if not _check_word_existence(word, word_sets) and \
                 not _check_synonyms_existence(word, word_sets, wn.ADJ) and \
                 _check_antonyms_existence(word, word_sets, wn.ADJ):
-                    return 'No'
+                    return NO_ANSWER
             elif tag[:2] == 'RB':
                 if not _check_word_existence(word, word_sets) and \
                 not _check_synonyms_existence(word, word_sets, wn.ADV) and \
                 _check_antonyms_existence(word, word_sets, wn.ADV):
-                    return 'No'
-        return 'Yes'
+                    return NO_ANSWER
+        return YES_ANSWER
 
     def _answer_binary_question(self, question):
-        most_relevant_sentence = self.tfidf.getNRelevantSentences(question, 1)[0]
+        most_relevant_sentence = self.tfidf.getNRelevantSentences(question, 1)[0][0]
         return self._answer_binary_by_comparison(question, most_relevant_sentence)
-
 
     def _answer_wh_question(self, question):
         # TODO Unimplemented
-        return self.tfidf.getNRelevantSentences(question, 1)[0]
+        return self.tfidf.getNRelevantSentences(question, 1)[0][0]
 
     def _answer_either_or_question(self, question):
         # TODO Unimplemented
-        return self.tfidf.getNRelevantSentences(question, 1)[0]
+        return self.tfidf.getNRelevantSentences(question, 1)[0][0]
 
     def answer_questions(self):
         for Q in self.questions:
+            logger.debug("[Question] {}".format(Q))
+            logger.debug("[Relevant sentence] {}".format(self.tfidf.getNRelevantSentences(Q, 1)[0][0]))
+
             question_type = self._get_question_type(Q)
             if question_type == None:
                 continue
@@ -186,10 +191,9 @@ class Answer:
                 A = self._answer_either_or_question(Q)
             else:
                 # default answer
-                A = self.tfidf.getNRelevantSentences(Q, 1)[0]
+                A = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
 
-            print "Question: ", Q
-            print "Answer: ", A
+            print A
 
 if __name__ == "__main__":
     if (len(sys.argv) < 3):
