@@ -195,8 +195,13 @@ def generate_wh_vp_question(node, parent_NP):
         for child in VP.children:
             if (child.type == "NP"):
                 NP_AUX = child
-        VP.children.remove(child)
-        question += "What" + " " # need to modify to ask different Wh questions !!!!!!!!!!!!!!!!!!!!
+        if (NP_AUX != None):
+            VP.children.remove(NP_AUX)
+        # modified to get the corresponding WH word to ask the question
+        WH = getWhWord(NP_AUX)
+        if not WH:
+            WH = "What"
+        question +=  WH + " "
         question += VBX.to_string()
         question += " " + parent_NP_string + " " + VP.to_string() + "?"
     # no auxiliary verb
@@ -212,8 +217,11 @@ def generate_wh_vp_question(node, parent_NP):
         if vp_without_verb != "":
             vp_without_verb = ' ' + vp_without_verb
 
-        # ask question starting with Wh !!!!!!!!!!!!!!!!!!!!!
-        question += "What" + " "
+        # modified to get the corresponding WH word to ask the question
+        WH = getWhWord(NP)
+        if not WH:
+            WH = "What"
+        question +=  WH + " "
         if VBX.to_string() in BE_VERBS:
             question += VBX.to_string() + ' ' + parent_NP_string + vp_without_verb + '?'
         else:
