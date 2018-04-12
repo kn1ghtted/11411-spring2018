@@ -195,10 +195,11 @@ def generate_wh_vp_question(node, parent_NP):
         for child in VP.children:
             if (child.type == "NP"):
                 NP_AUX = child
+        WH = "What"
         if (NP_AUX != None):
             VP.children.remove(NP_AUX)
-        # modified to get the corresponding WH word to ask the question
-        WH = getWhWord(NP_AUX)
+            # modified to get the corresponding WH word to ask the question
+            WH = getWhWord(NP_AUX)
         if not WH:
             WH = "What"
         question +=  WH + " "
