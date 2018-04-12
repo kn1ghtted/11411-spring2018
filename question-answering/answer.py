@@ -153,7 +153,6 @@ class Answer:
             print "Answer: ", A
             print
 
-
 if __name__ == "__main__":
     if (len(sys.argv) < 3):
         print "usage: ./answer article.txt questions.txt"
