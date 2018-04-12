@@ -24,15 +24,15 @@ nltk.download('wordnet')
 #     return const_tree.to_const_tree(str(next(parser.raw_parse(sentence))))
 
 
-STANFORD_NLP_PATH = "/Users/anitawang/Desktop/11411/NLP/stanford-corenlp-full-2018-02-27"
+# STANFORD_NLP_PATH = "/Users/anitawang/Desktop/11411/NLP/stanford-corenlp-full-2018-02-27"
 
 AUX_VERBS = {'am', 'are', 'is', 'was', 'were', 'being', 'been', 'can', \
              'could', 'dare', 'do', 'does', 'did', 'have', 'has', 'had', 'having', \
              'may', 'might', 'must', 'need', 'ought', 'shall', 'should', 'will', 'would'}
 VERB_TYPE_AUX_VERB_MAPPING = {'VB': 'Do', 'VBZ': 'Does', 'VBP': 'Do', 'VBD': 'Did'}
 BE_VERBS = {'am', 'is', 'are', 'were', 'was'}
-st = StanfordNERTagger('/Users/anitawang/Desktop/11411/NLP/stanford-ner-2018-02-27/classifiers/english.all.3class.distsim.crf.ser.gz',
-           '/Users/anitawang/Desktop/11411/NLP/stanford-ner-2018-02-27/stanford-ner.jar')
+# st = StanfordNERTagger('/Users/anitawang/Desktop/11411/NLP/stanford-ner-2018-02-27/classifiers/english.all.3class.distsim.crf.ser.gz',
+#            '/Users/anitawang/Desktop/11411/NLP/stanford-ner-2018-02-27/stanford-ner.jar')
 ner = CoreNLPNERTagger(url='http://nlp01.lti.cs.cmu.edu:9000/')
 
 
@@ -244,14 +244,9 @@ def generate_why_question(node, parent_NP):
             break
     return question
 
-def parse_sentence(sentence):
-    parsed_string = str(next(nlpParser.raw_parse(sentence)))
-    root = const_tree.to_const_tree(parsed_string)
-    return root
-
 
 def generate_questions(root, questionType):
-    # print "[Sentence] ", sentence
+
     question = ''
     np = None
     vp = None
@@ -295,9 +290,11 @@ if __name__ == '__main__':
     totalTypes = 4
 
     for sentence in sentences:
-        sentence_root = parse_sentence(sentence)
+        print "[Sentence] ", sentence
+        parsed_string = str(next(nlpParser.raw_parse(sentence)))
         for typeNum in xrange(totalTypes):
-            q = generate_questions(sentence_root, typeNum)
+            root = const_tree.to_const_tree(parsed_string)
+            q = generate_questions(root, typeNum)
             if q != None:
                 questions.append(q)
                 print "[Question] ", q
