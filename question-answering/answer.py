@@ -3,6 +3,8 @@ sys.path.append('../utility/')
 from utility import *
 from tfidf import TfIdfModel
 from const_tree import const_tree
+from pattern.en import lemma
+import string
 
 
 from nltk.tag.stanford import CoreNLPNERTagger
@@ -12,7 +14,7 @@ from nltk.parse.corenlp import CoreNLPParser
 parser = CoreNLPParser(url='http://nlp01.lti.cs.cmu.edu:9000/')
 
 from nltk.corpus import wordnet as wn
-
+import nltk
 
 # define question types
 
@@ -76,84 +78,91 @@ class Answer:
         else:
             return EITHER_OR
 
-    def _answer_binary_question(self, question):
+
+    def _answer_binary_by_comparison(self, question, sentence):
         """
-        Basic idea:
-            check if important words, their synonyms, or hypernyms exist in the
-            most relevant sentence.
+        Basic idea: for important words in the question, check if it or its synonyms
+        exist in the original sentence.
         List of important words' tags:
-            numbers
-                CD:    cardinal number
-            nouns
-                NN:    noun, singular or mass
-                NNS:   noun, plural
-                NNP:   proper noun, singular
-                NNPS:  proper noun, plural
-            verbs
-                VB:    verb, base form
-                VBD:   verb, past tense
-                VBG:   verb, gerund or present participle
-                VBN:   verb, past participle
-                VBP:   verb, non-3rd person singular present
-                VBZ:   verb, 3rd person singular present
-            misc
-                FW:    foreign word
-            adjectives
-                JJ:    adjective
-                JJR:   adjective, comparative
-                JJS:   adjective, superlative
-            adverbs
-                RB:    adverb
-                RBR:   adverb, comparative
-                RBS:   adverb, superlative
-        Policies:
-            For every word in the question, check its pos tag:
-                number:
-                    check if it or its synonym exists in the most relevant sentence
-                noun:
-                    NN and NNS:
-                        check if it or its synonym exists in the most relevant sentence
-                    NNP and NNPS:
-                        check if it exists in the most relevant sentence
-                verbs:
-                    check if it or its synonym exists in the most relevant sentence
-                misc:
-                    check if it exists in the most relevant sentence
-                adjectives and adverbs:
-                    check if it exists in the most relevant sentence:
-                        if yes:
-                            continue
-                        if no:
-                            check if its antonyms exist in the most relevant sentence:
-                                if yes:
-                                    return 'no'
-                                if no:
-                                    return 'yes'
+            numbers: CD
+            nouns: NN, NNS, NNP, NNPS
+            verbs: VB, VBD, VBG, VBN, VBP, VBZ
+            misc: FW
+            adjectives: JJ, JJR, JJS
+            adverbs: RB, RBR, RBS
+        Policies:   
+            number: check if it or its synonym exists in the original sentence
+            noun:
+                NN and NNS: check if it or its synonym exists in the original sentence
+                NNP and NNPS: check if it exists in the original sentence
+            verbs: check if it or its synonym exists in the original sentence
+            misc: check if it exists in the original sentence
+            adjectives and adverbs:
+                check if it exists in the original sentence:
+                    if yes:
+                        continue
+                    if no:
+                        check if its antonyms exist in the original sentence:
         """
-        # TODO Unimplemented
         def _check_word_existence(word, word_sets):
-            return word.lower() in word_sets or wn.morphy(word) in word_sets
+            return word.lower() in word_sets or wn.morphy(word) in word_sets or lemma(word) in word_sets
+
         def _check_synonyms_existence(word, word_sets, wn_pos):
             for synsets in wn.synsets(word.lower(), pos=wn_pos):
                 for name in synsets.lemma_names():
-                    if name in word_sets:
+                    if name in word_sets or wn.morphy(name) in word_sets or lemma(name) in word_sets:
                         return True
             return False
-        def _check_antonyms_existence(word, word_sets, wn_pos):
-            for lemma in wn.lemmas(word, pos=wn_pos):
-                for antonym in lemma.antonyms():
-                    if antonym.name() in word_sets:
-                        return True
-            return False
-        def _answer_binary_by_comparison(question, sentence):
-            word_sets = {}
-            for word in sentence.lower().split():
-                word_sets.add(word)
-                word_sets.add(wn.morphy(word))
-            
 
+        def _check_antonyms_existence(word, word_sets, wn_pos):
+            for le in wn.lemmas(word, pos=wn_pos):
+                for antonym in le.antonyms():
+                    name = antonym.name()
+                    if name in word_sets or wn.morphy(name) in word_sets or lemma(name) in word_sets:
+                        return True
+            return False
+        question = question.translate(None, string.punctuation)
+        sentence = sentence.translate(None, string.punctuation)
+        word_sets = set()
+        for word in sentence.lower().split():
+            word_sets.add(word)
+            # also adds the word's base form to the sets
+            word_sets.add(wn.morphy(word))
+            word_sets.add(lemma(word))
+        # remove None in the sets
+        word_sets = word_sets - {None}
+        for word, tag in nltk.pos_tag(nltk.word_tokenize(question))[1:]:
+            word = word.lower()
+            if tag == 'CD':
+                if not _check_word_existence(word, word_sets) and \
+                not _check_synonyms_existence(word, word_sets, None):
+                    return 'No'
+            elif tag == 'NN' or tag == 'NNS':
+                if not _check_word_existence(word, word_sets) and \
+                not _check_synonyms_existence(word, word_sets, wn.NOUN):
+                    return 'No'
+            elif tag == 'NNP' or tag == 'NNPS':
+                if not _check_word_existence(word, word_sets):
+                    return 'No'
+            elif tag[:2] == 'VB':
+                if not _check_word_existence(word, word_sets) and \
+                not _check_synonyms_existence(word, word_sets, wn.VERB):
+                    return 'No'
+            elif tag[:2] == 'JJ':
+                if not _check_word_existence(word, word_sets) and \
+                not _check_synonyms_existence(word, word_sets, wn.ADJ) and \
+                _check_antonyms_existence(word, word_sets, wn.ADJ):
+                    return 'No'
+            elif tag[:2] == 'RB':
+                if not _check_word_existence(word, word_sets) and \
+                not _check_synonyms_existence(word, word_sets, wn.ADV) and \
+                _check_antonyms_existence(word, word_sets, wn.ADV):
+                    return 'No'
+        return 'Yes'
+
+    def _answer_binary_question(self, question):
         most_relevant_sentence = self.tfidf.getNRelevantSentences(question, 1)[0]
-        return _answer_binary_by_comparison(question, most_relevant_sentence)
+        return self._answer_binary_by_comparison(question, most_relevant_sentence)
 
 
     def _answer_wh_question(self, question):
@@ -181,7 +190,6 @@ class Answer:
 
             print "Question: ", Q
             print "Answer: ", A
-
 
 if __name__ == "__main__":
     if (len(sys.argv) < 3):
