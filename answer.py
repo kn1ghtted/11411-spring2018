@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import sys
-sys.path.append('../utility/')
+sys.path.append('utility/')
 from utility import *
 from tfidf import TfIdfModel
 from const_tree import const_tree
