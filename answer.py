@@ -6,7 +6,9 @@ from utility import *
 from tfidf import TfIdfModel
 from const_tree import const_tree
 from binary_question import *
-
+from wh_question import *
+from why_question import *
+from adverbial_question import *
 
 
 
@@ -16,7 +18,23 @@ import nltk
 
 # define question types
 
+"""
+Question types:
+0: binary (lxy)
+1, 2: what, who (questions on subject or object)
+3: why question
+4: when, where, how ... (questions on adverbial)
+"""
 YES_NO = "YES_NO"
+WHAT = "what"
+WHO = "who"
+WHICH = "which"
+WHOSE = "whose"
+WHY = "why"
+WHERE = "where"
+WHEN = "when"
+HOW = "how"
+
 WH = "WH"
 EITHER_OR = "EITHER_OR"
 
@@ -74,8 +92,9 @@ class Answer:
         most_relevant_sentence = self.tfidf.getNRelevantSentences(question, 1)[0][0]
         return answer_binary_by_comparison(question, most_relevant_sentence)
 
-    def _answer_wh_question(self, question):
-        return self.tfidf.getNRelevantSentences(question, 1)[0][0]
+
+
+
 
     def _answer_either_or_question(self, question):
         # TODO Unimplemented
@@ -87,16 +106,32 @@ class Answer:
             logger.debug("[Relevant sentence] {}".format(self.tfidf.getNRelevantSentences(Q, 1)[0][0]))
 
             question_type = self._get_question_type(Q)
+            first = Q.split()[0]
+
+            A = None
+
             if question_type == None:
                 continue
             if question_type == YES_NO:
                 A = self._answer_binary_question(Q)
             elif question_type == WH:
-                A = self._answer_wh_question(Q)
+                if first == WHAT:
+                    A = anwser_what(Q)
+                elif first == WHO:
+                    A = answer_who(Q)
+                elif first == WHY:
+                    A = answer_why(Q)
+                elif first == WHEN:
+                    A = answer_when(Q)
+                elif first == WHERE:
+                    A = answer_where(Q)
+                elif first == HOW:
+                    A = answer_how(Q)
+
             elif question_type == EITHER_OR:
                 A = self._answer_either_or_question(Q)
-            else:
-                # default answer
+
+            if (A == None):
                 A = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
 
             print A

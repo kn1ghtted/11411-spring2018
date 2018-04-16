@@ -11,6 +11,14 @@ from const_tree import *
 from pattern.en import lemma
 
 
+def answer_who(Q):
+    #TODO
+    return None
+
+def answer_what(Q):
+    # TODO
+    return None
+
 def get_supersense(np_string):
     result = None
     for word in np_string.split(" "):

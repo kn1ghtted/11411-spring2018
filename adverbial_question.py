@@ -11,3 +11,15 @@ def generate_adverbial_question(root):
     :return: an adverbial question
     """
     return None
+
+
+def answer_where(Q):
+    return None
+
+
+def answer_how(Q):
+    return None
+
+
+def answer_when(Q):
+    return None
