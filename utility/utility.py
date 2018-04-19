@@ -1,7 +1,10 @@
 import nltk
 import re
+import string
+from collections import defaultdict
 
 from nltk.corpus import wordnet as wn
+from nltk.corpus import stopwords
 
 def text2sentences(text):
     ret = list()
@@ -10,6 +13,44 @@ def text2sentences(text):
     for sentence in nltk.sent_tokenize(text):
         ret += re.split('\n+', sentence)
     return ret
+
+def text2sentencesWithRanking(text):
+    """
+    return a list of ranked sentences
+    return type: list of strs
+
+    ranking method:
+    1. Calculate the frequencies of words that are not stop words
+    2. For each sentence, calculate its ranking score:
+        a. For each non-stop word, add its frequency to the sentence's score
+        b. Normalize the score by dividing the score by the total number of non-stop words.
+           This normalization is to eliminate bias towards long sentences.
+    3. Rank the sentences according to their scores
+    """
+    stopWords = set(stopwords.words('english'))
+    sentences = list()
+    # remove non-ascii characters
+    text = re.sub(r'[^\x00-\x7f]',r'', text)
+    for sentence in nltk.sent_tokenize(text):
+        sentences += re.split('\n+', sentence)
+    wordFre = defaultdict(int)
+    for sentence in sentences:
+        words = sentence.translate(None, string.punctuation).lower().split()
+        for word in words:
+            if word not in stopWords:
+                wordFre[word] += 1
+    sentencesWithScores = list()
+    for sentence in sentences:
+        words = sentence.translate(None, string.punctuation).lower().split()
+        score = 0.0
+        validLen = 0
+        for word in words:
+            if word not in stopWords:
+                score += wordFre[word]
+                validLen += 1
+        score /= validLen
+        sentencesWithScores.append((sentence, score))    
+    return [x[0] for x in sorted(sentencesWithScores, key=lambda x:x[1], reverse=True)]
 
 
 def lowercase_if_needed(parent_NP):
