@@ -2,8 +2,6 @@
 # to convert a stanford parsing to const_tree and from const_tree to sentence
 
 
-
-PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 class const_tree:
 
     def __init__(self, type):
@@ -95,18 +93,3 @@ class const_tree:
         return L
 
 
-if __name__ == "__main__":
-
-    # tests
-    import sys
-    sys.path.append('../')
-    from stanfordcorenlp import StanfordCoreNLP
-
-    nlp = StanfordCoreNLP(PATH)
-    sentence = "I exercise actively."
-    parsed_string = nlp.parse(sentence)
-    # print repr(parsed_string)
-
-    root = const_tree.to_const_tree(parsed_string)
-    print root
-    print root.to_string()

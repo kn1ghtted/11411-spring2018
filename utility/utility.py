@@ -12,6 +12,20 @@ def text2sentences(text):
     return ret
 
 
+def lowercase_if_needed(parent_NP):
+    """
+    Lower case the NP in the top level, if needed (when it's not a proper noun)
+    :param parent_NP:
+    :return:
+    """
+    if parent_NP.children[0].type.startswith("NNP"):
+        return parent_NP.to_string()
+    if parent_NP.to_string() == "I":
+        return "I"
+    else:
+        tokens = parent_NP.to_string_recur()
+        return " ".join([tokens[0].lower()] + tokens[1:])
+
 def get_word_supersenses(w):
     """
     return all possible supersenses for a word
