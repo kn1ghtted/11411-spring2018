@@ -44,7 +44,8 @@ def generate_questions(root, questionType):
     # case on VP
     if questionType == 0:
         # binary
-        q = ask_binary_question(vp, np)
+        return None # generting binary question before
+        # q = ask_binary_question(vp, np)
     elif questionType == 1:
         # question on NP
         return generate_wh_np_question(vp, np)
@@ -97,10 +98,24 @@ def run_generator():
     all_questions = [[] for i in xrange(total_types)]
     generated_count = 0
 
+    # all parsed nodes: a 2d array
+    # 1st level index i : corresponds to the ith sentence being parsed
+    # 2nd level index j : corresponds to the copy of the node for the jth question type
+    all_parsed_nodes = []
     for sentence in sentences:
         parsed_string = str(next(parser.raw_parse(sentence)))
+        nodes = []
         for typeNum in xrange(total_types):
-            root = const_tree.to_const_tree(parsed_string)
+            new_node = const_tree.to_const_tree(parsed_string)
+            nodes.append(new_node)
+        all_parsed_nodes.append(nodes)
+
+    # ask binary questions
+    #all_questions[0] = ask_binary_question2(sentences, num)
+
+    for i in xrange(len(sentences)):
+        for typeNum in xrange(total_types):
+            root = all_parsed_nodes[i][typeNum]
             q = generate_questions(root, typeNum)
             # here might be a bug, q could be empty instead of None
             if q != None and q != "":
@@ -111,7 +126,6 @@ def run_generator():
     final_questions = select_questions(all_questions, n_questions)
     for q in final_questions:
         print q
-
 
 
 if __name__ == '__main__':
