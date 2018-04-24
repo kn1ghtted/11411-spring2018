@@ -57,7 +57,7 @@ def generate_questions(root, questionType):
         return generate_why_question(vp, np)
     else:
         # 4: adverbial questions (when, where, how)
-        return generate_adverbial_question(root)
+        return generate_adverbial_question(root, vp, np)
 
 def select_questions(all, n):
     # TODO
@@ -113,8 +113,14 @@ def run_generator():
         for typeNum in xrange(total_types):
             root = all_parsed_nodes[i][typeNum]
             q = generate_questions(root, typeNum)
+            # if q is a list, generated from adverbial questions
+            if (isinstance(q, list)):
+                for adv_q in q:
+                    generated_count += 1
+                    logger.debug("Generated {} questions".format(generated_count))
+                    all_questions[typeNum].append(adv_q)
             # here might be a bug, q could be empty instead of None
-            if q != None and q != "":
+            elif q != None and q != "":
                 generated_count += 1
                 logger.debug("Generated {} questions".format(generated_count))
                 all_questions[typeNum].append(q)
