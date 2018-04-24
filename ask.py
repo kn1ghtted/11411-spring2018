@@ -109,8 +109,6 @@ def run_generator():
         print q
 
 
-
-
 if __name__ == '__main__':
     run_generator()
 
