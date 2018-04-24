@@ -1,10 +1,16 @@
 # Simple usage
 from stanfordcorenlp import StanfordCoreNLP
+from nltk.corpus import wordnet as wn
 import nltk
 import re
 import json
 import os
 import requests
+from either_or_question import *
+sys.path.append("./utility/")
+from utility import *
+from const_tree import *
+from pattern.en import lemma
 
 # def text2sentences(text):
 #     ret = list()
@@ -27,22 +33,35 @@ STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 
 STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 
-nlp = StanfordCoreNLP(url='http://nlp01.lti.cs.cmu.edu:9000/')
-sentence = 'The teacher appeared at the police station yesterday.'
-tokens = nlp.word_tokenize(sentence)
-pos = nlp.pos_tag(sentence)
+nlp = StanfordCoreNLP(STANFORD_NLP_PATH)
+sentence = 'This homework is insanely difficult.'
+# tokens = nlp.word_tokenize(sentence)
+# pos = nlp.pos_tag(sentence)
 tree = nlp.parse(sentence)
-ner = nlp.ner(sentence)
+new_node = const_tree.to_const_tree(str(tree))
+print generate_either_or_question(new_node)
+# ner = nlp.ner(sentence)
+#
+# print "tokenize:"
+# print tokens
+# print "pos_tag:"
+# print pos
+# print "tree:"
+# print tree
+# print "ner:"
+# print ner
 
-print "tokenize:"
-print tokens
-print "pos_tag:"
-print pos
-print "tree:"
-print tree
-print "ner:"
-print ner
-
+# word = "smart"
+# antonyms = []
+# for S in wn.synsets(word):
+#     # if Synset is adjective or a satellite-adj
+#     if S.pos() in ["a", "s"]:
+#         for lemma in S.lemmas():
+#             # if S has antonym
+#             if lemma.antonyms():
+#                 antonyms += [ant.name() for ant in lemma.antonyms()]
+# print antonyms
+# #
 
 # props={'annotators': 'pos,parse','pipelineLanguage':'en','outputFormat':'json'}
 # tree = nlp.annotate(sentence, properties=props)
