@@ -54,9 +54,12 @@ def generate_questions(root, questionType):
     elif questionType == 3:
         # 3: why questions
         return generate_why_question(vp, np)
-    else:
+    elif questionType == 4:
         # 4: adverbial questions (when, where, how)
         return generate_adverbial_question(root)
+        # 5: either or question
+    else:
+        return generate_either_or_question(root)
 
 def select_questions(all, n):
     # TODO
@@ -81,13 +84,14 @@ def run_generator():
 
     sentences = [x for x in sentences if x[-1:] is '.']
 
-    total_types = 5
+    total_types = 6
     """
     Question types:
     0: binary (lxy)
     1, 2: what, who (questions on subject or object)
     3: why question
     4: when, where, how ... (questions on adverbial)
+    5: either or
     """
 
     all_questions = [[] for i in xrange(total_types)]
@@ -107,7 +111,6 @@ def run_generator():
     final_questions = select_questions(all_questions, n_questions)
     for q in final_questions:
         print q
-
 
 
 

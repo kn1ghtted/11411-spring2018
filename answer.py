@@ -24,6 +24,7 @@ Question types:
 1, 2: what, who (questions on subject or object)
 3: why question
 4: when, where, how ... (questions on adverbial)
+5: either-or
 """
 YES_NO = "YES_NO"
 WHAT = "what"
