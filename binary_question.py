@@ -1,10 +1,16 @@
+import sys
+sys.path.append('./utility/')
 import string
 from utility import *
+from const_tree import *
 from statics import *
 from pattern.en import lemma
 import string
 from nltk.corpus import wordnet as wn
-
+import copy
+import pickle
+from random import *
+import nltk
 
 """
 Functions and constants for ask, generating binary questions
@@ -14,6 +20,11 @@ Functions and constants for ask, generating binary questions
 YES_ANSWER = "Yes."
 NO_ANSWER = "No."
 
+WORD_NUMBER_MAPPING = {'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '5', 'six': '6', \
+                        'seven': '7', 'eight': '8', 'nine': '9', 'ten': '10', 'eleven': '11', \
+                        'twelve': '12', 'thirteen': '13', 'fourteen': '14', 'fifteen': '15', \
+                        'sixteen': '16', 'seventeen': '17', 'eighteen': '18', 'nineteen': '19', \
+                        'twenty': '20'}
 
 def answer_binary_by_comparison(question, sentence):
     """
@@ -148,3 +159,176 @@ def ask_binary_question(node, parent_NP):
             question += VERB_TYPE_AUX_VERB_MAPPING[VBX.type]
             question += ' ' + parent_NP_string + ' ' + lemma(VBX.to_string()) + ' ' + vp_without_verb + '?'
     return question
+
+def ask_binary_question2(roots, num):
+    """
+    @param      roots      List of roots of parsed sentences.
+    @param      num        Number of output questions
+    
+    @return     List of questions
+    """
+    def _ask_case_1(top_level_np, top_level_vp):
+        """
+        case 1: VP --> Aux VP
+        """
+        np_string = lowercase_if_needed(top_level_np)
+        vp_copy = copy.deepcopy(top_level_vp)
+        aux_node = vp_copy.children[0]
+        aux_string = string.capitalize(aux_node.to_string())
+        aux_node.word = ''
+        vp_string = vp_copy.to_string()
+        return aux_string + ' ' + np_string + ' ' + vp_string
+
+    def _ask_case_2(top_level_np, top_level_vp):
+        """
+        case 2: VP --> Be NP? PP?
+        """
+        return _ask_case_1(top_level_np, top_level_vp)
+
+    def _ask_case_3(top_level_np, top_level_vp):
+        """
+        case 3: VP --> Verb NP? PP?
+        """
+        np_string = lowercase_if_needed(top_level_np)
+        vp_copy = copy.deepcopy(top_level_vp)
+        verb_node = vp_copy.children[0]
+        aux_string = VERB_TYPE_AUX_VERB_MAPPING[verb_node.type]
+        verb_node.word = lemma(verb_node.word)
+        vp_string = vp_copy.to_string()
+        return aux_string + ' ' + np_string + ' ' + vp_string
+
+    def _try_to_generate_no_question(question):
+        words_poss = nltk.pos_tag(nltk.word_tokenize(question))
+        for word, pos in words_poss:
+            if pos == 'CD':
+                original_cd_str = word
+                if word in WORD_NUMBER_MAPPING:
+                    word = WORD_NUMBER_MAPPING[word]
+                try:
+                    modified_cd_str = str(int(word) + 1)
+                    return (question.replace(original_cd_str, modified_cd_str), True)
+                except:
+                    pass
+        parsed_string = str(next(parser.raw_parse(question)))
+        root = const_tree.to_const_tree(parsed_string)
+        for child in root.children[0].children:
+            if child.type == 'VP':
+                top_level_vp = child
+        try:
+            verb_node = top_level_vp.children[0]
+            antonym = str(wn.synsets(verb_node.word, pos=wn.VERB)[0].lemmas()[0].antonyms()[0].name())
+            verb_node.word = antonym
+            ret = root.to_string()
+            ret = ret.replace(' ,', ',')
+            ret = ret.replace(" 's", "'s")
+            ret = ret.replace('-LRB- ', "(")
+            ret = ret.replace(' -RRB-', ")")
+            ret = ret.replace(' ?', "?")
+            return (ret, True)
+        except:
+            pass
+        return (question, False)
+
+    questions_scores = []
+    for root in roots:
+        try:
+            question = ''
+            score = 0.0
+            expected_answer = 'Yes.'
+
+            top_level_np = None
+            top_level_vp = None
+            top_level_pp = None
+            for child in root.children[0].children:
+                if child.type == 'NP':
+                    top_level_np = child
+                if child.type == 'VP':
+                    top_level_vp = child
+                if child.type == 'PP':
+                    top_level_pp = child
+
+            # deal with the case VP --> VP {, and} VP
+            if top_level_vp.children[0].type == 'VP':
+                top_level_vp = top_level_vp.children[0]
+
+            second_level_vp = None
+            second_level_verb = None
+            for child in top_level_vp.children:
+                if (child.type == "VP"):
+                    second_level_vp = child
+                if (child.type.startswith("VB")):
+                    second_level_verb = child
+
+            if second_level_vp != None:
+                question = _ask_case_1(top_level_np, top_level_vp)
+            elif second_level_verb.to_string() in BE_VERBS:
+                question = _ask_case_2(top_level_np, top_level_vp)
+            else:
+                question = _ask_case_3(top_level_np, top_level_vp)
+
+            # Refinements
+            question = question.replace(' ,', ',')
+            question = question.replace(" 's", "'s")
+            question = question.replace('-LRB- ', "(")
+            question = question.replace(' -RRB-', ")")
+            if top_level_pp != None:
+                pp_string = top_level_pp.to_string()
+                pp_string = pp_string[0].lower() + pp_string[1:]
+                question += ' ' + pp_string + '?'
+            else:
+                question += '?'
+
+            if randint(1, 10) > 0:
+                question, success = _try_to_generate_no_question(question)
+                if success:
+                    expected_answer = 'No.'
+
+            questions_scores.append((question, score, expected_answer))
+        except:
+            questions_scores.append(None)
+            continue
+
+    return questions_scores
+
+
+if __name__ == '__main__':
+    try:
+        input_file = sys.argv[1]
+        # n_questions = int(sys.argv[2])
+    except:
+        # print "./binary_question article.txt [nquestions]"
+        print "./binary_question article.txt"
+        sys.exit(1)
+
+    # with open(input_file, 'r') as f:
+    #     text = f.read()
+
+    # sentences = text2sentences(text)
+
+    # # remove sentences not ending with '.'
+    # sentences = [x for x in sentences if x[-1:] is '.']
+    # roots = []
+    # for sentence in sentences:
+    #     try:
+    #         parsed_string = str(next(parser.raw_parse(sentence)))
+    #         root = const_tree.to_const_tree(parsed_string)
+    #         roots.append(root)
+    #         # print root.to_string()
+    #     except:
+    #         continue
+
+    # with open('roots', 'w+') as f:
+    #     pickle.dump(roots, f)
+    with open('roots', 'r') as f:
+        roots = pickle.load(f)
+
+    questions = ask_binary_question2(roots, None)
+    # for question in questions:
+    #     print question
+    for i in range(len(roots)):
+        print roots[i].to_string()
+        if questions[i]:
+            print questions[i][0]
+        else:
+            print 'NO QUESTION!!'
+        print ''
