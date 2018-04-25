@@ -11,6 +11,7 @@ import copy
 import pickle
 from random import *
 import nltk
+from tfidf import TfIdfModel
 
 """
 Functions and constants for ask, generating binary questions
@@ -197,7 +198,7 @@ def ask_binary_question2(roots, num):
         vp_string = vp_copy.to_string()
         return aux_string + ' ' + np_string + ' ' + vp_string
 
-    def _try_to_generate_no_question(question):
+    def _try_to_convert_to_no_question(question):
         words_poss = nltk.pos_tag(nltk.word_tokenize(question))
         for word, pos in words_poss:
             if pos == 'CD':
@@ -209,31 +210,77 @@ def ask_binary_question2(roots, num):
                     return (question.replace(original_cd_str, modified_cd_str), True)
                 except:
                     pass
-        parsed_string = str(next(parser.raw_parse(question)))
-        root = const_tree.to_const_tree(parsed_string)
-        for child in root.children[0].children:
-            if child.type == 'VP':
-                top_level_vp = child
-        try:
-            verb_node = top_level_vp.children[0]
-            antonym = str(wn.synsets(verb_node.word, pos=wn.VERB)[0].lemmas()[0].antonyms()[0].name())
-            verb_node.word = antonym
-            ret = root.to_string()
-            ret = ret.replace(' ,', ',')
-            ret = ret.replace(" 's", "'s")
-            ret = ret.replace('-LRB- ', "(")
-            ret = ret.replace(' -RRB-', ")")
-            ret = ret.replace(' ?', "?")
-            return (ret, True)
-        except:
-            pass
+        # parsed_string = str(next(parser.raw_parse(question)))
+        # root = const_tree.to_const_tree(parsed_string)
+        # for child in root.children[0].children:
+        #     if child.type == 'VP':
+        #         top_level_vp = child
+        # try:
+        #     verb_node = top_level_vp.children[0]
+        #     antonym = str(wn.synsets(verb_node.word, pos=wn.VERB)[0].lemmas()[0].antonyms()[0].name())
+        #     verb_node.word = antonym
+        #     ret = root.to_string()
+        #     ret = ret.replace(' ,', ',')
+        #     ret = ret.replace(" 's", "'s")
+        #     ret = ret.replace('-LRB- ', "(")
+        #     ret = ret.replace(' -RRB-', ")")
+        #     ret = ret.replace(' ?', "?")
+        #     return (ret, True)
+        # except:
+        #     pass
         return (question, False)
 
-    questions_scores = []
+    def _check_type_existence(root, type_name):
+        if root == None:
+            return False
+        if root.type.startswith(type_name):
+            return True
+        for child in root.children:
+            if _check_type_existence(child, type_name):
+                return True
+        return False
+
+    def _assign_score(top_level_np, top_level_vp, top_level_pp, num_words):
+        """
+        Rules:
+        1) Number of words score:
+            >=10 <=20       50
+            >20 <=30        40
+            >30 <=40        30
+            >40 <10         10
+        2) top-level np has a proper noun:
+            20
+        3) top-level np has a pronoun:
+            -20
+        4) top-level vp or pp has a proper noun:
+            20
+        """
+        score = 0
+        if num_words >= 10 and num_words <= 20:
+            score += 50
+        elif num_words > 20 and num_words <= 30:
+            score += 40
+        elif num_words > 30 and num_words <= 40:
+            score += 30
+        else:
+            score += 10
+        if _check_type_existence(top_level_np, 'NNP'):
+            score += 20
+        if _check_type_existence(top_level_np, 'PRP'):
+            score -= 20
+        if _check_type_existence(top_level_vp, 'NNP') or _check_type_existence(top_level_pp, 'NNP'):
+            score += 10
+
+        return score
+
+    ret = []
     for root in roots:
         try:
+            # corner case: ignore sentences with "``" in it. Because parser doesn't do well with it.
+            if "``" in root.to_string():
+                continue
+
             question = ''
-            score = 0.0
             expected_answer = 'Yes.'
 
             top_level_np = None
@@ -279,56 +326,67 @@ def ask_binary_question2(roots, num):
                 question += '?'
 
             if randint(1, 10) > 0:
-                question, success = _try_to_generate_no_question(question)
+                question, success = _try_to_convert_to_no_question(question)
                 if success:
                     expected_answer = 'No.'
 
-            questions_scores.append((question, score, expected_answer))
+            score = _assign_score(top_level_np, top_level_vp, top_level_pp, len(question.split()))
+            ret.append((str(question), score, expected_answer, root))
         except:
-            questions_scores.append(None)
             continue
 
-    return questions_scores
+    ret = sorted(ret, key=lambda x:x[1], reverse=True)
+    return ret[:num]
 
 
 if __name__ == '__main__':
     try:
         input_file = sys.argv[1]
-        # n_questions = int(sys.argv[2])
+        num_questions = int(sys.argv[2])
     except:
-        # print "./binary_question article.txt [nquestions]"
-        print "./binary_question article.txt"
+        print "./binary_question article.txt [nquestions]"
         sys.exit(1)
 
-    # with open(input_file, 'r') as f:
-    #     text = f.read()
+    with open(input_file, 'r') as f:
+        text = f.read()
 
-    # sentences = text2sentences(text)
+    sentences = text2sentences(text)
 
-    # # remove sentences not ending with '.'
-    # sentences = [x for x in sentences if x[-1:] is '.']
-    # roots = []
-    # for sentence in sentences:
-    #     try:
-    #         parsed_string = str(next(parser.raw_parse(sentence)))
-    #         root = const_tree.to_const_tree(parsed_string)
-    #         roots.append(root)
-    #         # print root.to_string()
-    #     except:
-    #         continue
+    # remove sentences not ending with '.'
+    sentences = [x for x in sentences if x[-1:] is '.']
+    roots = []
+    for sentence in sentences:
+        try:
+            parsed_string = str(next(parser.raw_parse(sentence)))
+            root = const_tree.to_const_tree(parsed_string)
+            roots.append(root)
+            # print root.to_string()
+        except:
+            continue
 
     # with open('roots', 'w+') as f:
     #     pickle.dump(roots, f)
-    with open('roots', 'r') as f:
-        roots = pickle.load(f)
+    # with open('roots', 'r') as f:
+    #     roots = pickle.load(f)
 
-    questions = ask_binary_question2(roots, None)
-    # for question in questions:
-    #     print question
-    for i in range(len(roots)):
-        print roots[i].to_string()
-        if questions[i]:
-            print questions[i][0]
-        else:
-            print 'NO QUESTION!!'
-        print ''
+    ret = ask_binary_question2(roots, num_questions)
+
+    sentences = text2sentences(text)
+
+    # the tfidf model that identifies the most relevant
+    # sentence to a question
+    tfidf = TfIdfModel()
+    tfidf.train(sentences)
+
+    for question, score, expected_answer, root in ret:
+        print "Sentence: " + root.to_string()
+        print "Question: " + question
+        print "Score: " + str(score)
+        print "Expected answer: " + expected_answer
+        most_relevant_sentence = tfidf.getNRelevantSentences(question, 1)[0][0]
+        real_answer = answer_binary_by_comparison(question, most_relevant_sentence)
+        print "Most Relevant Sentence: " + most_relevant_sentence
+        print "Real answer: " + real_answer
+        if expected_answer != real_answer:
+            print "WRONG ANSWER"
+        print ""
