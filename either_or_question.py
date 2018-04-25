@@ -30,7 +30,7 @@ def get_antonyms_JJ(w):
 def get_antonyms_RB(w):
     antonyms = []
     for S in wn.synsets(w):
-        print S, S.pos()
+
         # if Synset is adjective or a satellite-adj
         if S.pos() in ["r"]:
             for lemma in S.lemmas():
@@ -72,9 +72,9 @@ def ask_advp(NP, VP, ADVP, RB_in_ADVP):
     :param RB_in_ADVP:
     :return:
     """
-    print "asking advp:", ADVP, RB_in_ADVP
+
     antonyms = get_antonyms_RB(RB_in_ADVP.to_string())
-    print antonyms
+
 
     if len(antonyms) == 0:
         return None
@@ -82,7 +82,7 @@ def ask_advp(NP, VP, ADVP, RB_in_ADVP):
     binary_question = ask_binary_question(VP, NP)[:-1] # get rid of question mark
 
     tokens = binary_question.split()
-    print tokens
+
     tokens_with_antonym = [F(token, RB_in_ADVP.to_string(), antonyms) for token in tokens]
     tokens_with_antonym[0] = string.capitalize(tokens_with_antonym[0])
     return " ".join(tokens_with_antonym + ["?"])
@@ -132,16 +132,28 @@ def generate_either_or_question(root):
                     RB_in_ADVP = cc
 
     # ask question for [be_verb] + [ADJP]
-    print "ADJP:", ADJP, " be_verb:", be_verb, " JJ:", JJ_in_ADJP
-    print "ADVP:", ADVP, "RB:", RB_in_ADVP
+
+
+    Q = None
 
     if (ADJP is not None) and (be_verb is not None) and (JJ_in_ADJP is not None):
-        return ask_be_verb_adjp(root, ADJP, be_verb, JJ_in_ADJP)
+        Q = ask_be_verb_adjp(root, ADJP, be_verb, JJ_in_ADJP)
 
     if (ADVP is not None) and (RB_in_ADVP is not None):
-        return ask_advp(NP, VP, ADVP, RB_in_ADVP)
+        Q = ask_advp(NP, VP, ADVP, RB_in_ADVP)
+    if Q:
+        logger.debug("Either or question: {}".format(Q))
+
+    return Q
 
 
+
+
+
+
+def answer_either_or_question(self, question, reference):
+
+    return reference
 
 
 

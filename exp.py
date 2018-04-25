@@ -34,7 +34,7 @@ STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 
 nlp = StanfordCoreNLP(STANFORD_NLP_PATH)
-sentence = 'We completed the task sadly.'
+sentence = 'Was it good or bad?'
 # tokens = nlp.word_tokenize(sentence)
 pos = nlp.pos_tag(sentence)
 tree = nlp.parse(sentence)
@@ -54,8 +54,8 @@ print tree
 # print "ner:"
 # print ner
 
-print "Generated: "
-print generate_either_or_question(new_node)
+# print "Generated: "
+# print generate_either_or_question(new_node)
 # props={'annotators': 'pos,parse','pipelineLanguage':'en','outputFormat':'json'}
 # tree = nlp.annotate(sentence, properties=props)
 # tree = json.loads(tree)

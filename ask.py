@@ -17,12 +17,17 @@ from why_question import *
 from adverbial_question import *
 from either_or_question import *
 
+import math
+
 #import nltk
 #nltk.download('wordnet')
 
 
-logger = Logger()
 
+"""
+Preprocess: get rid of sentence with subjects being PRP
+
+"""
 
 
 def generate_questions(root, questionType):
@@ -45,8 +50,8 @@ def generate_questions(root, questionType):
     # case on VP
     if questionType == 0:
         # binary
-        return None # generting binary question before
-        # q = ask_binary_question(vp, np)
+
+        return ask_binary_question(vp, np)
     elif questionType == 1:
         # question on NP
         return generate_wh_np_question(vp, np)
@@ -63,11 +68,63 @@ def generate_questions(root, questionType):
     else:
         return generate_either_or_question(root)
 
+# get rid of all questions whose subject is pronoun
 def select_questions(all, n):
-    # TODO
-    all_flattened = reduce(lambda x, y: x + y, all)
-    return all_flattened[:n]
+    # flatten into 1d list
+    """
+    Question types:
+    0: binary (lxy)
+    %remaining
 
+    1, 2: what, who (questions on subject or object)
+    %15 each (%30)
+
+    3: why question
+    %20
+
+    4: when, where, how ... (questions on adverbial)
+    %20
+
+    5: either or
+    %10
+    """
+    def cap_by_percentage(arr, ratio):
+        num = math.floor(ratio * n)
+        print num, ratio
+        while len(arr) > num:
+            arr.pop()
+    L_before_capped = reduce(lambda x, y: x + y, all)
+    L_category_length_before= map(lambda x: len(x), all)
+    logger.debug("Before capping by percentage, individual length = {}".format(str(L_category_length_before)))
+    cap_by_percentage(all[1], 0.1)
+    cap_by_percentage(all[2], 0.2)
+    cap_by_percentage(all[3], 0.2)
+    cap_by_percentage(all[4], 0.2)
+    cap_by_percentage(all[5], 0.1)
+
+    L_category_length_after= map(lambda x: len(x), all)
+    logger.debug("After capping by percentage, individual length = {}".format(str(L_category_length_after)))
+    L = reduce(lambda x, y: x + y, all)
+    # reversed to truncate all unneeded binary question
+    return list(reversed(L))[:n]
+
+def subject_is_pronoun(node):
+    """
+    Identity if a sentence has personal pronoun (PRP, PRP$) as subject
+    :param node: const_tree node (at root) of a sentence
+    :return: true if subject is pronoun
+            false if subject is not pronoun, or NP is not found
+    """
+
+    NP = None
+    for child in node.children[0].children:
+        if child.type == "NP":
+            NP = child
+    if NP:
+        for child in NP.children:
+            if child.type in ["PRP$", "PRP"]:
+                return True
+    return False
 
 def run_generator():
     try:
@@ -114,13 +171,20 @@ def run_generator():
     # ask binary questions
     #all_questions[0] = ask_binary_question2(sentences, num)
 
+
+
     for i in xrange(len(sentences)):
+        logger.debug("[Sentence] {}".format(sentences[i]))
         for typeNum in xrange(total_types):
             root = all_parsed_nodes[i][typeNum]
+            # skip sentences with pronoun as subject
+            if subject_is_pronoun(root):
+                break
             q = generate_questions(root, typeNum)
             # here might be a bug, q could be empty instead of None
             if q != None and q != "":
                 generated_count += 1
+                logger.debug("[Question] {}".format(q))
                 logger.debug("Generated {} questions".format(generated_count))
                 all_questions[typeNum].append(q)
 
