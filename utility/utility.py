@@ -59,7 +59,14 @@ def lowercase_if_needed(parent_NP):
     :param parent_NP:
     :return:
     """
-    if parent_NP.children[0].type.startswith("NNP"):
+    def _check_nnp(parent_NP):
+        iterator = parent_NP
+        while len(iterator.children) > 0:
+            iterator = iterator.children[0]
+            if iterator.type.startswith("NNP"):
+                return True
+        return False
+    if _check_nnp(parent_NP):
         return parent_NP.to_string()
     if parent_NP.to_string() == "I":
         return "I"
