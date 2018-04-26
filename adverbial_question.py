@@ -17,12 +17,15 @@ def generate_adverbial_question(root, node, parent_NP):
     when_res = ask_when(root, node, parent_NP)
     where_res = ask_where(root, node, parent_NP)
     how_res = ask_how(root, node, parent_NP)
+    how_by_res = ask_how_by(root, node, parent_NP)
     if when_res != None:
         res_q.append(when_res)
     if where_res != None:
         res_q.append(where_res)
     if how_res != None:
         res_q.append(how_res)
+    if how_by_res != None:
+        res_q.append(how_by_res)
     return res_q
 
 def ask_when(root, node, parent_NP):
@@ -46,6 +49,7 @@ def ask_when(root, node, parent_NP):
         else:
             node.children.remove(NP_TMP)
         bi_question = ask_binary_question(node, parent_NP)
+        if bi_question == None: return None
         # lower case the first letter
         if len(bi_question) > 0:
             if len(bi_question) > 1:
@@ -79,6 +83,7 @@ def ask_where(root, node, parent_NP):
         else:
             node.children.remove(PP)
         bi_question = ask_binary_question(node, parent_NP)
+        if bi_question == None: return None
         # lower case the first letter
         if len(bi_question) > 0:
             if len(bi_question) > 1:
@@ -103,16 +108,12 @@ def how_adv(ADVP):
 def ask_how(root, node, parent_NP):
     question = ""
     ADVP = None
-    for child in root.children[0].children:
+    for child in node.children:
         if (child.type == "ADVP"):
             ADVP = child
-    if (ADVP == None or not(how_adv(ADVP))):
-        for child in node.children:
-            if (child.type == "ADVP"):
-                ADVP = child
-            # Discard sentence with conjunction structure
-            if (child.type == "CC"):
-                return None
+        # Discard sentence with conjunction structure
+        if (child.type == "CC"):
+            return None
     if (ADVP == None): return None
     # check if there is meaningful ADV
     if how_adv(ADVP):
@@ -121,6 +122,7 @@ def ask_how(root, node, parent_NP):
         else:
             node.children.remove(ADVP)
         bi_question = ask_binary_question(node, parent_NP)
+        if bi_question == None: return None
         # lower case the first letter
         if len(bi_question) > 0:
             if len(bi_question) > 1:
@@ -131,6 +133,53 @@ def ask_how(root, node, parent_NP):
         question += bi_question
         return question
     return None
+
+# check if the first word of the PP is by
+# return True/False
+def check_by(PP):
+    if len(PP.children) == 0: return False
+    if PP.children[0].word == "by": return True
+
+def ask_how_by(root, node, parent_NP):
+    question = ""
+    # phrases/nodes to be deleted
+    VP_child = None
+    for child in node.children:
+        if child.type == "VP":
+            VP_child = child
+    if VP_child == None: return None
+    PP = None
+    by_exist = False
+    by_del = []
+    for child in VP_child.children:
+        if not by_exist:
+            if (child.type == "PP") and check_by(child):
+                PP = child
+                by_exist = True
+                by_del.append(child)
+        else:
+            if (child.type != "PP"): break
+            if (child.type == "PP"):
+                by_del.append(child)
+        # Discard sentence with conjunction structure
+        if (child.type == "CC"):
+            return None
+    if (PP == None): 
+        return None
+    # TODO: check the words after by phrase to see if appropriate to ask how
+    for node_del in by_del:
+        VP_child.children.remove(node_del)
+    bi_question = ask_binary_question(node, parent_NP)
+    if bi_question == None: return None
+    # lower case the first letter
+    if len(bi_question) > 0:
+        if len(bi_question) > 1:
+            bi_question = bi_question[0].lower() + bi_question[1:]
+        else:
+            bi_question = bi_question[0].lower()
+    question += "How "
+    question += bi_question
+    return question
 
 
 def answer_when(Q, most_relevant_sentence, root, node, parent_NP):
@@ -191,16 +240,12 @@ def answer_where(Q, most_relevant_sentence, root, node, parent_NP):
 def answer_how(Q, most_relevant_sentence, root, node, parent_NP):
     answer = most_relevant_sentence
     ADVP = None
-    for child in root.children[0].children:
+    for child in node.children:
         if (child.type == "ADVP"):
             ADVP = child
-    if (ADVP == None or not(how_adv(ADVP))):
-        for child in node.children:
-            if (child.type == "ADVP"):
-                ADVP = child
-            # Discard sentence with conjunction structure
-            if (child.type == "CC"):
-                return answer
+        # Discard sentence with conjunction structure
+        if (child.type == "CC"):
+            return answer
     if (ADVP == None): return answer
     # check if there is meaningful ADV
     if how_adv(ADVP):
