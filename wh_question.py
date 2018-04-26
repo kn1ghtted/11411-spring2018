@@ -130,87 +130,140 @@ def getWhFromLabel(label):
                 result = "How many"
     return result
 
-def get_supersense(np):
-    result = None
-    nounCount = 0
-    totalLabel = []
-    np_string = const_tree.to_string(np)
-    for word in np_string.split(" "):
+
+def get_supersense_pp_advp_sbar(node):
+    labelSet = set([])
+    for child in node.children:
         try:
-            labelSet = get_word_supersenses(word)
+            labelSet = labelSet.union(get_word_supersenses(child))
         except:
-            labelSet = set()
             continue
-        # if is person
-        totalLabel = totalLabel + [labelSet]
-        for eachLabel in labelSet:
-            # count the number of possible nouns in NP
-            if eachLabel.startswith("noun."):
-                nounCount += 1
+
+    if "noun.location" in labelSet:
+        return "Where"
+    if "noun.time" in labelSet:
+        return "When"
+    return None
+
+
+def get_labelset_from_node(n):
+    """
+    Grab label set for everything
+    :param n:
+    :return:
+    """
+    ret = set([])
+    for word in n.to_string().split():
+        try:
+            S = get_word_supersenses(word)
+        except:
+            continue
+        ret = ret.union(S)
+    return ret
+
+def get_supersense_np(np):
+
+
+    """
+    Deal with the following cases:
+        a) parallel NPs -> use last word
+        b) NP's NP -> use the latter (This is same as first case)
+        c) NP PP (e.g.: Lebron James of Cleveland Cavaliers) -> use the first NP
+        d) NP SBAR (e.g. the food that I like) -> use the first NP
+
+    """
+
+    labelSet = None
+    # search for SBAR or PP
+    for i in xrange(len(np.children)):
+        child = np.children[i]
+        if child.type in ["PP", "SBAR"]:
+            if i > 0:
+                target = np.children[i - 1]
+                labelSet = get_labelset_from_node(target)
                 break
-    if nounCount > 1:
-        # TODO: Multiple noun situation
-        # if all Nouns are parallel, find the last one
-        isParallel = True
-        for child in np.children:
-            if child.word == None:
-                isParallel = False
-        if isParallel:
-            for i in xrange(len(totalLabel)-1,-1,-1):
-                labetSet =totalLabel[i]
-                for label in labelSet: 
-                    label
-                    result = getWhFromLabel(label)
-                    if result:
-                        return result
-                
-        else:
-            # TODO: deal with non parallel nouns
-            return None
-    else:
+            else:
+                return None
 
-        for labelset in totalLabel:
-            for label in labelset:
-                result = getWhFromLabel(label)
-                if result:
-                    return result
-    return result
+    # no PP or SBAR found, use the last word
+    if labelSet is None:
+        labelSet = get_labelset_from_node(np.children[-1])
 
 
-# takes in a NP node
-def getWhWord(node):
-    result = None
+    for label in labelSet:
+        if label.startswith("noun."):
+            if label == "noun.person":
+                return "Who"
+            if label in whatSet:
+                return "What"
+            elif label in whichSet:
+                return "Which" + " " + label[5:]
+            elif label == "noun.quantity":
+                return "How many"
+    return None
+
+
+def getWhWordNP(node):
     for child in node.children:
         childTag = child.type
         # use POS tagger for pronouns
         if childTag == "PRP" and str.lower(child.word) != "it":
-            if result != None and result != "Who": return None
-            result = "Who"
+            return "Who"
         elif child.word and str.lower(child.word) == "it":
             return None
+
     NP_string = const_tree.to_string(node)
     NER_result = tagger.tag(NP_string.split())
     # NER tagger for propers
 
- 
     for (word, tag) in NER_result:
-        if tag == "PERSON":
-            if result != None and result != "Who": return None
-            result = "Who"
-        elif tag == "TIME":
-            if result != None and result != "TIME": return None
-            result == "When"
-        elif tag == "DATE":
-            if result != None and result != "DATE": return None
-            result == "When"
+        if tag in ["PERSON", "ORGANIZATION"]:
+            return "Who"
         elif tag == "MONEY":
-            if result != None and result != "MONEY": return None
-            result = "How much"
+            return "How much"
 
-    if not result:
-        result = get_supersense(node)
+    return get_supersense_np(node)
 
-    return result
+def getWhWord_PP_ADVP_SBAR(node):
+    NP_string = node.to_string()
+    if node.type == "SBAR":
+        if "when" in NP_string.lowercase() or "while" in NP_string.lowercase():
+            return "When"
+        if "where" in NP_string.lowercase():
+            return "Where"
+
+    NER_result = tagger.tag(NP_string.split())
+
+    for (word, tag) in NER_result:
+        if tag in ["TIME", "DATE"]:
+            return "When"
+        elif tag in ["LOCATION"]:
+            return "Where"
+
+    return get_supersense_pp_advp_sbar(node)
+
+
+def getWhWord(node):
+    """
+    Take in node representing an interested phrase in the original sentence,
+    e.g.: "The film", "into the jungle", "in 2016"
+
+    :param node:
+    :return: Case on the node's type in the original sentence, output what type of Q
+    can be asked
+    """
+
+    result = None
+
+    if node.type.startswith("NP"):
+        return getWhWordNP(node)
+
+    if node.type in ["PP", "ADVP", "SBAR"]:
+        return getWhWord_PP_ADVP_SBAR(node)
+
+    else:
+        # Unknown/unimplemented type of node
+        return None
 
 
 def generate_wh_np_question(vp, np):
@@ -254,6 +307,7 @@ def generate_wh_np_question(vp, np):
 
 # ask wh question on NP at the VP node.
 def generate_wh_vp_question(node, parent_NP):
+
     question = ""
     VP = None
     NP = None # this part to ask!
@@ -277,10 +331,12 @@ def generate_wh_vp_question(node, parent_NP):
     if VBX.word and str.lower(VBX.word) in BE_VERBS:
         return None
     # if does not have auxiliary verb and does not have NP
+
     if NP == None and VP == None: return
 
     # has auxiliary verb
     if (VP != None):
+
         # add "Wh" in the front and get rid of the NP
         # need to go to the next level and ask what
         NP_AUX = None
@@ -304,9 +360,9 @@ def generate_wh_vp_question(node, parent_NP):
     else:
         # ask what + binary question removing NP
         node.children.remove(NP)
+
         if VBX.type not in VERB_TYPE_AUX_VERB_MAPPING:
             return None
-
         # get vp_without_verb
         children_except_VBX = list(filter(lambda child: (not child.type.startswith("VB")), node.children))
         vp_without_verb = " ".join(list(map(lambda child: child.to_string(), children_except_VBX)))
@@ -315,6 +371,7 @@ def generate_wh_vp_question(node, parent_NP):
 
         # modified to get the corresponding WH word to ask the question
         WH = getWhWord(NP)
+
         if WH:
             question +=  WH + " "
             if VBX.to_string() in BE_VERBS:
