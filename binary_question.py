@@ -163,7 +163,7 @@ def ask_binary_question(node, parent_NP):
     return question
 
 
-def ask_binary_question2(roots, ners, num):
+def ask_binary_question2(roots, ners):
     """
     @param      roots      List of roots of parsed sentences.
     @param      num        Number of output questions
@@ -379,8 +379,8 @@ def ask_binary_question2(roots, ners, num):
         score = _assign_score(root, len(yes_question.split()))
         ret.append((yes_question, no_question, score))
 
-    ret = sorted(ret, key=lambda x:x[2], reverse=True)
-    return [(x[0], x[1]) for x in ret][:num]
+    ret = sorted(ret, key=lambda x:x[2])
+    return [(x[0], x[1]) for x in ret]
 
 def get_ners(sentences):
     ners = defaultdict(set)

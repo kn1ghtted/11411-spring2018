@@ -76,7 +76,7 @@ def select_questions(all, n):
     b) Diversity:
         Question types:
         0: binary (lxy)
-        %remaining
+        %remaining: half yes half no
 
         1, 2: what, who (questions on subject or object)
         %15 each (%30)
@@ -183,10 +183,15 @@ def run_generator():
     # ask binary questions
     #all_questions[0] = ask_binary_question2(sentences, num)
 
+    ners = get_ners(sentences)
+    binary_questions = ask_binary_question2([x[0] for x in all_parsed_nodes], ners)
+    yes_questios = [x[0] for x in binary_questions]
+    no_quetions = [x[1] for x in binary_questions if x]
+
     for i in xrange(len(sentences)):
         logger.debug("[Sentence] {}".format(sentences[i]))
         for typeNum in xrange(total_types):
-            root = all_parsed_nodes[i][typeNum]
+            root = all_parsed_nodes[i][typefNum]
             """
             skip sentences if:
                 a) pronoun as subject or object
