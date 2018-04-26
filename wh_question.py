@@ -16,13 +16,13 @@ whatSet = set(['noun.artifact', 'noun.attribute', 'noun.body', 'noun.cognition',
      'noun.object', 'noun.phenomenon', 'noun.plant', 'noun.possession',\
     'noun.process', 'noun.quantity', 'noun.relation'])
 
-def check_type_existence(root, type_name):
+def check_type_existence(root, checkFunction):
         if root == None:
             return False
-        if root.type.startswith(type_name):
+        if root.word and checkFunction(root):
             return True
         for child in root.children:
-            if _check_type_existence(child, type_name):
+            if check_type_existence(child, checkFunction):
                 return True
         return False
 
@@ -50,16 +50,17 @@ def childIsPerson(child):
     return False
 
 def checkChildIsAnswer(Q,Qtype,child,np):
+    np_string = np.to_string()
     if Qtype == "Who":
         if childIsPerson(child):
             if child.word not in Q:
                 if child.word == "I":
                     return "Me."
-                return np.to_string() + "."
+                return np_string[0].upper() + np_string[1:] + "."
     elif Qtype == "What":
         if childIsObject(child):
             if child.word not in Q:
-                return np.to_string() + "."
+                return np_string[0].upper() + np_string[1:] + "."
 
 
 
@@ -86,7 +87,7 @@ def NP_answer_helper(Q, relSentence, Qtype):
                     if grandchild.word:
                         result = checkChildIsAnswer(Q, Qtype, grandchild, np)
         if result:
-            return result
+            return result[0].upper() + result[1:]
 
 
         # if asking about NP in VP
@@ -97,11 +98,14 @@ def NP_answer_helper(Q, relSentence, Qtype):
         if VP_NP:
             for child in VP_NP.children:
                 if child.word:
-                    return checkChildIsAnswer(Q, Qtype, child, VP_NP)
+                    result = checkChildIsAnswer(Q, Qtype, child, VP_NP)
+
                 else:
                     for grandchild in child.children:
                         if grandchild.word:
-                            return checkChildIsAnswer(Q, Qtype, grandchild, VP_NP)
+                            result = checkChildIsAnswer(Q, Qtype, grandchild, VP_NP)
+                if result:
+                    return result
 
     return relSentence
 
