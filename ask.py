@@ -25,7 +25,7 @@ import math
 
 
 """
-Preprocess: get rid of sentence with subjects being PRP
+Preprocess: get rid of sentence with subjects being pronouns
 
 """
 
@@ -72,22 +72,34 @@ def generate_questions(root, questionType):
 def select_questions(all, n):
     # flatten into 1d list
     """
-    Question types:
-    0: binary (lxy)
-    %remaining
+    a) Extreme length: eliminate questions longer than 25 words, or shorter than 5 words
+    b) Diversity:
+        Question types:
+        0: binary (lxy)
+        %remaining
 
-    1, 2: what, who (questions on subject or object)
-    %15 each (%30)
+        1, 2: what, who (questions on subject or object)
+        %15 each (%30)
 
-    3: why question
-    %20
+        3: why question
+        %20
 
-    4: when, where, how ... (questions on adverbial)
-    %20
+        4: when, where, how ... (questions on adverbial)
+        %20
 
-    5: either or
-    %10
+        5: either or
+        %10
     """
+    for type_index in xrange(len(all)):
+        questions_type = all[type_index]
+        def filter_length(x):
+            L = len(x.split())
+            if L >= 25 or L <= 5:
+                return False
+            return True
+        all[type_index] = list(filter(filter_length, questions_type))
+
+
     def cap_by_percentage(arr, ratio):
         num = math.floor(ratio * n)
         while len(arr) > num:
@@ -159,6 +171,7 @@ def run_generator():
     # 1st level index i : corresponds to the ith sentence being parsed
     # 2nd level index j : corresponds to the copy of the node for the jth question type
     all_parsed_nodes = []
+
     for sentence in sentences:
         parsed_string = str(next(parser.raw_parse(sentence)))
         nodes = []
@@ -170,13 +183,15 @@ def run_generator():
     # ask binary questions
     #all_questions[0] = ask_binary_question2(sentences, num)
 
-
-
     for i in xrange(len(sentences)):
         logger.debug("[Sentence] {}".format(sentences[i]))
         for typeNum in xrange(total_types):
             root = all_parsed_nodes[i][typeNum]
-            # skip sentences with pronoun as subject
+            """
+            skip sentences if:
+                a) pronoun as subject or object
+            """
+
             if subject_is_pronoun(root):
                 break
             q = generate_questions(root, typeNum)
@@ -188,6 +203,7 @@ def run_generator():
                 all_questions[typeNum].append(q)
 
     final_questions = select_questions(all_questions, n_questions)
+
     for q in final_questions:
         print q
 

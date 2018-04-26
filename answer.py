@@ -103,7 +103,7 @@ class Answer:
         for Q in self.questions:
             reference_sentence = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
             logger.debug("[Question] {}".format(Q))
-            logger.debug("[Referebce sentence] {}".format(reference_sentence))
+            logger.debug("[Reference sentence] {}".format(reference_sentence))
 
             question_type = self._get_question_type(Q)
             first = Q.split()[0]

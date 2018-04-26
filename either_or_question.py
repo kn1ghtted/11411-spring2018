@@ -160,8 +160,8 @@ def generate_either_or_question(root):
 
 
 """
-Identify the or node. If it separates two non-sentence phrases,
-output one of the phrases as answer
+Identify the or node. Output the previous as well as the next node in the tree,
+at the same level (this successfully handles ADVP, ADJP and other phrasal conditions)
 """
 def answer_either_or_question(question, reference):
     parsed_string = str(next(parser.raw_parse(question)))
@@ -179,47 +179,44 @@ def answer_either_or_question(question, reference):
     if VP is None:
         return None
 
+    # the previous node and the next node of "or"
+
     def dfs(node):
         """
         DFS for "or" node
         :param node: current node
         :return: the or node
         """
-        if node.word == "or":
-            return node
-        for child in node.children:
-            ret = dfs(child)
-            if ret:
-                return ret
+        if len(node.children) == 0:
+            return None, None
+        p_ret, n_ret = None, None
+        for child_i in xrange(len(node.children)):
+            child = node.children[child_i]
+            if child.word == "or":
+                # return if there's no prev or next
+                if (child_i == 0) or (child_i == len(node.children) - 1):
+                    return None, None
+                return node.children[child_i - 1], node.children[child_i + 1]
+            else:
+                (p, n) = dfs(child)
+                if p:
+                    p_ret = p
+                if n:
+                    n_ret = n
+        return p_ret, n_ret
 
-    or_node = dfs(curr)
-    if or_node is None:
-        logger.warning("No 'or' node found in tree!")
+    or_prev, or_next = dfs(curr)
+
+    if (or_prev is None) or (or_next is None):
+        logger.warning("Can't locate or_prev, or_next!")
         return None
-    print or_node
-
-    # be_verb, ADJP, JJ_in_ADJP, ADVP, RB_in_ADVP = get_VP_components(VP)
-
-
-    # reference_tokens = reference.split()
-
-    # if (ADVP is not None) and ("or" in ADVP.to_string().split()):
-    #     ADVP_tokens = ADVP.to_string().split()
-    #     or_index = ADVP_tokens.index("or")
-    #     if or_index < len(ADVP_tokens) - 1:
-    #         A = ADVP_tokens[or_index - 1]
-    #         B = ADVP_tokens[or_index + 1]
-    #         if A in reference_tokens:
-    #             return A + "."
-    #         else:
-    #             return B + "."
-    #
-    # # TODO: ADJP either or question
-    #
-    # if (ADJP is not None) and ("or" in ADJP.to_string().split()):
-    #     ADJP_tokens
-
-
+    logger.debug("or_prev = {}, or_next = {}".format(or_prev, or_next, ))
+    A = or_prev.to_string()
+    B = or_next.to_string()
+    if B in reference:
+        return string.capitalize(B) + "."
+    else:
+        return string.capitalize(A) + "."
 
     return reference
 
