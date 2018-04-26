@@ -162,12 +162,13 @@ def ask_binary_question(node, parent_NP):
             question += ' ' + parent_NP_string + ' ' + lemma(VBX.to_string()) + ' ' + vp_without_verb + '?'
     return question
 
+
 def ask_binary_question2(roots, ners, num):
     """
     @param      roots      List of roots of parsed sentences.
     @param      num        Number of output questions
     
-    @return     List of questions
+    @return     List of (yes question, no question)
     """
     def _ask_case_1(top_level_np, top_level_vp):
         """
@@ -261,10 +262,10 @@ def ask_binary_question2(roots, ners, num):
                     word = WORD_NUMBER_MAPPING[word]
                 try:
                     modified_cd_str = str(int(word) + 1)
-                    return (question.replace(original_cd_str, modified_cd_str), True)
+                    return question.replace(original_cd_str, modified_cd_str)
                 except:
                     pass
-        return (question, False)
+        return None
 
     def _convert_to_no_question_ner(question, ners):
         NER_result = tagger.tag(question.split())
@@ -288,10 +289,10 @@ def ask_binary_question2(roots, ners, num):
                 candidates = ners[tag]
                 for candidate in candidates:
                     if candidate != word:
-                        return (question.replace(word, candidate), True)
+                        return question.replace(word, candidate)
             except:
                 continue
-        return (question, False)
+        return None
 
     def _convert_to_no_question_adj_adv(question):
         words_poss = nltk.pos_tag(nltk.word_tokenize(question))
@@ -299,16 +300,16 @@ def ask_binary_question2(roots, ners, num):
             if pos.startswith('JJ'):
                 try:
                     antonym = str(wn.synsets(word, pos=wn.ADJ)[0].lemmas()[0].antonyms()[0].name())
-                    return (question.replace(word, antonym), True)
+                    return question.replace(word, antonym)
                 except:
                     continue
             if pos.startswith('RB'):
                 try:
                     antonym = str(wn.synsets(word, pos=wn.ADV)[0].lemmas()[0].antonyms()[0].name())
-                    return (question.replace(word, antonym), True)
+                    return question.replace(word, antonym)
                 except:
                     continue
-        return (question, False)
+        return None
 
     def _check_type_existence(root, type_name):
         if root == None:
@@ -320,7 +321,7 @@ def ask_binary_question2(roots, ners, num):
                 return True
         return False
 
-    def _assign_score(root, num_words, score):
+    def _assign_score(root, num_words):
         """
         Rules:
         1) Number of words score:
@@ -335,6 +336,7 @@ def ask_binary_question2(roots, ners, num):
         4) top-level vp or pp has a proper noun:
             10
         """
+        score = 0
         top_level_np = None
         top_level_vp = None
         top_level_pp = None
@@ -364,34 +366,21 @@ def ask_binary_question2(roots, ners, num):
 
     ret = []
     for root in roots:
-        question = _basic_yes_question(root)
-        if question is None:
+        yes_question = _basic_yes_question(root)
+        if yes_question is None:
             continue
 
-        score = 0
+        no_question = _convert_to_no_question_ner(yes_question, ners)
+        if no_question == None:
+            no_question = _convert_to_no_question_adj_adv(yes_question)
+        if no_question == None:
+            no_question = _convert_to_no_question_number(yes_question)
 
-        expected_answer = 'Yes.'
-        if randint(1, 10) > 0:
-            question, success = _convert_to_no_question_ner(question, ners)
-            if success:
-                expected_answer = 'No.'
-                score += 20
-            else:
-                question, success = _convert_to_no_question_adj_adv(question)
-                if success:
-                    expected_answer = 'No.'
-                    score += 40
-                else:
-                    question, success = _convert_to_no_question_number(question)
-                    if success:
-                        expected_answer = 'No.'
-                        score += 20
+        score = _assign_score(root, len(yes_question.split()))
+        ret.append((yes_question, no_question, score))
 
-        score = _assign_score(root, len(question.split()), score)
-        ret.append((str(question), score, expected_answer, root))
-
-    ret = sorted(ret, key=lambda x:x[1], reverse=True)
-    return ret[:num]
+    ret = sorted(ret, key=lambda x:x[2], reverse=True)
+    return [(x[0], x[1]) for x in ret][:num]
 
 def get_ners(sentences):
     ners = defaultdict(set)
@@ -431,15 +420,15 @@ if __name__ == '__main__':
 
     # remove sentences not ending with '.'
     sentences = [x for x in sentences if x[-1:] is '.']
-    # roots = []
-    # for sentence in sentences:
-    #     try:
-    #         parsed_string = str(next(parser.raw_parse(sentence)))
-    #         root = const_tree.to_const_tree(parsed_string)
-    #         roots.append(root)
-    #         # print root.to_string()
-    #     except:
-    #         continue
+    roots = []
+    for sentence in sentences:
+        try:
+            parsed_string = str(next(parser.raw_parse(sentence)))
+            root = const_tree.to_const_tree(parsed_string)
+            roots.append(root)
+            # print root.to_string()
+        except:
+            continue
 
     # with open('roots', 'w+') as f:
     #     pickle.dump(roots, f)
@@ -457,15 +446,20 @@ if __name__ == '__main__':
     tfidf = TfIdfModel()
     tfidf.train(sentences)
 
-    for question, score, expected_answer, root in ret:
-        print "Sentence: " + root.to_string()
-        print "Question: " + question
-        print "Score: " + str(score)
-        print "Expected answer: " + expected_answer
-        most_relevant_sentence = tfidf.getNRelevantSentences(question, 1)[0][0]
-        real_answer = answer_binary_by_comparison(question, most_relevant_sentence)
-        print "Most Relevant Sentence: " + most_relevant_sentence
-        print "Real answer: " + real_answer
-        if expected_answer != real_answer:
-            print "WRONG ANSWER"
+    # for question, score, expected_answer, root in ret:
+    #     print "Sentence: " + root.to_string()
+    #     print "Question: " + question
+    #     print "Score: " + str(score)
+    #     print "Expected answer: " + expected_answer
+    #     most_relevant_sentence = tfidf.getNRelevantSentences(question, 1)[0][0]
+    #     real_answer = answer_binary_by_comparison(question, most_relevant_sentence)
+    #     print "Most Relevant Sentence: " + most_relevant_sentence
+    #     print "Real answer: " + real_answer
+    #     if expected_answer != real_answer:
+    #         print "WRONG ANSWER"
+    #     print ""
+    for yes_question, no_question in ret:
+        print "Yes Question: " + yes_question
+        if no_question:
+            print "No Question: " + no_question
         print ""
