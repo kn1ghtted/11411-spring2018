@@ -106,7 +106,7 @@ class Answer:
             logger.debug("[Reference sentence] {}".format(reference_sentence))
 
             question_type = self._get_question_type(Q)
-            first = Q.split()[0]
+            first = Q.split()[0].lower()
 
             A = None
 
