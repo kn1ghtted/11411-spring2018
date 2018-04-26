@@ -268,7 +268,10 @@ def ask_binary_question2(roots, ners):
         return None
 
     def _convert_to_no_question_ner(question, ners):
-        NER_result = tagger.tag(question.split())
+        try:
+            NER_result = tagger.tag(question.split())
+        except:
+            return None
         i = 0
         len_NER_result = len(NER_result)
         local_ners = []
@@ -385,7 +388,10 @@ def ask_binary_question2(roots, ners):
 def get_ners(sentences):
     ners = defaultdict(set)
     for sentence in sentences:
-        NER_result = tagger.tag(sentence.split())
+        try:
+            NER_result = tagger.tag(sentence.split())
+        except:
+            continue
         i = 0
         len_NER_result = len(NER_result)
         while i < len_NER_result:

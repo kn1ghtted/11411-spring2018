@@ -11,6 +11,9 @@ def text2sentences(text):
     # remove non-ascii characters
     text = re.sub(r'[^\x00-\x7f]',r'', text)
     for sentence in nltk.sent_tokenize(text):
+        if "/" in sentence:
+            continue
+        sentence = sentence.encode('utf-8')
         ret += re.split('\n+', sentence)
     return ret
 

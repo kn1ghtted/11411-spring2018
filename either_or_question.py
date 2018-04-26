@@ -39,7 +39,7 @@ def get_antonyms_RB(w):
                     antonyms += [ant.name() for ant in lemma.antonyms()]
     return antonyms
 
-def ask_be_verb_adjp(root, ADJP, be_verb, JJ_in_ADJP):
+def ask_be_verb_adjp(NP, VP, ADJP, be_verb, JJ_in_ADJP):
     """
     Ask question for sentence including [NP + be_verb + ADJP]
     :param root:
@@ -55,7 +55,7 @@ def ask_be_verb_adjp(root, ADJP, be_verb, JJ_in_ADJP):
         # no antonym foujd
         return None
 
-    tokens = root.to_string().split()
+    tokens = NP.to_string().split() + VP.to_string().split()
     tokens_without_be_verb = list(filter(lambda x: x not in BE_VERBS, tokens))
 
     tokens_with_antonym = [F(token, JJ_in_ADJP.to_string(), antonyms) for token in tokens_without_be_verb]
@@ -134,7 +134,6 @@ def get_VP_components(VP):
 
     return be_verb, ADJP, JJ_in_ADJP, ADVP, RB_in_ADVP
 
-
 def generate_either_or_question(root):
     NP, VP = get_NP_VP(root.children[0])
 
@@ -143,14 +142,11 @@ def generate_either_or_question(root):
 
     be_verb, ADJP, JJ_in_ADJP, ADVP, RB_in_ADVP = get_VP_components(VP)
 
-
     # ask question for [be_verb] + [ADJP]
-
-
     Q = None
 
     if (ADJP is not None) and (be_verb is not None) and (JJ_in_ADJP is not None):
-        Q = ask_be_verb_adjp(root, ADJP, be_verb, JJ_in_ADJP)
+        Q = ask_be_verb_adjp(NP, VP, ADJP, be_verb, JJ_in_ADJP)
 
     if (ADVP is not None) and (RB_in_ADVP is not None):
         Q = ask_advp(NP, VP, ADVP, RB_in_ADVP)
@@ -158,10 +154,6 @@ def generate_either_or_question(root):
         logger.debug("Either or question: {}".format(Q))
 
     return Q
-
-
-
-
 
 """
 Identify the or node. Output the previous as well as the next node in the tree,
@@ -178,10 +170,10 @@ def answer_either_or_question(question, reference):
             return None
         curr = curr.children[0]
 
+
     NP, VP = get_NP_VP(curr)
 
-    if VP is None:
-        return None
+
 
     # the previous node and the next node of "or"
 
@@ -197,6 +189,7 @@ def answer_either_or_question(question, reference):
         for child_i in xrange(len(node.children)):
             child = node.children[child_i]
             if child.word == "or":
+
                 # return if there's no prev or next
                 if (child_i == 0) or (child_i == len(node.children) - 1):
                     return None, None

@@ -170,21 +170,25 @@ def run_generator():
     # all parsed nodes: a 2d array
     # 1st level index i : corresponds to the ith sentence being parsed
     # 2nd level index j : corresponds to the copy of the node for the jth question type
-    all_parsed_nodes = []
+    all_parsed_nodes = [None] * len(sentences)
 
-    for sentence in sentences:
-        parsed_string = str(next(parser.raw_parse(sentence)))
+    for i in xrange(len(sentences)):
+        sentence = sentences[i]
+        try:
+            parsed_string = str(next(parser.raw_parse(sentence)))
+        except:
+            continue
         nodes = []
         for typeNum in xrange(total_types):
             new_node = const_tree.to_const_tree(parsed_string)
             nodes.append(new_node)
-        all_parsed_nodes.append(nodes)
+        all_parsed_nodes[i] = nodes
 
     # ask binary questions
 
 
     ners = get_ners(sentences)
-    binary_questions = ask_binary_question2([x[0] for x in all_parsed_nodes], ners)
+    binary_questions = ask_binary_question2([x[0] for x in all_parsed_nodes if x], ners)
     #merge yes no into one mixed array
     yes_questions = [x[0] for x in binary_questions]
     no_questions = [x[1] for x in binary_questions if x[1]]
@@ -206,6 +210,8 @@ def run_generator():
 
     for i in xrange(len(sentences)):
         logger.debug("[Sentence] {}".format(sentences[i]))
+        if all_parsed_nodes[i] is None:
+            continue
         for typeNum in xrange(total_types):
             root = all_parsed_nodes[i][typeNum]
             """
@@ -241,6 +247,13 @@ def run_generator():
         q = q.replace(" 's", "'s")
         q = q.replace('-LRB- ', "(")
         q = q.replace(' -RRB-', ")")
+        q = q.replace('-lsb- ', "[")
+        q = q.replace(' -rsb-', "]")
+        q = q.replace('-LSB- ', "[")
+        q = q.replace(' -RSB-', "]")
+        q = q.replace('-LCB- ', "{")
+        q = q.replace(' -RCB-', "}")
+
         print q
 
 

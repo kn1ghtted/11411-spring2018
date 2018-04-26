@@ -100,54 +100,59 @@ class Answer:
 
     def answer_questions(self):
         for Q in self.questions:
-            reference_sentence = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
-            logger.debug("[Question] {}".format(Q))
-            logger.debug("[Reference sentence] {}".format(reference_sentence))
+            try:
+                reference_sentence = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
+                logger.debug("[Question] {}".format(Q))
+                logger.debug("[Reference sentence] {}".format(reference_sentence))
 
-            question_type = self._get_question_type(Q)
-            first = Q.split()[0].lower()
+                question_type = self._get_question_type(Q)
+                first = Q.split()[0].lower()
 
-            A = None
+                A = None
 
-            # get the most relevant sentence and parse the sentence to nodes
-            most_relevant_sentence = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
-            relevant_parsed_string = str(next(parser.raw_parse(most_relevant_sentence)))
-            relevant_root = const_tree.to_const_tree(relevant_parsed_string)
-            np = None
-            vp = None
-            for child in relevant_root.children[0].children:
-                if child.type == 'NP':
-                    np = child
-                if child.type == 'VP':
-                    vp = child
-            if np is None or vp is None:
-                A = reference_sentence
-            elif question_type == None:
-                A = reference_sentence
-            elif question_type == YES_NO:
-                A = self._answer_binary_question(Q)
-            elif question_type == WH:
-                if first == WHAT:
-                    A = answer_what(Q, reference_sentence)
-                elif first == WHO:
-                    A = answer_who(Q, reference_sentence)
-                elif first == WHY:
-                    A = answer_why(Q, most_relevant_sentence, vp, np)
-                elif first == WHEN:
-                    A = answer_when(Q, most_relevant_sentence, relevant_root, vp, np)
-                elif first == WHERE:
-                    A = answer_where(Q, most_relevant_sentence, relevant_root, vp, np)
-                elif first == HOW:
-                    A = answer_how(Q, most_relevant_sentence, relevant_root, vp, np)
-            elif question_type == EITHER_OR:
-                A = answer_either_or_question(Q, reference_sentence)
-            else:
-                # unknown question type
-                A = reference_sentence
-            if (A == None):
-                A = reference_sentence
+                # get the most relevant sentence and parse the sentence to nodes
+                most_relevant_sentence = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
+                relevant_parsed_string = str(next(parser.raw_parse(most_relevant_sentence)))
+                relevant_root = const_tree.to_const_tree(relevant_parsed_string)
+                np = None
+                vp = None
+                for child in relevant_root.children[0].children:
+                    if child.type == 'NP':
+                        np = child
+                    if child.type == 'VP':
+                        vp = child
+                if np is None or vp is None:
+                    A = reference_sentence
+                elif question_type == None:
+                    A = reference_sentence
+                elif question_type == YES_NO:
+                    A = self._answer_binary_question(Q)
+                elif question_type == WH:
+                    if first == WHAT:
+                        A = answer_what(Q, reference_sentence)
+                    elif first == WHO:
+                        A = answer_who(Q, reference_sentence)
+                    elif first == WHY:
+                        A = answer_why(Q, most_relevant_sentence, vp, np)
+                    elif first == WHEN:
+                        A = answer_when(Q, most_relevant_sentence, relevant_root, vp, np)
+                    elif first == WHERE:
+                        A = answer_where(Q, most_relevant_sentence, relevant_root, vp, np)
+                    elif first == HOW:
+                        A = answer_how(Q, most_relevant_sentence, relevant_root, vp, np)
+                elif question_type == EITHER_OR:
+                    A = answer_either_or_question(Q, reference_sentence)
+                else:
+                    # unknown question type
+                    A = reference_sentence
+                if (A == None):
+                    A = reference_sentence
+                print A
 
-            print A
+            except:
+                print reference_sentence
+
+
 
 if __name__ == "__main__":
     if (len(sys.argv) < 3):
