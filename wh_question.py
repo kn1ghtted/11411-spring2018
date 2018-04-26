@@ -125,7 +125,8 @@ def getWhFromLabel(label):
             if label in whatSet:
                 result = "What"
             elif label in whichSet:
-                result = "Which" + " " + label[5:]
+                result = "What"
+                # result = "Which" + " " + label[5:]
             elif label == "noun.quantity":
                 result = "How many"
     return result
@@ -197,7 +198,7 @@ def get_supersense_np(np):
             if label in whatSet:
                 return "What"
             elif label in whichSet:
-                return "Which" + " " + label[5:]
+                return "What"
             elif label == "noun.quantity":
                 return "How many"
     return None
