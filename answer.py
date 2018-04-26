@@ -106,7 +106,8 @@ class Answer:
             logger.debug("[Relevant sentence] {}".format(self.tfidf.getNRelevantSentences(Q, 1)[0][0]))
 
             question_type = self._get_question_type(Q)
-            first = Q.split()[0]
+            first = Q.split()[0].lower()
+            sentence = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
 
             A = None
 
@@ -116,9 +117,9 @@ class Answer:
                 A = self._answer_binary_question(Q)
             elif question_type == WH:
                 if first == WHAT:
-                    A = anwser_what(Q)
+                    A = answer_what(Q, sentence)
                 elif first == WHO:
-                    A = answer_who(Q)
+                    A = answer_who(Q, sentence)
                 elif first == WHY:
                     A = answer_why(Q)
                 elif first == WHEN:
