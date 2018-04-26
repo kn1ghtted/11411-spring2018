@@ -114,6 +114,7 @@ def get_supersense_np(np):
     if labelSet is None:
         labelSet = get_labelset_from_node(np.children[-1])
 
+
     for label in labelSet:
         if label.startswith("noun."):
             if label == "noun.person":
@@ -268,6 +269,8 @@ def generate_wh_vp_question(node, parent_NP):
             if (child.type == "NP"):
                 NP_AUX = child
         WH = "What"
+  
+
         if (NP_AUX != None):
             VP.children.remove(NP_AUX)
             # modified to get the corresponding WH word to ask the question
