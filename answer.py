@@ -120,10 +120,11 @@ class Answer:
                     np = child
                 if child.type == 'VP':
                     vp = child
-
-            if question_type == None:
-                continue
-            if question_type == YES_NO:
+            if np is None or vp is None:
+                A = reference_sentence
+            elif question_type == None:
+                A = reference_sentence
+            elif question_type == YES_NO:
                 A = self._answer_binary_question(Q)
             elif question_type == WH:
                 if first == WHAT:
@@ -141,7 +142,8 @@ class Answer:
             elif question_type == EITHER_OR:
                 A = answer_either_or_question(Q, reference_sentence)
             else:
-                raise Exception("UNKOWN QUESTION TYPE!")
+                # unknown question type
+                A = reference_sentence
             if (A == None):
                 A = reference_sentence
 
