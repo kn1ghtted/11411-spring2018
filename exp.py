@@ -1,10 +1,16 @@
 # Simple usage
 from stanfordcorenlp import StanfordCoreNLP
+from nltk.corpus import wordnet as wn
 import nltk
 import re
 import json
 import os
 import requests
+from either_or_question import *
+sys.path.append("./utility/")
+from utility import *
+from const_tree import *
+from pattern.en import lemma
 
 # def text2sentences(text):
 #     ret = list()
@@ -27,23 +33,31 @@ STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 
 STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 
-nlp = StanfordCoreNLP(url='http://nlp01.lti.cs.cmu.edu:9000/')
-sentence = 'The teacher appeared at the police station yesterday.'
+
+nlp = StanfordCoreNLP(STANFORD_NLP_PATH )
+sentence = "I happily eat a sandwich."
+# sentence = "Two years later, Zimmer announces the end of production of silent films at Kinograph Studios, but Valentin is dismissive, insisting that sound is just a fad. "
 tokens = nlp.word_tokenize(sentence)
 pos = nlp.pos_tag(sentence)
 tree = nlp.parse(sentence)
-ner = nlp.ner(sentence)
+new_node = const_tree.to_const_tree(str(tree))
 
-print "tokenize:"
-print tokens
-print "pos_tag:"
-print pos
+
+
+#
+# ner = nlp.ner(sentence)
+#
+# print "tokenize:"
+# print tokens
+# print "pos_tag:"
+# print pos
 print "tree:"
 print tree
-print "ner:"
-print ner
+# print "ner:"
+# print ner
 
-
+# print "Generated: "
+# print generate_either_or_question(new_node)
 # props={'annotators': 'pos,parse','pipelineLanguage':'en','outputFormat':'json'}
 # tree = nlp.annotate(sentence, properties=props)
 # tree = json.loads(tree)

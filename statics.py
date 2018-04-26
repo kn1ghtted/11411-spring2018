@@ -8,9 +8,16 @@ VERB_TYPE_AUX_VERB_MAPPING = {'VB': 'Do', 'VBZ': 'Does', 'VBP': 'Do', 'VBD': 'Di
 
 
 from nltk.tag.stanford import CoreNLPNERTagger
-tagger = CoreNLPNERTagger(url='http://nlp01.lti.cs.cmu.edu:9000/')
+URL1 = "http://nlp01.lti.cs.cmu.edu:9000/"
+URL_LOCAL = "http://localhost:11411/"
+tagger = CoreNLPNERTagger(url=URL_LOCAL)
 
 from nltk.parse.corenlp import CoreNLPParser
-parser = CoreNLPParser(url='http://nlp01.lti.cs.cmu.edu:9000/')
+parser = CoreNLPParser(url=URL_LOCAL)
 
+import sys
+sys.path.append("./utility/")
+from utility import *
 
+logger = Logger()
+logger.set_level(DEBUG)
