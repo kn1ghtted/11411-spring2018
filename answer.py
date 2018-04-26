@@ -40,10 +40,9 @@ UNKNOWN_TYPE = "unknown"
 WH = "WH"
 EITHER_OR = "EITHER_OR"
 
-logger = Logger()
 
-# uncomment this line to print debug outputs
-logger.set_level(DEBUG)
+
+
 
 class Answer:
 
@@ -116,7 +115,7 @@ class Answer:
                 A = self._answer_binary_question(Q)
             elif question_type == WH:
                 if first == WHAT:
-                    A = anwser_what(Q)
+                    A = answer_what(Q)
                 elif first == WHO:
                     A = answer_who(Q)
                 elif first == WHY:
