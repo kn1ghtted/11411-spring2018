@@ -21,4 +21,4 @@ sys.path.append("./utility/")
 from utility import *
 
 logger = Logger()
-logger.set_level(WARNING)
+logger.set_level(DEBUG)

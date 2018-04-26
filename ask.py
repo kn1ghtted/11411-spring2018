@@ -49,9 +49,9 @@ def generate_questions(root, questionType):
         return None
     # case on VP
     if questionType == 0:
-        # binary
+        # binary: this is not needed, see main function before for floop
+        return None
 
-        return ask_binary_question(vp, np)
     elif questionType == 1:
         # question on NP
         return generate_wh_np_question(vp, np)
@@ -181,17 +181,33 @@ def run_generator():
         all_parsed_nodes.append(nodes)
 
     # ask binary questions
-    #all_questions[0] = ask_binary_question2(sentences, num)
+
 
     ners = get_ners(sentences)
     binary_questions = ask_binary_question2([x[0] for x in all_parsed_nodes], ners)
-    yes_questios = [x[0] for x in binary_questions]
-    no_quetions = [x[1] for x in binary_questions if x]
+    #merge yes no into one mixed array
+    yes_questions = [x[0] for x in binary_questions]
+    no_questions = [x[1] for x in binary_questions if x[1]]
+
+
+    yes_index, no_index = len(yes_questions)-1, len(no_questions)-1
+    while yes_index >= 0 or no_index >= 0:
+
+        if no_index < 0:
+            all_questions[0].append(yes_questions[yes_index])
+            yes_index -= 1
+        else:
+            if no_index < yes_index:
+                all_questions[0].append(yes_questions[yes_index])
+                yes_index -= 1
+            else:
+                all_questions[0].append(no_questions[no_index])
+                no_index -= 1
 
     for i in xrange(len(sentences)):
         logger.debug("[Sentence] {}".format(sentences[i]))
         for typeNum in xrange(total_types):
-            root = all_parsed_nodes[i][typefNum]
+            root = all_parsed_nodes[i][typeNum]
             """
             skip sentences if:
                 a) pronoun as subject or object
@@ -210,6 +226,10 @@ def run_generator():
     final_questions = select_questions(all_questions, n_questions)
 
     for q in final_questions:
+        q = q.replace(' ,', ',')
+        q = q.replace(" 's", "'s")
+        q = q.replace('-LRB- ', "(")
+        q = q.replace(' -RRB-', ")")
         print q
 
 

@@ -379,7 +379,7 @@ def ask_binary_question2(roots, ners):
         score = _assign_score(root, len(yes_question.split()))
         ret.append((yes_question, no_question, score))
 
-    ret = sorted(ret, key=lambda x:x[2])
+    ret = sorted(ret, key=lambda x:x[2], reverse=True)
     return [(x[0], x[1]) for x in ret]
 
 def get_ners(sentences):
