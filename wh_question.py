@@ -163,7 +163,6 @@ def get_labelset_from_node(n):
 
 def get_supersense_np(np):
 
-
     """
     Deal with the following cases:
         a) parallel NPs -> use last word
@@ -180,15 +179,25 @@ def get_supersense_np(np):
         if child.type in ["PP", "SBAR"]:
             if i > 0:
                 target = np.children[i - 1]
+                # if target is capitalized, we already know it's not NER
+                if (target.to_string()[0].isupper()):
+                    return "What"
                 labelSet = get_labelset_from_node(target)
                 break
             else:
                 return None
 
     # no PP or SBAR found, use the last word
+
+    # if target is capitalized, we already know it's not NER
+    if (np.children[-1].to_string()[0].isupper()):
+        return "What"
+
     if labelSet is None:
         labelSet = get_labelset_from_node(np.children[-1])
 
+    print "get_super_sense: np = ", np
+    print "labelSet = ", labelSet
 
     for label in labelSet:
         if label.startswith("noun."):
@@ -197,13 +206,16 @@ def get_supersense_np(np):
             if label in whatSet:
                 return "What"
             elif label in whichSet:
-                return "Which" + " " + label[5:]
+                return "What"
+                # return "Which" + " " + label[5:]
             elif label == "noun.quantity":
                 return "How many"
     return None
 
 
 def getWhWordNP(node):
+    print "getWhWordNP(node), node = ", node
+    print
     for child in node.children:
         childTag = child.type
         # use POS tagger for pronouns
