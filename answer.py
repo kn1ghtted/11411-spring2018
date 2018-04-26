@@ -115,9 +115,9 @@ class Answer:
                 A = self._answer_binary_question(Q)
             elif question_type == WH:
                 if first == WHAT:
-                    A = answer_what(Q)
+                    A = answer_what(Q, reference_sentence)
                 elif first == WHO:
-                    A = answer_who(Q)
+                    A = answer_who(Q, reference_sentence)
                 elif first == WHY:
                     A = answer_why(Q)
                 elif first == WHEN:
