@@ -24,6 +24,7 @@ def generate_why_question(node, parent_NP):
         if (child.word == "because"):
             node.children.remove(SBAR)
             bi_question = ask_binary_question(node, parent_NP)
+            if bi_question == None: return None
             # lower case the first letter
             if len(bi_question) > 0:
                 if len(bi_question) > 1:
