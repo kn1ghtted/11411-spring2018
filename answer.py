@@ -9,7 +9,7 @@ from binary_question import *
 from wh_question import *
 from why_question import *
 from adverbial_question import *
-
+from either_or_question import *
 
 
 import nltk
@@ -24,6 +24,7 @@ Question types:
 1, 2: what, who (questions on subject or object)
 3: why question
 4: when, where, how ... (questions on adverbial)
+5: either-or
 """
 YES_NO = "YES_NO"
 WHAT = "what"
@@ -34,6 +35,7 @@ WHY = "why"
 WHERE = "where"
 WHEN = "when"
 HOW = "how"
+UNKNOWN_TYPE = "unknown"
 
 WH = "WH"
 EITHER_OR = "EITHER_OR"
@@ -81,12 +83,15 @@ class Answer:
             first_word = sentence.split()[0]
         except:
             return None
-        if first_word.lower() in self.auxiliaries:
+        if ("or" in sentence.split()):
+            return EITHER_OR
+        elif first_word.lower() in self.auxiliaries:
             return YES_NO
         elif first_word.lower() in self.wh_words:
             return WH
+
         else:
-            return EITHER_OR
+            return UNKNOWN_TYPE
 
     def _answer_binary_question(self, question):
         most_relevant_sentence = self.tfidf.getNRelevantSentences(question, 1)[0][0]
@@ -94,19 +99,14 @@ class Answer:
 
 
 
-
-
-    def _answer_either_or_question(self, question):
-        # TODO Unimplemented
-        return self.tfidf.getNRelevantSentences(question, 1)[0][0]
-
     def answer_questions(self):
         for Q in self.questions:
+            reference_sentence = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
             logger.debug("[Question] {}".format(Q))
-            logger.debug("[Relevant sentence] {}".format(self.tfidf.getNRelevantSentences(Q, 1)[0][0]))
+            logger.debug("[Reference sentence] {}".format(reference_sentence))
 
             question_type = self._get_question_type(Q)
-            first = Q.split()[0]
+            first = Q.split()[0].lower()
 
             A = None
 
@@ -127,12 +127,12 @@ class Answer:
                     A = answer_where(Q)
                 elif first == HOW:
                     A = answer_how(Q)
-
             elif question_type == EITHER_OR:
-                A = self._answer_either_or_question(Q)
-
+                A = answer_either_or_question(Q, reference_sentence)
+            else:
+                raise Exception("UNKOWN QUESTION TYPE!")
             if (A == None):
-                A = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
+                A = reference_sentence
 
             print A
 
