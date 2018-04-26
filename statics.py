@@ -6,14 +6,18 @@ AUX_VERBS = {'am', 'are', 'is', 'was', 'were', 'being', 'been', 'can', \
 
 VERB_TYPE_AUX_VERB_MAPPING = {'VB': 'Do', 'VBZ': 'Does', 'VBP': 'Do', 'VBD': 'Did'}
 
-url1 = "http://nlp01.lti.cs.cmu.edu:9000"
-local = 'http://localhost:11411/'
-
 
 from nltk.tag.stanford import CoreNLPNERTagger
-tagger = CoreNLPNERTagger(url=local)
+URL1 = "http://nlp01.lti.cs.cmu.edu:9000/"
+URL_LOCAL = "http://localhost:11411/"
+tagger = CoreNLPNERTagger(url=URL_LOCAL)
 
 from nltk.parse.corenlp import CoreNLPParser
-parser = CoreNLPParser(url=local)
+parser = CoreNLPParser(url=URL_LOCAL)
 
+import sys
+sys.path.append("./utility/")
+from utility import *
 
+logger = Logger()
+logger.set_level(DEBUG)
