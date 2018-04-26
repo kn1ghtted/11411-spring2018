@@ -83,20 +83,22 @@ def get_supersense(np):
         if isParallel:
             for i in xrange(len(totalLabel)-1,-1,-1):
                 labetSet =totalLabel[i]
-                for label in labelSet:
+                for label in labelSet: 
+                    label
                     result = getWhFromLabel(label)
                     if result:
-                        break
+                        return result
+                
         else:
             # TODO: deal with non parallel nouns
             return None
-        return None
+    else:
 
-    for labelset in totalLabel:
-        for label in labelset:
-            result = getWhFromLabel(label)
-            if result:
-                return result
+        for labelset in totalLabel:
+            for label in labelset:
+                result = getWhFromLabel(label)
+                if result:
+                    return result
     return result
 
 
@@ -211,6 +213,8 @@ def generate_wh_vp_question(node, parent_NP):
             if (child.type == "NP"):
                 NP_AUX = child
         WH = "What"
+  
+
         if (NP_AUX != None):
             VP.children.remove(NP_AUX)
             # modified to get the corresponding WH word to ask the question
