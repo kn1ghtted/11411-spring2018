@@ -237,8 +237,44 @@ def answer_where(Q, most_relevant_sentence, root, node, parent_NP):
         answer += "."
     return answer
 
+# Answer adv
+# Answer by
 def answer_how(Q, most_relevant_sentence, root, node, parent_NP):
     answer = most_relevant_sentence
+    # first check if there is by, answer with by
+    VP_child = None
+    for child in node.children:
+        if child.type == "VP":
+            VP_child = child
+    if VP_child != None:
+        PP = None
+        by_exist = False
+        by_del = []
+        for child in VP_child.children:
+            if not by_exist:
+                if (child.type == "PP") and check_by(child):
+                    PP = child
+                    by_exist = True
+                    by_del.append(child)
+            else:
+                if (child.type != "PP"): break
+                if (child.type == "PP"):
+                    by_del.append(child)
+            # Discard sentence with conjunction structure
+            if (child.type == "CC"):
+                return answer
+        if (PP != None): 
+            # TODO: check the words after by phrase to see if appropriate to ask how
+            answer = ""
+            for node_del in by_del:
+                answer += node_del.to_string()
+                answer += " "
+            answer = answer.strip()
+            answer += "."
+            if len(answer) > 0:
+                answer = answer[0].upper() + answer[1:]
+                return answer
+    ## else answer with ADVP
     ADVP = None
     for child in node.children:
         if (child.type == "ADVP"):
