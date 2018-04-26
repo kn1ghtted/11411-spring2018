@@ -83,12 +83,13 @@ class Answer:
             first_word = sentence.split()[0]
         except:
             return None
-        if first_word.lower() in self.auxiliaries:
+        if ("or" in sentence.split()):
+            return EITHER_OR
+        elif first_word.lower() in self.auxiliaries:
             return YES_NO
         elif first_word.lower() in self.wh_words:
             return WH
-        elif ("or" in sentence.split()):
-            return EITHER_OR
+
         else:
             return UNKNOWN_TYPE
 
@@ -131,7 +132,7 @@ class Answer:
             else:
                 raise Exception("UNKOWN QUESTION TYPE!")
             if (A == None):
-                A = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
+                A = reference_sentence
 
             print A
 

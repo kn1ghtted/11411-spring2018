@@ -34,7 +34,7 @@ STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 
 nlp = StanfordCoreNLP(STANFORD_NLP_PATH)
-sentence = 'Was it good or bad?'
+sentence = 'Does the camera pull back or forward to the sounds of the film crew as they prepare to shoot another take?'
 # tokens = nlp.word_tokenize(sentence)
 pos = nlp.pos_tag(sentence)
 tree = nlp.parse(sentence)

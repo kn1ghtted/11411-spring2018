@@ -87,23 +87,20 @@ def ask_advp(NP, VP, ADVP, RB_in_ADVP):
     tokens_with_antonym[0] = string.capitalize(tokens_with_antonym[0])
     return " ".join(tokens_with_antonym + ["?"])
 
-
-
-def generate_either_or_question(root):
+def get_NP_VP(node):
 
     NP = None
     VP = None
     # check if NP VP exists in top level
-    for child in root.children[0].children:
+    for child in node.children:
 
         if child.type == "NP":
             NP = child
         elif child.type == "VP":
             VP = child
+    return NP, VP
 
-    if (NP is None) or (VP is None):
-        return None
-
+def get_VP_components(VP):
     be_verb = None
     ADJP = None
     JJ_in_ADJP = None
@@ -131,6 +128,18 @@ def generate_either_or_question(root):
                 if cc.type == "RB":
                     RB_in_ADVP = cc
 
+    return be_verb, ADJP, JJ_in_ADJP, ADVP, RB_in_ADVP
+
+
+def generate_either_or_question(root):
+    NP, VP = get_NP_VP(root.children[0])
+
+    if (NP is None) or (VP is None):
+        return None
+
+    be_verb, ADJP, JJ_in_ADJP, ADVP, RB_in_ADVP = get_VP_components(VP)
+
+
     # ask question for [be_verb] + [ADJP]
 
 
@@ -150,8 +159,67 @@ def generate_either_or_question(root):
 
 
 
+"""
+Identify the or node. If it separates two non-sentence phrases,
+output one of the phrases as answer
+"""
+def answer_either_or_question(question, reference):
+    parsed_string = str(next(parser.raw_parse(question)))
+    tree = const_tree.to_const_tree(parsed_string)
+    # go down and find the first SQ level
+    curr = tree
+    while (curr.type != "SQ"):
+        if len(curr.children) == 0:
+            # at the bottom but still no SQ level found
+            return None
+        curr = curr.children[0]
 
-def answer_either_or_question(self, question, reference):
+    NP, VP = get_NP_VP(curr)
+
+    if VP is None:
+        return None
+
+    def dfs(node):
+        """
+        DFS for "or" node
+        :param node: current node
+        :return: the or node
+        """
+        if node.word == "or":
+            return node
+        for child in node.children:
+            ret = dfs(child)
+            if ret:
+                return ret
+
+    or_node = dfs(curr)
+    if or_node is None:
+        logger.warning("No 'or' node found in tree!")
+        return None
+    print or_node
+
+    # be_verb, ADJP, JJ_in_ADJP, ADVP, RB_in_ADVP = get_VP_components(VP)
+
+
+    # reference_tokens = reference.split()
+
+    # if (ADVP is not None) and ("or" in ADVP.to_string().split()):
+    #     ADVP_tokens = ADVP.to_string().split()
+    #     or_index = ADVP_tokens.index("or")
+    #     if or_index < len(ADVP_tokens) - 1:
+    #         A = ADVP_tokens[or_index - 1]
+    #         B = ADVP_tokens[or_index + 1]
+    #         if A in reference_tokens:
+    #             return A + "."
+    #         else:
+    #             return B + "."
+    #
+    # # TODO: ADJP either or question
+    #
+    # if (ADJP is not None) and ("or" in ADJP.to_string().split()):
+    #     ADJP_tokens
+
+
 
     return reference
 

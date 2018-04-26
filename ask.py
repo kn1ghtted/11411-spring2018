@@ -90,7 +90,6 @@ def select_questions(all, n):
     """
     def cap_by_percentage(arr, ratio):
         num = math.floor(ratio * n)
-        print num, ratio
         while len(arr) > num:
             arr.pop()
     L_before_capped = reduce(lambda x, y: x + y, all)
