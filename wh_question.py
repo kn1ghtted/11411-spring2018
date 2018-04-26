@@ -221,8 +221,8 @@ def getWhWordNP(node):
     for child in node.children:
         childTag = child.type
         # use POS tagger for pronouns
-        if childTag == "PRP" and str.lower(child.word) != "it":
-            return "Who"
+        if childTag.startswith("PRP") and str.lower(child.word) != "it":
+            return None
         elif child.word and str.lower(child.word) == "it":
             return None
 

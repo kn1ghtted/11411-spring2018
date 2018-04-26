@@ -13,7 +13,7 @@ from either_or_question import *
 
 
 import nltk
-#nltk.download('averaged_perceptron_tagger')
+# nltk.download('averaged_perceptron_tagger')
 
 
 # define question types
@@ -109,6 +109,18 @@ class Answer:
 
             A = None
 
+            # get the most relevant sentence and parse the sentence to nodes
+            most_relevant_sentence = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
+            relevant_parsed_string = str(next(parser.raw_parse(most_relevant_sentence)))
+            relevant_root = const_tree.to_const_tree(relevant_parsed_string)
+            np = None
+            vp = None
+            for child in relevant_root.children[0].children:
+                if child.type == 'NP':
+                    np = child
+                if child.type == 'VP':
+                    vp = child
+
             if question_type == None:
                 continue
             if question_type == YES_NO:
@@ -119,13 +131,13 @@ class Answer:
                 elif first == WHO:
                     A = answer_who(Q, reference_sentence)
                 elif first == WHY:
-                    A = answer_why(Q)
+                    A = answer_why(Q, most_relevant_sentence, vp, np)
                 elif first == WHEN:
-                    A = answer_when(Q)
+                    A = answer_when(Q, most_relevant_sentence, relevant_root, vp, np)
                 elif first == WHERE:
-                    A = answer_where(Q)
+                    A = answer_where(Q, most_relevant_sentence, relevant_root, vp, np)
                 elif first == HOW:
-                    A = answer_how(Q)
+                    A = answer_how(Q, most_relevant_sentence, relevant_root, vp, np)
             elif question_type == EITHER_OR:
                 A = answer_either_or_question(Q, reference_sentence)
             else:

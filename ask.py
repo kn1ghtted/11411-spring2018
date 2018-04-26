@@ -63,7 +63,7 @@ def generate_questions(root, questionType):
         return generate_why_question(vp, np)
     elif questionType == 4:
         # 4: adverbial questions (when, where, how)
-        return generate_adverbial_question(root)
+        return generate_adverbial_question(root, vp, np)
         # 5: either or question
     else:
         return generate_either_or_question(root)
@@ -216,8 +216,14 @@ def run_generator():
             if subject_is_pronoun(root):
                 break
             q = generate_questions(root, typeNum)
+            # if q is a list, generated from adverbial questions
+            if (isinstance(q, list)):
+                for adv_q in q:
+                    generated_count += 1
+                    logger.debug("Generated {} questions".format(generated_count))
+                    all_questions[typeNum].append(adv_q)
             # here might be a bug, q could be empty instead of None
-            if q != None and q != "":
+            elif q != None and q != "":
                 generated_count += 1
                 logger.debug("[Question] {}".format(q))
                 logger.debug("Generated {} questions".format(generated_count))

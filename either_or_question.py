@@ -79,7 +79,11 @@ def ask_advp(NP, VP, ADVP, RB_in_ADVP):
     if len(antonyms) == 0:
         return None
 
-    binary_question = ask_binary_question(VP, NP)[:-1] # get rid of question mark
+    binary_question = ask_binary_question(VP, NP)
+    if binary_question is None:
+        return None
+
+    binary_question = binary_question[:-1]# get rid of question mark
 
     tokens = binary_question.split()
 
