@@ -211,8 +211,10 @@ def run_generator():
             """
             skip sentences if:
                 a) pronoun as subject or object
+                b) has double quote (cauases error in nlptagger)
             """
-
+            if "``" in root.to_string():
+                break
             if subject_is_pronoun(root):
                 break
             q = generate_questions(root, typeNum)
@@ -232,6 +234,8 @@ def run_generator():
     final_questions = select_questions(all_questions, n_questions)
 
     for q in final_questions:
+        if q[-2] == ",":
+            q = q[:-2] + q[-1:]
         q = q.replace(' ?', '?')
         q = q.replace(' ,', ',')
         q = q.replace(" 's", "'s")
