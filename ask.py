@@ -79,7 +79,7 @@ def select_questions(all, n):
         %remaining: half yes half no
 
         1, 2: what, who (questions on subject or object)
-        %15 each (%30)
+        %20 each (%40)
 
         3: why question
         %20
@@ -107,7 +107,7 @@ def select_questions(all, n):
     L_before_capped = reduce(lambda x, y: x + y, all)
     L_category_length_before= map(lambda x: len(x), all)
     logger.debug("Before capping by percentage, individual length = {}".format(str(L_category_length_before)))
-    cap_by_percentage(all[1], 0.1)
+    cap_by_percentage(all[1], 0.2)
     cap_by_percentage(all[2], 0.2)
     cap_by_percentage(all[3], 0.2)
     cap_by_percentage(all[4], 0.2)
@@ -226,6 +226,7 @@ def run_generator():
     final_questions = select_questions(all_questions, n_questions)
 
     for q in final_questions:
+        q = q.replace(' ?', '?')
         q = q.replace(' ,', ',')
         q = q.replace(" 's", "'s")
         q = q.replace('-LRB- ', "(")
