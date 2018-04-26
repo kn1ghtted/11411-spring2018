@@ -27,8 +27,8 @@ STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 
 STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 
-nlp = StanfordCoreNLP(url='http://nlp01.lti.cs.cmu.edu:9000/')
-sentence = 'The teacher appeared at the police station yesterday.'
+nlp = StanfordCoreNLP(STANFORD_NLP_PATH )
+sentence = "I was happy when the team won."
 tokens = nlp.word_tokenize(sentence)
 pos = nlp.pos_tag(sentence)
 tree = nlp.parse(sentence)
