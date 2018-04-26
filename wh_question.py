@@ -12,42 +12,110 @@ from pattern.en import lemma
 
 
 def answer_who(Q):
-    #TODO
-    return None
+    # most relevent sentence
+    relSentence = self.tfidf.getNRelevantSentences(Q, 1)[0][0]
+    # if asking about np
+    parsed_sentence = str(next(parser.raw_parse(sentence)))
+    sentence_node = const_tree.to_const_tree(parsed_string)
+    for child in root.children[0].children:
+        if child.type == 'NP':
+            np = child
+        if child.type == 'VP':
+            vp = child
+    if np == None:
+        # return default answer
+        return relSentence
+
+    #TODO: finish this
+
+
+    return relSentence
 
 def answer_what(Q):
     # TODO
     return None
 
-def get_supersense(np_string):
+whichSet = set(['noun.feeling',  'noun.group', 'noun.location',  'noun.shape', 'noun.state'])
+whatSet = set(['noun.artifact', 'noun.attribute', 'noun.body', 'noun.cognition', 'noun.communication',\
+    'noun.event', 'noun.food',  'noun.motive',\
+     'noun.object', 'noun.phenomenon', 'noun.plant', 'noun.possession',\
+    'noun.process', 'noun.quantity', 'noun.relation'])
+
+def getWhFromLabel(label):
     result = None
+    if label == "noun.person":
+        result = "Who"
+    else:
+        if label.startswith("noun."):
+            if label in whatSet:
+                result = "What"
+            elif label in whichSet:
+                result = "Which" + " " + label[5:]
+            elif label == "noun.quantity":
+                result = "How many"
+    return result
+
+def get_supersense(np):
+    result = None
+    nounCount = 0
+    totalLabel = []
+    np_string = const_tree.to_string(np)
     for word in np_string.split(" "):
         try:
             labelSet = get_word_supersenses(word)
         except:
+            labelSet = set()
             continue
         # if is person
-        if "noun.person" in labelSet:
-            result = "Who"
-        elif "noun.artifact" in labelSet:
-            result = "What"
+        totalLabel = totalLabel + [labelSet]
+        for eachLabel in labelSet:
+            # count the number of possible nouns in NP
+            if eachLabel.startswith("noun."):
+                nounCount += 1
+                break
+    if nounCount > 1:
+        # TODO: Multiple noun situation
+        # if all Nouns are parallel, find the last one
+        isParallel = True
+        for child in np.children:
+            if child.word == None:
+                isParallel = False
+        if isParallel:
+            for i in xrange(len(totalLabel)-1,-1,-1):
+                labetSet =totalLabel[i]
+                for label in labelSet:
+                    result = getWhFromLabel(label)
+                    if result:
+                        break
         else:
-            result = None
-        return result
+            # TODO: deal with non parallel nouns
+            return None
+        return None
+
+    for labelset in totalLabel:
+        for label in labelset:
+            result = getWhFromLabel(label)
+            if result:
+                return result
+    return result
 
 
 # takes in a NP node
-def getWhWord(np):
+def getWhWord(node):
     result = None
-    for child in np.children:
+    for child in node.children:
         childTag = child.type
         # use POS tagger for pronouns
         if childTag == "PRP" and str.lower(child.word) != "it":
             if result != None and result != "Who": return None
             result = "Who"
-    NP_string = const_tree.to_string(np)
+        elif child.word and str.lower(child.word) == "it":
+            return None
+    NP_string = const_tree.to_string(node)
     NER_result = tagger.tag(NP_string.split())
     # NER tagger for propers
+
+ 
     for (word, tag) in NER_result:
         if tag == "PERSON":
             if result != None and result != "Who": return None
@@ -61,12 +129,9 @@ def getWhWord(np):
         elif tag == "MONEY":
             if result != None and result != "MONEY": return None
             result = "How much"
-        elif tag == "GPE":
-            if result != None and result != "GPE": return None
-            result = "Where"
+
     if not result:
-        # supersenses
-        result = get_supersense(NP_string)
+        result = get_supersense(node)
 
     return result
 
@@ -76,10 +141,34 @@ def generate_wh_np_question(vp, np):
     question = ""
     hasPerson = False
     WH = getWhWord(np)
+
     if not WH:
         return None
     question +=  WH + " "
-    rest = const_tree.to_string(vp)
+    VBX = None
+    verb = None
+    for child in vp.children:
+        if child.type.startswith("VB"):
+            VBX = child
+
+    if (VBX != None) and (VBX.word != None) and (VBX.word in BE_VERBS):
+        if VBX.word == "am" or VBX.word == "is":
+            verb = "is"
+        else:
+            verb = VBX.word
+  
+    
+    #get vp without verb
+    children_except_VBX = list(filter(lambda child: (not child.type.startswith("VB")), vp.children))
+    vp_without_verb = " ".join(list(map(lambda child: child.to_string(), children_except_VBX)))
+    if vp_without_verb != "":
+        vp_without_verb = ' ' + vp_without_verb
+
+    if verb:
+        rest = verb + vp_without_verb
+    else:
+        rest = const_tree.to_string(vp)
+    
     question += rest
     question += "?"
     return question
@@ -107,7 +196,9 @@ def generate_wh_vp_question(node, parent_NP):
 
     # discard sentence with no VBX
     if VBX == None:
-        return
+        return None
+    if VBX.word and str.lower(VBX.word) in BE_VERBS:
+        return None
     # if does not have auxiliary verb and does not have NP
     if NP == None and VP == None: return
 
@@ -124,11 +215,12 @@ def generate_wh_vp_question(node, parent_NP):
             VP.children.remove(NP_AUX)
             # modified to get the corresponding WH word to ask the question
             WH = getWhWord(NP_AUX)
-        if not WH:
-            WH = "What"
-        question +=  WH + " "
-        question += VBX.to_string()
-        question += " " + parent_NP_string + " " + VP.to_string() + "?"
+        else:
+            return None
+        if WH:
+            question +=  WH + " "
+            question += VBX.to_string()
+            question += " " + parent_NP_string + " " + VP.to_string() + "?"
     # no auxiliary verb
     else:
         # ask what + binary question removing NP
@@ -144,12 +236,11 @@ def generate_wh_vp_question(node, parent_NP):
 
         # modified to get the corresponding WH word to ask the question
         WH = getWhWord(NP)
-        if not WH:
-            WH = "What"
-        question +=  WH + " "
-        if VBX.to_string() in BE_VERBS:
-            question += VBX.to_string() + ' ' + parent_NP_string + vp_without_verb + '?'
-        else:
-            question += VERB_TYPE_AUX_VERB_MAPPING[VBX.type].lower()
-            question += ' ' + parent_NP_string + ' ' + lemma(VBX.to_string()) + vp_without_verb + '?'
+        if WH:
+            question +=  WH + " "
+            if VBX.to_string() in BE_VERBS:
+                question += VBX.to_string() + ' ' + parent_NP_string + vp_without_verb + '?'
+            else:
+                question += VERB_TYPE_AUX_VERB_MAPPING[VBX.type].lower()
+                question += ' ' + parent_NP_string + ' ' + lemma(VBX.to_string()) + vp_without_verb + '?'
     return question
