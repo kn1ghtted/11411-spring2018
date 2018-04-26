@@ -8,7 +8,6 @@ from binary_question import *
 
 def generate_adverbial_question(root, node, parent_NP):
     """
-    TODO
     :param root: node of the input sentence
     :return: an adverbial question (when, where, how)
     :return: a list of questions or empty list (when, where, how)
@@ -166,7 +165,6 @@ def ask_how_by(root, node, parent_NP):
             return None
     if (PP == None): 
         return None
-    # TODO: check the words after by phrase to see if appropriate to ask how
     for node_del in by_del:
         VP_child.children.remove(node_del)
     bi_question = ask_binary_question(node, parent_NP)
@@ -264,7 +262,6 @@ def answer_how(Q, most_relevant_sentence, root, node, parent_NP):
             if (child.type == "CC"):
                 return answer
         if (PP != None): 
-            # TODO: check the words after by phrase to see if appropriate to ask how
             answer = ""
             for node_del in by_del:
                 answer += node_del.to_string()
