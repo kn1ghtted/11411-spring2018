@@ -57,11 +57,10 @@ def getWhFromLabel(label):
 
 
 def get_supersense_pp_advp_sbar(node):
-    labelSet = {}
+    labelSet = set([])
     for child in node.children:
-
         try:
-            labelSet += get_word_supersenses(child)
+            labelSet = labelSet.union(get_word_supersenses(child))
         except:
             continue
 
@@ -71,10 +70,25 @@ def get_supersense_pp_advp_sbar(node):
         return "When"
     return None
 
+
+def get_labelset_from_node(n):
+    """
+    Grab label set for everything
+    :param n:
+    :return:
+    """
+    ret = set([])
+    for word in n.to_string().split():
+        try:
+            S = get_word_supersenses(word)
+        except:
+            continue
+        ret = ret.union(S)
+    return ret
+
 def get_supersense_np(np):
-    nounCount = 0
-    totalLabel = {}
-    np_string = const_tree.to_string(np)
+
+
     """
     Deal with the following cases:
         a) parallel NPs -> use last word
@@ -83,22 +97,27 @@ def get_supersense_np(np):
         d) NP SBAR (e.g. the food that I like) -> use the first NP
 
     """
+
+    labelSet = None
     # search for SBAR or PP
     for i in xrange(len(np.children)):
         child = np.children[i]
         if child.type in ["PP", "SBAR"]:
             if i > 0:
-                return np.children[i - 1]
+                target = np.children[i - 1]
+                labelSet = get_labelset_from_node(target)
+                break
             else:
                 return None
 
     # no PP or SBAR found, use the last word
-    labelSet = get_word_supersenses(np.children[-1])
+    if labelSet is None:
+        labelSet = get_labelset_from_node(np.children[-1])
 
-    if "noun.person" in labelSet:
-        return "Who"
     for label in labelSet:
         if label.startswith("noun."):
+            if label == "noun.person":
+                return "Who"
             if label in whatSet:
                 return "What"
             elif label in whichSet:
@@ -164,7 +183,7 @@ def getWhWord(node):
         return getWhWordNP(node)
 
     if node.type in ["PP", "ADVP", "SBAR"]:
-        return getWhWord_PP_ADVP(node)
+        return getWhWord_PP_ADVP_SBAR(node)
 
     else:
         # Unknown/unimplemented type of node
@@ -212,6 +231,7 @@ def generate_wh_np_question(vp, np):
 
 # ask wh question on NP at the VP node.
 def generate_wh_vp_question(node, parent_NP):
+
     question = ""
     VP = None
     NP = None # this part to ask!
@@ -235,10 +255,12 @@ def generate_wh_vp_question(node, parent_NP):
     if VBX.word and str.lower(VBX.word) in BE_VERBS:
         return None
     # if does not have auxiliary verb and does not have NP
+
     if NP == None and VP == None: return
 
     # has auxiliary verb
     if (VP != None):
+
         # add "Wh" in the front and get rid of the NP
         # need to go to the next level and ask what
         NP_AUX = None
@@ -260,9 +282,9 @@ def generate_wh_vp_question(node, parent_NP):
     else:
         # ask what + binary question removing NP
         node.children.remove(NP)
+
         if VBX.type not in VERB_TYPE_AUX_VERB_MAPPING:
             return None
-
         # get vp_without_verb
         children_except_VBX = list(filter(lambda child: (not child.type.startswith("VB")), node.children))
         vp_without_verb = " ".join(list(map(lambda child: child.to_string(), children_except_VBX)))
@@ -271,6 +293,7 @@ def generate_wh_vp_question(node, parent_NP):
 
         # modified to get the corresponding WH word to ask the question
         WH = getWhWord(NP)
+
         if WH:
             question +=  WH + " "
             if VBX.to_string() in BE_VERBS:

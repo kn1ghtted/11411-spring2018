@@ -28,7 +28,8 @@ STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 STANFORD_NLP_PATH = "/Users/teddyding/11411/stanford-corenlp-full-2017-06-09"
 
 nlp = StanfordCoreNLP(STANFORD_NLP_PATH )
-sentence = "I was happy when the team won."
+sentence = "I happily eat a sandwich."
+# sentence = "Two years later, Zimmer announces the end of production of silent films at Kinograph Studios, but Valentin is dismissive, insisting that sound is just a fad. "
 tokens = nlp.word_tokenize(sentence)
 pos = nlp.pos_tag(sentence)
 tree = nlp.parse(sentence)
