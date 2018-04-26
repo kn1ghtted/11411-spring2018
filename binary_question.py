@@ -12,6 +12,7 @@ import pickle
 from random import *
 import nltk
 from tfidf import TfIdfModel
+from collections import defaultdict
 
 """
 Functions and constants for ask, generating binary questions
@@ -161,7 +162,7 @@ def ask_binary_question(node, parent_NP):
             question += ' ' + parent_NP_string + ' ' + lemma(VBX.to_string()) + ' ' + vp_without_verb + '?'
     return question
 
-def ask_binary_question2(roots, num):
+def ask_binary_question2(roots, ners, num):
     """
     @param      roots      List of roots of parsed sentences.
     @param      num        Number of output questions
@@ -198,90 +199,12 @@ def ask_binary_question2(roots, num):
         vp_string = vp_copy.to_string()
         return aux_string + ' ' + np_string + ' ' + vp_string
 
-    def _try_to_convert_to_no_question(question):
-        words_poss = nltk.pos_tag(nltk.word_tokenize(question))
-        for word, pos in words_poss:
-            if pos == 'CD':
-                original_cd_str = word
-                if word in WORD_NUMBER_MAPPING:
-                    word = WORD_NUMBER_MAPPING[word]
-                try:
-                    modified_cd_str = str(int(word) + 1)
-                    return (question.replace(original_cd_str, modified_cd_str), True)
-                except:
-                    pass
-        # parsed_string = str(next(parser.raw_parse(question)))
-        # root = const_tree.to_const_tree(parsed_string)
-        # for child in root.children[0].children:
-        #     if child.type == 'VP':
-        #         top_level_vp = child
-        # try:
-        #     verb_node = top_level_vp.children[0]
-        #     antonym = str(wn.synsets(verb_node.word, pos=wn.VERB)[0].lemmas()[0].antonyms()[0].name())
-        #     verb_node.word = antonym
-        #     ret = root.to_string()
-        #     ret = ret.replace(' ,', ',')
-        #     ret = ret.replace(" 's", "'s")
-        #     ret = ret.replace('-LRB- ', "(")
-        #     ret = ret.replace(' -RRB-', ")")
-        #     ret = ret.replace(' ?', "?")
-        #     return (ret, True)
-        # except:
-        #     pass
-        return (question, False)
-
-    def _check_type_existence(root, type_name):
-        if root == None:
-            return False
-        if root.type.startswith(type_name):
-            return True
-        for child in root.children:
-            if _check_type_existence(child, type_name):
-                return True
-        return False
-
-    def _assign_score(top_level_np, top_level_vp, top_level_pp, num_words):
-        """
-        Rules:
-        1) Number of words score:
-            >=10 <=20       50
-            >20 <=30        40
-            >30 <=40        30
-            >40 <10         10
-        2) top-level np has a proper noun:
-            20
-        3) top-level np has a pronoun:
-            -20
-        4) top-level vp or pp has a proper noun:
-            20
-        """
-        score = 0
-        if num_words >= 10 and num_words <= 20:
-            score += 50
-        elif num_words > 20 and num_words <= 30:
-            score += 40
-        elif num_words > 30 and num_words <= 40:
-            score += 30
-        else:
-            score += 10
-        if _check_type_existence(top_level_np, 'NNP'):
-            score += 20
-        if _check_type_existence(top_level_np, 'PRP'):
-            score -= 20
-        if _check_type_existence(top_level_vp, 'NNP') or _check_type_existence(top_level_pp, 'NNP'):
-            score += 10
-
-        return score
-
-    ret = []
-    for root in roots:
+    def _basic_yes_question(root):
         try:
-            # corner case: ignore sentences with "``" in it. Because parser doesn't do well with it.
             if "``" in root.to_string():
-                continue
+                return None
 
             question = ''
-            expected_answer = 'Yes.'
 
             top_level_np = None
             top_level_vp = None
@@ -325,18 +248,172 @@ def ask_binary_question2(roots, num):
             else:
                 question += '?'
 
-            if randint(1, 10) > 0:
-                question, success = _try_to_convert_to_no_question(question)
+            return question
+        except:
+            return None
+
+    def _convert_to_no_question_number(question):
+        words_poss = nltk.pos_tag(nltk.word_tokenize(question))
+        for word, pos in words_poss:
+            if pos == 'CD':
+                original_cd_str = word
+                if word in WORD_NUMBER_MAPPING:
+                    word = WORD_NUMBER_MAPPING[word]
+                try:
+                    modified_cd_str = str(int(word) + 1)
+                    return (question.replace(original_cd_str, modified_cd_str), True)
+                except:
+                    pass
+        return (question, False)
+
+    def _convert_to_no_question_ner(question, ners):
+        NER_result = tagger.tag(question.split())
+        i = 0
+        len_NER_result = len(NER_result)
+        local_ners = []
+        while i < len_NER_result:
+            word = NER_result[i][0]
+            tag = NER_result[i][1]
+            if tag != 'O':
+                i += 1
+                while i < len_NER_result and NER_result[i][1] == tag:
+                    word += ' ' + NER_result[i][0]
+                    i += 1
+                local_ners.append((word, tag))
+            else:
+                i += 1
+        local_ners = sorted(local_ners, key=lambda x:len(x[0].split()), reverse=True)
+        for word, tag in local_ners:
+            try:
+                candidates = ners[tag]
+                for candidate in candidates:
+                    if candidate != word:
+                        return (question.replace(word, candidate), True)
+            except:
+                continue
+        return (question, False)
+
+    def _convert_to_no_question_adj_adv(question):
+        words_poss = nltk.pos_tag(nltk.word_tokenize(question))
+        for word, pos in words_poss:
+            if pos.startswith('JJ'):
+                try:
+                    antonym = str(wn.synsets(word, pos=wn.ADJ)[0].lemmas()[0].antonyms()[0].name())
+                    return (question.replace(word, antonym), True)
+                except:
+                    continue
+            if pos.startswith('RB'):
+                try:
+                    antonym = str(wn.synsets(word, pos=wn.ADV)[0].lemmas()[0].antonyms()[0].name())
+                    return (question.replace(word, antonym), True)
+                except:
+                    continue
+        return (question, False)
+
+    def _check_type_existence(root, type_name):
+        if root == None:
+            return False
+        if root.type.startswith(type_name):
+            return True
+        for child in root.children:
+            if _check_type_existence(child, type_name):
+                return True
+        return False
+
+    def _assign_score(root, num_words, score):
+        """
+        Rules:
+        1) Number of words score:
+            >=10 <=20       50
+            >20 <=30        40
+            >30 <=40        30
+            >40 <10         10
+        2) top-level np has a proper noun:
+            20
+        3) top-level np has a pronoun:
+            -20
+        4) top-level vp or pp has a proper noun:
+            10
+        """
+        top_level_np = None
+        top_level_vp = None
+        top_level_pp = None
+        for child in root.children[0].children:
+            if child.type == 'NP':
+                top_level_np = child
+            if child.type == 'VP':
+                top_level_vp = child
+            if child.type == 'PP':
+                top_level_pp = child
+        if num_words >= 10 and num_words <= 20:
+            score += 50
+        elif num_words > 20 and num_words <= 30:
+            score += 40
+        elif num_words > 30 and num_words <= 40:
+            score += 30
+        else:
+            score += 10
+        if _check_type_existence(top_level_np, 'NNP'):
+            score += 20
+        if _check_type_existence(top_level_np, 'PRP'):
+            score -= 20
+        if _check_type_existence(top_level_vp, 'NNP') or _check_type_existence(top_level_pp, 'NNP'):
+            score += 10
+
+        return score
+
+    ret = []
+    for root in roots:
+        question = _basic_yes_question(root)
+        if question is None:
+            continue
+
+        score = 0
+
+        expected_answer = 'Yes.'
+        if randint(1, 10) > 0:
+            question, success = _convert_to_no_question_ner(question, ners)
+            if success:
+                expected_answer = 'No.'
+                score += 20
+            else:
+                question, success = _convert_to_no_question_adj_adv(question)
                 if success:
                     expected_answer = 'No.'
+                    score += 40
+                else:
+                    question, success = _convert_to_no_question_number(question)
+                    if success:
+                        expected_answer = 'No.'
+                        score += 20
 
-            score = _assign_score(top_level_np, top_level_vp, top_level_pp, len(question.split()))
-            ret.append((str(question), score, expected_answer, root))
-        except:
-            continue
+        score = _assign_score(root, len(question.split()), score)
+        ret.append((str(question), score, expected_answer, root))
 
     ret = sorted(ret, key=lambda x:x[1], reverse=True)
     return ret[:num]
+
+def get_ners(sentences):
+    ners = defaultdict(set)
+    for sentence in sentences:
+        NER_result = tagger.tag(sentence.split())
+        i = 0
+        len_NER_result = len(NER_result)
+        while i < len_NER_result:
+            word = NER_result[i][0]
+            tag = NER_result[i][1]
+            if tag != 'O':
+                i += 1
+                while i < len_NER_result and NER_result[i][1] == tag:
+                    word += ' ' + NER_result[i][0]
+                    i += 1
+                ners[tag].add(word)
+            else:
+                i += 1
+    for k in ners:
+        ners[k] = list(ners[k])
+        ners[k] = sorted(ners[k], key=lambda x:len(x.split()), reverse=True)
+    return ners
 
 
 if __name__ == '__main__':
@@ -354,22 +431,24 @@ if __name__ == '__main__':
 
     # remove sentences not ending with '.'
     sentences = [x for x in sentences if x[-1:] is '.']
-    roots = []
-    for sentence in sentences:
-        try:
-            parsed_string = str(next(parser.raw_parse(sentence)))
-            root = const_tree.to_const_tree(parsed_string)
-            roots.append(root)
-            # print root.to_string()
-        except:
-            continue
+    # roots = []
+    # for sentence in sentences:
+    #     try:
+    #         parsed_string = str(next(parser.raw_parse(sentence)))
+    #         root = const_tree.to_const_tree(parsed_string)
+    #         roots.append(root)
+    #         # print root.to_string()
+    #     except:
+    #         continue
 
     # with open('roots', 'w+') as f:
     #     pickle.dump(roots, f)
-    # with open('roots', 'r') as f:
-    #     roots = pickle.load(f)
+    with open('roots', 'r') as f:
+        roots = pickle.load(f)
 
-    ret = ask_binary_question2(roots, num_questions)
+    ners = get_ners(sentences)
+
+    ret = ask_binary_question2(roots, ners, num_questions)
 
     sentences = text2sentences(text)
 
