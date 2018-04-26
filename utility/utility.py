@@ -104,13 +104,16 @@ def get_word_supersenses(w):
 DEBUG = 0
 INFO = 1
 WARNING = 2
+NEVER = 3
 
 class Logger:
     """
     A class to handle debug outputs to STDOUT
     """
+
+
     def __init__(self):
-        self.level = WARNING
+        self.level = NEVER
 
     def set_level(self, _level):
         self.level = _level
@@ -125,5 +128,6 @@ class Logger:
     def info(self, s):
         if self.level <= INFO:
             print "[INFO]", s
+
 
 

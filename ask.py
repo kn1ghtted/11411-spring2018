@@ -13,7 +13,7 @@ from utility import *
 from binary_question import *
 from wh_question import *
 from why_question import *
-
+import requests
 from adverbial_question import *
 from either_or_question import *
 
@@ -176,7 +176,11 @@ def run_generator():
         sentence = sentences[i]
         try:
             parsed_string = str(next(parser.raw_parse(sentence)))
+        # except requests.exceptions.RequestException as err:
+        #     print err
+        #     sys.exit(1)
         except:
+
             continue
         nodes = []
         for typeNum in xrange(total_types):
